@@ -1,8 +1,9 @@
 # elife-ga
 
 Example code that talks to Google Analytics to return a list of paths and their 
-view counts, figures out the type of page it is looking at (abstract, full text 
-or digest) and returns a dictionary of article id's to page type counts.
+view counts for the last day, figures out the type of page it is looking at 
+(abstract, full text or digest) and returns a dictionary of article id's to 
+page type counts.
 
 # installation
 
@@ -19,6 +20,20 @@ your own `client_secret` and `client_id` values.
 
     source venv/bin/activate
     python mains.py 'ga:12345678'
+
+# example
+
+```python
+{
+ u'e01489': Counter({'full': 21, 'abstract': 0, 'digest': 0}),
+ u'e01496': Counter({'abstract': 2, 'full': 0, 'digest': 0}),
+ u'e01498': Counter({'full': 2, 'abstract': 0, 'digest': 0}),
+ u'e01503': Counter({'full': 8, 'abstract': 2, 'digest': 0}),
+ u'e01524': Counter({'full': 3, 'abstract': 0, 'digest': 0}),
+ u'e01530': Counter({'full': 5, 'abstract': 2, 'digest': 2}),
+ # ...
+}
+```
 
 ## Copyright & Licence
 
