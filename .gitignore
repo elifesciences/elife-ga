@@ -1,0 +1,12 @@
+*.pyc
+*~
+*.sqlite*
+*.orig
+*.log
+media/**
+collected-static/**
+elife-articles
+venv
+client_secrets.json
+oauth2.dat
+analytics.dat
