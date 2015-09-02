@@ -7,11 +7,18 @@ or digest) and returns a dictionary of article id's to page type counts.
 # installation
 
     ./install.sh
+
+You will need a `client_secrets.json` file in the source root. Read the [Google
+Docs](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets) 
+for more information. 
+
+An example has been provided in `client.secrets.example`. You'll need to slot in
+your own `client_secret` and `client_id` values.
     
 # usage
 
     source venv/bin/activate
-    python mains.py
+    python mains.py 'ga:12345678'
 
 ## Copyright & Licence
 
