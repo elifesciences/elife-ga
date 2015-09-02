@@ -119,7 +119,7 @@ def main(argv):
       scope='https://www.googleapis.com/auth/analytics.readonly')
 
     today = datetime.now()
-    yesterday = today - timedelta(days=14)
+    yesterday = today - timedelta(days=1)
 
     # Try to make a request to the API. Print the results or handle errors.
     try:
