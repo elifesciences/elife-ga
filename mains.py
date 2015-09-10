@@ -180,15 +180,22 @@ def query_ga(q):
         raise    
 
 def output_path(results_type, from_date, to_date):
-    # ll: output/downloads/2015-09-10.raw
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
-    from_date, to_date = ymd(from_date), ymd(to_date)
-    return join('output', results_type, to_date + ".json")
+    if not isinstance(from_date, str): # they tend to come as pairs
+        from_date, to_date = ymd(from_date), ymd(to_date)
+    # different formatting if two different dates are provided
+    if from_date == to_date:
+        dt_str = to_date
+    else:
+        dt_str = "%s_%s" % (from_date, to_date)
+    # ll: output/downloads/2014-04-01.json
+    # ll: output/views/2014-04-01_2015-01-01.json
+    return join('output', results_type, dt_str + ".json")
 
 def write_results(results, path):
     dirname = os.path.dirname(path)
     if not os.path.exists(dirname):
-        assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir"
+        assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
     json.dump(results, open(path, 'w'), indent=4)
     return path
     
@@ -235,12 +242,12 @@ def main(table_id):
     service = ga_service(table_id)
     
     today = datetime.now()
-    yesterday = today - timedelta(days=1)
+    to_date, from_date = today, today
 
     cached = True
 
-    return {'views': article_views(service, table_id, yesterday, today, cached),
-            'downloads': article_downloads(service, table_id, yesterday, today, cached)}
+    return {'views': article_views(service, table_id, from_date, to_date, cached),
+            'downloads': article_downloads(service, table_id, from_date, to_date, cached)}
 
 if __name__ == '__main__':
     pprint(main(sys.argv[1]))
