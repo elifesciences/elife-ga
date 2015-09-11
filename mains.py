@@ -19,6 +19,7 @@ from oauth2client.client import AccessTokenRefreshError
 
 import logging
 
+logging.basicConfig()
 LOG = logging.getLogger(__name__)
 
 # Declare command-line flags.
@@ -42,7 +43,7 @@ def enplumpen(artid):
 #
 #
 
-def event_counts(service, table_id, from_date, to_date):
+def event_counts_query(service, table_id, from_date, to_date):
     "returns the raw GA results for PDF downloads between the two given dates"
     assert isinstance(from_date, datetime), "'from' date must be a datetime object. received %r" % from_date
     assert isinstance(to_date, datetime), "'to' date must be a datetime object. received %r" % to_date
@@ -196,6 +197,7 @@ def write_results(results, path):
     dirname = os.path.dirname(path)
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
+    LOG.info("writing %r", path)
     json.dump(results, open(path, 'w'), indent=4)
     return path
     
@@ -218,7 +220,7 @@ def article_downloads(service, table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
-        raw_data = query_ga(event_counts(service, table_id, from_date, to_date))
+        raw_data = query_ga(event_counts_query(service, table_id, from_date, to_date))
         write_results(raw_data, path)
     return download_counts(raw_data['rows'])
 
@@ -242,9 +244,12 @@ def main(table_id):
     service = ga_service(table_id)
     
     today = datetime.now()
-    to_date, from_date = today, today
+    to_date = from_date = today
 
-    cached = True
+    #yesterday = today - timedelta(days=1)
+    #to_date = from_date = yesterday
+
+    cached = False
 
     return {'views': article_views(service, table_id, from_date, to_date, cached),
             'downloads': article_downloads(service, table_id, from_date, to_date, cached)}
