@@ -1,0 +1,105 @@
+{
+    "kind": "analytics#gaData", 
+    "rows": [
+        [
+            "/content/1/e00051", 
+            "2"
+        ], 
+        [
+            "/content/2/e00523", 
+            "2"
+        ], 
+        [
+            "/content/2/e00638", 
+            "2"
+        ], 
+        [
+            "/content/2/e00646", 
+            "2"
+        ], 
+        [
+            "/content/2/e01680", 
+            "2"
+        ], 
+        [
+            "/content/3/e01385", 
+            "2"
+        ], 
+        [
+            "/content/3/e02407", 
+            "2"
+        ], 
+        [
+            "/content/2/e00471.short", 
+            "1"
+        ], 
+        [
+            "/content/2/e00573", 
+            "1"
+        ], 
+        [
+            "/content/2/e00647", 
+            "1"
+        ], 
+        [
+            "/content/2/e01326", 
+            "1"
+        ], 
+        [
+            "/content/3/e01911", 
+            "1"
+        ], 
+        [
+            "/content/3/e01936", 
+            "1"
+        ], 
+        [
+            "/content/3/e01963", 
+            "1"
+        ], 
+        [
+            "/content/3/e02115", 
+            "1"
+        ], 
+        [
+            "/content/3/e02238", 
+            "1"
+        ], 
+        [
+            "/content/3/e02576", 
+            "1"
+        ]
+    ], 
+    "containsSampledData": false, 
+    "totalsForAllResults": {
+        "ga:pageviews": "24"
+    }, 
+    "itemsPerPage": 10000, 
+    "query": {
+        "sort": [
+            "-ga:pageviews"
+        ], 
+        "max-results": 10000, 
+        "dimensions": "ga:pagePath", 
+        "start-date": "2014-05-16", 
+        "start-index": 1, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "end-date": "2014-05-16"
+    }, 
+    "totalResults": 17, 
+    "columnHeaders": [
+        {
+            "dataType": "STRING", 
+            "columnType": "DIMENSION", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "dataType": "INTEGER", 
+            "columnType": "METRIC", 
+            "name": "ga:pageviews"
+        }
+    ]
+}

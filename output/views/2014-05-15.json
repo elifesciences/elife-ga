@@ -1,0 +1,113 @@
+{
+    "kind": "analytics#gaData", 
+    "rows": [
+        [
+            "/content/3/e02557", 
+            "4"
+        ], 
+        [
+            "/content/3/e02904", 
+            "3"
+        ], 
+        [
+            "/content/3/e01385", 
+            "2"
+        ], 
+        [
+            "/content/2/e00523", 
+            "1"
+        ], 
+        [
+            "/content/2/e00573", 
+            "1"
+        ], 
+        [
+            "/content/2/e00961", 
+            "1"
+        ], 
+        [
+            "/content/2/e01293", 
+            "1"
+        ], 
+        [
+            "/content/2/e01680", 
+            "1"
+        ], 
+        [
+            "/content/3/e01322", 
+            "1"
+        ], 
+        [
+            "/content/3/e01385.abstract", 
+            "1"
+        ], 
+        [
+            "/content/3/e01457", 
+            "1"
+        ], 
+        [
+            "/content/3/e01699", 
+            "1"
+        ], 
+        [
+            "/content/3/e01833", 
+            "1"
+        ], 
+        [
+            "/content/3/e02172", 
+            "1"
+        ], 
+        [
+            "/content/3/e02242", 
+            "1"
+        ], 
+        [
+            "/content/3/e02277", 
+            "1"
+        ], 
+        [
+            "/content/3/e02409", 
+            "1"
+        ], 
+        [
+            "/content/3/e02576", 
+            "1"
+        ], 
+        [
+            "/content/3/e02763", 
+            "1"
+        ]
+    ], 
+    "containsSampledData": false, 
+    "totalsForAllResults": {
+        "ga:pageviews": "25"
+    }, 
+    "itemsPerPage": 10000, 
+    "query": {
+        "sort": [
+            "-ga:pageviews"
+        ], 
+        "max-results": 10000, 
+        "dimensions": "ga:pagePath", 
+        "start-date": "2014-05-15", 
+        "start-index": 1, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "end-date": "2014-05-15"
+    }, 
+    "totalResults": 19, 
+    "columnHeaders": [
+        {
+            "dataType": "STRING", 
+            "columnType": "DIMENSION", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "dataType": "INTEGER", 
+            "columnType": "METRIC", 
+            "name": "ga:pageviews"
+        }
+    ]
+}
