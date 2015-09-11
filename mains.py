@@ -21,6 +21,7 @@ import logging
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
+OUTPUT_DIR = 'output'
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -38,6 +39,17 @@ def ymd(dt):
 def enplumpen(artid):
     "takes an article id like e01234 and returns a DOI"
     return artid.replace('e', '10.7554/eLife.')
+
+def sanitize_ga_response(ga_response):
+    """The GA responses contain no sensitive information, however it does
+    have a collection of identifiers I'd feel happier if the world didn't
+    have easy access to."""
+    for key in ['profileInfo', 'id', 'selfLink']:
+        if ga_response.has_key(key):
+            del ga_response[key]
+    if ga_response['query'].has_key('ids'):
+        del ga_response['query']['ids']
+    return ga_response
 
 #
 #
@@ -191,14 +203,14 @@ def output_path(results_type, from_date, to_date):
         dt_str = "%s_%s" % (from_date, to_date)
     # ll: output/downloads/2014-04-01.json
     # ll: output/views/2014-04-01_2015-01-01.json
-    return join('output', results_type, dt_str + ".json")
+    return join(OUTPUT_DIR, results_type, dt_str + ".json")
 
 def write_results(results, path):
     dirname = os.path.dirname(path)
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
     LOG.info("writing %r", path)
-    json.dump(results, open(path, 'w'), indent=4)
+    json.dump(sanitize_ga_response(results), open(path, 'w'), indent=4)
     return path
     
 
