@@ -4,7 +4,7 @@ Bulk loading of eLife metrics from Google Analytics.
 """
 
 import sys, time, random, json
-import mains
+import main
 from datetime import datetime, timedelta
 from apiclient.http import BatchHttpRequest
 from apiclient import errors
@@ -45,8 +45,8 @@ def exec_query(query):
             from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
             to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
             results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
-            path = mains.output_path(results_type, from_date, to_date)
-            mains.write_results(response, path)
+            path = main.output_path(results_type, from_date, to_date)
+            main.write_results(response, path)
             return response
         except errors.HttpError, e:
             error = json.loads(e.content)
@@ -71,11 +71,11 @@ def bulk_query(query_list):
 #
 
 def main(table_id):
-    service = mains.ga_service(table_id)
+    service = main.ga_service(table_id)
     today = datetime.now()
     query_list = []
-    query_list.extend(generate_queries(service, table_id, mains.path_counts_query, VIEWS_INCEPTION, today))
-    query_list.extend(generate_queries(service, table_id, mains.event_counts_query, DOWNLOADS_INCEPTION, today))
+    query_list.extend(generate_queries(service, table_id, main.path_counts_query, VIEWS_INCEPTION, today))
+    query_list.extend(generate_queries(service, table_id, main.event_counts_query, DOWNLOADS_INCEPTION, today))
     
     return bulk_query(query_list)
 
