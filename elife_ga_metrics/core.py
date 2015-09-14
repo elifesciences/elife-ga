@@ -260,7 +260,7 @@ def main(table_id):
     #yesterday = today - timedelta(days=1)
     #to_date = from_date = yesterday
 
-    cached = False
+    cached = True
 
     return {'views': article_views(service, table_id, from_date, to_date, cached),
             'downloads': article_downloads(service, table_id, from_date, to_date, cached)}
