@@ -21,7 +21,10 @@ import logging
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
-OUTPUT_DIR = '../output'
+
+OUTPUT_DIR = join(os.path.dirname(os.path.dirname(__file__)), 'output')
+VIEWS_INCEPTION = datetime(year=2014, month=03, day=12)
+DOWNLOADS_INCEPTION = datetime(year=2015, month=02, day=13)
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -217,17 +220,34 @@ def write_results(results, path):
 #
 #
 
+def wrangle_dates(result_type, from_date, to_date):
+    "total hack"
+    if from_date == to_date:
+        # we use 'None' on the `to_date` param to indicate 'the same day'
+        to_date = None
+    inception = DOWNLOADS_INCEPTION if result_type == 'downloads' else VIEWS_INCEPTION
+    if from_date < inception:
+        LOG.warning("given `from_date` is older than known inception. capping")
+        from_date = inception
+
+    # now that from_date has been adjusted, we can set the to_date
+    if not to_date:
+        to_date = from_date
+
+    # output_path is just a convenience. sorry.
+    return from_date, to_date, output_path(result_type, from_date, to_date)    
+
 def article_views(service, table_id, from_date, to_date, cached=False):
-    path = output_path('views', from_date, to_date)
+    from_date, to_date, path = wrangle_dates('views', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
         raw_data = query_ga(path_counts_query(service, table_id, from_date, to_date))
         write_results(raw_data, path)
-    return article_counts(raw_data['rows'])
+    return article_counts(raw_data.get('rows', []))
 
-def article_downloads(service, table_id, from_date, to_date, cached=False):
-    path = output_path('downloads', from_date, to_date)
+def article_downloads(service, table_id, from_date, to_date=None, cached=False):
+    from_date, to_date, path = wrangle_dates('downloads', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
@@ -235,6 +255,25 @@ def article_downloads(service, table_id, from_date, to_date, cached=False):
         write_results(raw_data, path)
     return download_counts(raw_data['rows'])
 
+def article_metrics(service, table_id, from_date, to_date, cached=False):
+    "returns a dictionary of article metrics, combining the pdf downloads and the views"
+    views = article_views(service, table_id, from_date, to_date, cached)
+    downloads = article_downloads(service, table_id, from_date, to_date, cached)
+
+    download_dois = set(downloads.keys())
+    views_dois = set(views.keys())
+    sset = download_dois - views_dois
+    if sset:
+        msg = "downloads with no corresponding page view: %r"
+        LOG.warn(msg, {missing_doi:downloads[missing_doi] for missing_doi in list(sset)})
+    
+    # update the views in-place :(
+    #for key, val in views.items():
+    #    views[key]['pdf'] = downloads.get(key, 0)
+    #return views
+
+    # keep the two separate until we introduce POAs? or just always
+    return {'views': views, 'downloads': downloads}
 
 
 #
@@ -251,19 +290,9 @@ def ga_service(table_id):
 def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
     call this app like: python core.py 'ga:12345678'"""
-
     service = ga_service(table_id)
-    
-    today = datetime.now()
-    to_date = from_date = today
-
-    #yesterday = today - timedelta(days=1)
-    #to_date = from_date = yesterday
-
-    cached = True
-
-    return {'views': article_views(service, table_id, from_date, to_date, cached),
-            'downloads': article_downloads(service, table_id, from_date, to_date, cached)}
+    to_date = from_date = datetime.now()
+    return article_metrics(service, table_id, from_date, to_date, cached=True)
 
 if __name__ == '__main__':
     pprint(main(sys.argv[1]))

@@ -1,23 +1,21 @@
-"""
-Bulk loading of eLife metrics from Google Analytics.
+"""Bulk loading of eLife metrics from Google Analytics."""
 
-"""
-
-import sys, time, random, json
+import os, sys, time, random, json
 import core
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 from apiclient.http import BatchHttpRequest
 from apiclient import errors
 from pprint import pprint
 import logging
+from collections import OrderedDict
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
+LOG.level = logging.INFO
 
-# not really, we just switched to a different GA profile on this date
-VIEWS_INCEPTION = datetime(year=2014, month=03, day=12)
-DOWNLOADS_INCEPTION = datetime(year=2015, month=02, day=13)
-GA_HARD_LIMIT = 1000
+#
+# bulk requests to ga
+#
 
 def dt_range(from_date, to_date):
     """returns a series of datetime objects starting at from_date
@@ -28,9 +26,20 @@ def dt_range(from_date, to_date):
     for increment in range(0, diff.days + 1):
         yield from_date + timedelta(days=increment)
 
-def generate_queries(service, table_id, query_func, from_date, to_date):
+def generate_queries(service, table_id, query_func, from_date, to_date, use_cached=False):
+    "returns a list of queries to be executed by google"
     query_list = []
+    query_type = 'views' if query_func == core.path_counts_query else 'downloads'
     for date_in_time in dt_range(from_date, to_date):
+        output_path = core.output_path(query_type, date_in_time, date_in_time)
+        if use_cached:
+            if os.path.exists(output_path):
+                LOG.info("we have %r results for %r already", query_type, date_in_time)
+                continue
+            else:
+                LOG.info("no cache file for %r results for %r", query_type, date_in_time)
+        else:
+            LOG.info("couldn't find path %r", output_path)
         q = query_func(service, table_id, date_in_time, date_in_time)
         query_list.append(q)
     return query_list
@@ -39,7 +48,7 @@ def exec_query(query):
     num_attempts = 5
     for n in range(0, num_attempts):
         try:
-            LOG.info("query attempt %r" % n)
+            LOG.info("query attempt %r" % (n + 1))
             response = query.execute()
             query = response['query']
             from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
@@ -67,17 +76,47 @@ def bulk_query(query_list):
     return map(exec_query, query_list)
 
 #
+#
+#
+
+def daily_metrics_between(table_id, from_date, to_date):
+    service = core.ga_service(table_id)
+    use_cached = True
+
+    # cap how far back we go
+    # TODO: urgh, duplicated code. refactor
+    pdf_from_date = from_date
+    if from_date < core.DOWNLOADS_INCEPTION:
+        pdf_from_date = core.DOWNLOADS_INCEPTION
+
+    views_from_date = from_date
+    if from_date < core.VIEWS_INCEPTION:
+        views_from_date = core.VIEWS_INCEPTION
+
+    # ensure our raw data exists on disk
+    query_list = []
+    query_list.extend(generate_queries(service, table_id, core.path_counts_query, views_from_date, to_date, use_cached))
+    query_list.extend(generate_queries(service, table_id, core.event_counts_query, pdf_from_date, to_date, use_cached))
+    bulk_query(query_list)
+    # everything should be cached by now
+    
+    results = OrderedDict({})
+    for day_in_time in dt_range(from_date, to_date):
+        results[core.ymd(day_in_time)] = \
+            core.article_metrics(service, table_id, day_in_time, None, cached=True)
+    return results
+
+
+
+#
 # bootstrap
 #
 
 def main(table_id):
-    service = core.ga_service(table_id)
     today = datetime.now()
-    query_list = []
-    query_list.extend(generate_queries(service, table_id, core.path_counts_query, VIEWS_INCEPTION, today))
-    query_list.extend(generate_queries(service, table_id, core.event_counts_query, DOWNLOADS_INCEPTION, today))
-    
-    return bulk_query(query_list)
+    yesterday = today - timedelta(days=1)
+    #return daily_metrics_between(table_id, core.VIEWS_INCEPTION, today)
+    return daily_metrics_between(table_id, yesterday, today)
 
 if __name__ == '__main__':
-    pprint(main(sys.argv[1]))
+    pprint(dict(main(sys.argv[1])))
