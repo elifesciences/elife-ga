@@ -10,3 +10,6 @@ venv
 client_secrets.json
 oauth2.dat
 analytics.dat
+build
+dist
+*.egg-info
