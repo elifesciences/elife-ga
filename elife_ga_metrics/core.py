@@ -251,7 +251,7 @@ def ga_service(table_id):
 
 def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
-    call this app like: python mains.py 'ga:12345678'"""
+    call this app like: python core.py 'ga:12345678'"""
 
     service = ga_service(table_id)
     
