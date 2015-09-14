@@ -21,7 +21,7 @@ import logging
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
-OUTPUT_DIR = 'output'
+OUTPUT_DIR = '../output'
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -104,7 +104,6 @@ def path_counts_query(service, table_id, from_date, to_date):
         end_date = ymd(to_date),
         metrics = 'ga:pageviews',
         dimensions = 'ga:pagePath',
-        #dimensions='ga:url,ga:keyword',
         sort = '-ga:pageviews',
         #filters = 'ga:pagePath=~/e[0-9]+((\.full)?|(\.abstract)|(\.abstract-2)(/abstract))?$',
         filters = r'ga:pagePath=~/e[0-9]{5}(%s)$' % suffix_str,
