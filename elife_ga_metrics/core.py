@@ -220,7 +220,7 @@ def write_results(results, path):
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
     LOG.info("writing %r", path)
-    json.dump(sanitize_ga_response(results), open(path, 'w'), indent=4)
+    json.dump(sanitize_ga_response(results), open(path, 'w'), indent=4, sort_keys=True)
     return path
     
 
@@ -235,7 +235,7 @@ def wrangle_dates(result_type, from_date, to_date):
         to_date = None
     inception = DOWNLOADS_INCEPTION if result_type == 'downloads' else VIEWS_INCEPTION
     if from_date < inception:
-        LOG.warning("given `from_date` is older than known inception. capping")
+        LOG.warning("given `from_date` %r for %s is older than known inception %r. capping", from_date, result_type, inception)
         from_date = inception
 
     # now that from_date has been adjusted, we can set the to_date

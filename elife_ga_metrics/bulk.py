@@ -18,8 +18,8 @@ LOG.level = logging.INFO
 #
 
 def dt_range(from_date, to_date):
-    """returns a series of datetime objects starting at from_date
-    and ending on to_date includsive."""
+    """returns series of datetime objects starting at from_date
+    and ending on to_date inclusive."""
     if from_date > to_date:
         to_date, from_date = from_date, to_date
     diff = to_date - from_date
@@ -45,6 +45,7 @@ def generate_queries(service, table_id, query_func, from_date, to_date, use_cach
     return query_list
 
 def exec_query(query):
+    "talks to google with the given query, applying exponential back-off if rate limited"
     num_attempts = 5
     for n in range(0, num_attempts):
         try:
@@ -73,37 +74,30 @@ def exec_query(query):
               raise
 
 def bulk_query(query_list):
+    "executes a list of queries"
     return map(exec_query, query_list)
 
 #
 #
 #
 
-def daily_metrics_between(table_id, from_date, to_date):
+def daily_metrics_between(table_id, from_date, to_date, use_cached=True):
+    "does a DAILY query between two dates, NOT a single query within a date range"
     service = core.ga_service(table_id)
-    use_cached = True
-
-    # cap how far back we go
-    # TODO: urgh, duplicated code. refactor
-    pdf_from_date = from_date
-    if from_date < core.DOWNLOADS_INCEPTION:
-        pdf_from_date = core.DOWNLOADS_INCEPTION
-
-    views_from_date = from_date
-    if from_date < core.VIEWS_INCEPTION:
-        views_from_date = core.VIEWS_INCEPTION
+    views_from_date, views_to_date, _ = core.wrangle_dates('views', from_date, to_date)
+    pdf_from_date, pdf_to_date, _ = core.wrangle_dates('downloads', from_date, to_date)
 
     # ensure our raw data exists on disk
     query_list = []
-    query_list.extend(generate_queries(service, table_id, core.path_counts_query, views_from_date, to_date, use_cached))
-    query_list.extend(generate_queries(service, table_id, core.event_counts_query, pdf_from_date, to_date, use_cached))
+    query_list.extend(generate_queries(service, table_id, core.path_counts_query, views_from_date, views_to_date, use_cached))
+    query_list.extend(generate_queries(service, table_id, core.event_counts_query, pdf_from_date, pdf_to_date, use_cached))
     bulk_query(query_list)
     # everything should be cached by now
     
     results = OrderedDict({})
     for day_in_time in dt_range(from_date, to_date):
         results[core.ymd(day_in_time)] = \
-            core.article_metrics(service, table_id, day_in_time, None, cached=True)
+            core.article_metrics(service, table_id, from_date=day_in_time, to_date=None, cached=True) # cached=True is DELIBERATE
     return results
 
 
@@ -112,11 +106,13 @@ def daily_metrics_between(table_id, from_date, to_date):
 # bootstrap
 #
 
+def regenerate_results(table_id):
+    "this will perform all queries again, overwriting the results in `output`"
+    return daily_metrics_between(table_id, core.VIEWS_INCEPTION, datetime.now(), use_cached=False)    
+
 def main(table_id):
-    today = datetime.now()
-    yesterday = today - timedelta(days=1)
-    #return daily_metrics_between(table_id, core.VIEWS_INCEPTION, today)
-    return daily_metrics_between(table_id, yesterday, today)
+    "returns all results for today"
+    return daily_metrics_between(table_id, from_date=datetime.now(), to_date=None)
 
 if __name__ == '__main__':
     pprint(dict(main(sys.argv[1])))
