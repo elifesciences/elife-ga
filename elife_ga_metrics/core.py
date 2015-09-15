@@ -203,9 +203,17 @@ def output_path(results_type, from_date, to_date):
         dt_str = to_date
     else:
         dt_str = "%s_%s" % (from_date, to_date)
+
+    partial = ""
+    if to_date == ymd(datetime.now()):
+        # anything gathered today will only ever be partial
+        # when run again on a future day there will be cache miss
+        # and the full results downloaded
+        partial = ".partial"
+        
     # ll: output/downloads/2014-04-01.json
     # ll: output/views/2014-04-01_2015-01-01.json
-    return join(OUTPUT_DIR, results_type, dt_str + ".json")
+    return join(OUTPUT_DIR, results_type, dt_str + ".json" + partial)
 
 def write_results(results, path):
     dirname = os.path.dirname(path)
