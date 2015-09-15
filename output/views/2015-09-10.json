@@ -1,5 +1,33 @@
 {
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
     "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2015-09-10", 
+        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "-ga:pageviews"
+        ], 
+        "start-date": "2015-09-10", 
+        "start-index": 1
+    }, 
     "rows": [
         [
             "/content/4/e09560", 
@@ -6144,38 +6172,78 @@
         [
             "/web/20150910134305/http://elifesciences.org/content/4/e09560", 
             "1"
+        ], 
+        [
+            "/content/1/e00311.short", 
+            "0"
+        ], 
+        [
+            "/content/2/e00312", 
+            "0"
+        ], 
+        [
+            "/content/2/e00348.full", 
+            "0"
+        ], 
+        [
+            "/content/2/e00710", 
+            "0"
+        ], 
+        [
+            "/content/2/e00744", 
+            "0"
+        ], 
+        [
+            "/content/2/e01119", 
+            "0"
+        ], 
+        [
+            "/content/2/e01123.abstract", 
+            "0"
+        ], 
+        [
+            "/content/3/e01524", 
+            "0"
+        ], 
+        [
+            "/content/3/e02069.abstract", 
+            "0"
+        ], 
+        [
+            "/content/3/e02190", 
+            "0"
+        ], 
+        [
+            "/content/3/e04057", 
+            "0"
+        ], 
+        [
+            "/content/4/e04919", 
+            "0"
+        ], 
+        [
+            "/content/4/e06587.full", 
+            "0"
+        ], 
+        [
+            "/content/4/e06740", 
+            "0"
+        ], 
+        [
+            "/content/4/e06907.abstract", 
+            "0"
+        ], 
+        [
+            "/content/4/e06994.full", 
+            "0"
+        ], 
+        [
+            "/content/4/e08811.full", 
+            "0"
         ]
     ], 
-    "containsSampledData": false, 
-    "totalResults": 1536, 
-    "itemsPerPage": 10000, 
-    "query": {
-        "sort": [
-            "-ga:pageviews"
-        ], 
-        "max-results": 10000, 
-        "dimensions": "ga:pagePath", 
-        "start-date": "2015-09-10", 
-        "start-index": 1, 
-        "metrics": [
-            "ga:pageviews"
-        ], 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
-        "end-date": "2015-09-10"
-    }, 
+    "totalResults": 1553, 
     "totalsForAllResults": {
         "ga:pageviews": "122521"
-    }, 
-    "columnHeaders": [
-        {
-            "dataType": "STRING", 
-            "columnType": "DIMENSION", 
-            "name": "ga:pagePath"
-        }, 
-        {
-            "dataType": "INTEGER", 
-            "columnType": "METRIC", 
-            "name": "ga:pageviews"
-        }
-    ]
+    }
 }

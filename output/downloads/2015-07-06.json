@@ -1,5 +1,33 @@
 {
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:eventLabel"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:totalEvents"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
     "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:eventLabel", 
+        "end-date": "2015-07-06", 
+        "filters": "ga:eventAction==Download;ga:eventCategory==Article;ga:eventLabel=~pdf-article", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:totalEvents"
+        ], 
+        "sort": [
+            "-ga:totalEvents"
+        ], 
+        "start-date": "2015-07-06", 
+        "start-index": 1
+    }, 
     "rows": [
         [
             "10.7554/eLife.07192::pdf-article", 
@@ -2110,36 +2138,8 @@
             "1"
         ]
     ], 
-    "containsSampledData": false, 
+    "totalResults": 527, 
     "totalsForAllResults": {
         "ga:totalEvents": "1474"
-    }, 
-    "itemsPerPage": 10000, 
-    "query": {
-        "sort": [
-            "-ga:totalEvents"
-        ], 
-        "max-results": 10000, 
-        "dimensions": "ga:eventLabel", 
-        "start-date": "2015-07-06", 
-        "start-index": 1, 
-        "metrics": [
-            "ga:totalEvents"
-        ], 
-        "filters": "ga:eventAction==Download;ga:eventCategory==Article;ga:eventLabel=~pdf-article", 
-        "end-date": "2015-07-06"
-    }, 
-    "totalResults": 527, 
-    "columnHeaders": [
-        {
-            "dataType": "STRING", 
-            "columnType": "DIMENSION", 
-            "name": "ga:eventLabel"
-        }, 
-        {
-            "dataType": "INTEGER", 
-            "columnType": "METRIC", 
-            "name": "ga:totalEvents"
-        }
-    ]
+    }
 }

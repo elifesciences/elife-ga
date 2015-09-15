@@ -1,5 +1,33 @@
 {
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
     "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2014-10-01", 
+        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "-ga:pageviews"
+        ], 
+        "start-date": "2014-10-01", 
+        "start-index": 1
+    }, 
     "rows": [
         [
             "/content/3/e04476", 
@@ -3062,36 +3090,8 @@
             "1"
         ]
     ], 
-    "containsSampledData": false, 
+    "totalResults": 765, 
     "totalsForAllResults": {
         "ga:pageviews": "4918"
-    }, 
-    "itemsPerPage": 10000, 
-    "query": {
-        "sort": [
-            "-ga:pageviews"
-        ], 
-        "max-results": 10000, 
-        "dimensions": "ga:pagePath", 
-        "start-date": "2014-10-01", 
-        "start-index": 1, 
-        "metrics": [
-            "ga:pageviews"
-        ], 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
-        "end-date": "2014-10-01"
-    }, 
-    "totalResults": 765, 
-    "columnHeaders": [
-        {
-            "dataType": "STRING", 
-            "columnType": "DIMENSION", 
-            "name": "ga:pagePath"
-        }, 
-        {
-            "dataType": "INTEGER", 
-            "columnType": "METRIC", 
-            "name": "ga:pageviews"
-        }
-    ]
+    }
 }
