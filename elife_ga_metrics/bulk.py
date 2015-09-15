@@ -20,6 +20,8 @@ LOG.level = logging.INFO
 def dt_range(from_date, to_date):
     """returns series of datetime objects starting at from_date
     and ending on to_date inclusive."""
+    if not to_date:
+        to_date = from_date
     if from_date > to_date:
         to_date, from_date = from_date, to_date
     diff = to_date - from_date
