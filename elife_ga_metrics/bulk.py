@@ -46,38 +46,9 @@ def generate_queries(service, table_id, query_func, from_date, to_date, use_cach
         query_list.append(q)
     return query_list
 
-def exec_query(query):
-    "talks to google with the given query, applying exponential back-off if rate limited"
-    num_attempts = 5
-    for n in range(0, num_attempts):
-        try:
-            LOG.info("query attempt %r" % (n + 1))
-            response = query.execute()
-            query = response['query']
-            from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
-            to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
-            results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
-            path = core.output_path(results_type, from_date, to_date)
-            core.write_results(response, path)
-            return response
-        except errors.HttpError, e:
-            error = json.loads(e.content)
-            if error.get('code') == 403 \
-              and error.get('errors')[0].get('reason') in ['rateLimitExceeded', 'userRateLimitExceeded']:
-
-              # apply exponential backoff.
-              val = (2 ** n) + random.randint(0, 1000) / 1000
-              LOG.info("rate limited, backing off %r", val)
-              time.sleep(val)
-
-            else:
-              # some other sort of HttpError, re-raise
-              LOG.exception("unhandled exception!")
-              raise
-
 def bulk_query(query_list):
     "executes a list of queries"
-    return map(exec_query, query_list)
+    return map(core.query_ga, query_list)
 
 #
 #

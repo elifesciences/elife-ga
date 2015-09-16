@@ -4,17 +4,20 @@
 # Analytics API:
 # https://developers.google.com/analytics/devguides/reporting/core/v3/reference
 
-__author__ = ['api.nickm@gmail.com (Nick Mihailovski)',
-              'Luke Skibinski <l.skibinski@elifesciences.org>']
+__author__ = [
+    'Luke Skibinski <l.skibinski@elifesciences.org>',
+    'Nick Mihailovski <api.nickm@gmail.com>', # (ga client sample)
+]
 
 from os.path import join
 from collections import Counter
-import os, sys, re, argparse, json
+import os, sys, re, argparse, json, time, random, json
 from datetime import datetime, timedelta
 from pprint import pprint
 
 from apiclient.errors import HttpError
 from apiclient import sample_tools
+from apiclient import errors
 from oauth2client.client import AccessTokenRefreshError
 
 import logging
@@ -112,41 +115,42 @@ def path_counts_query(service, table_id, from_date, to_date):
         filters = r'ga:pagePath=~/e[0-9]{5}(%s)$' % suffix_str,
     )
 
+
+TYPE_MAP = {
+    None: 'full',
+    'full': 'full',
+    'abstract': 'abstract',
+    'short': 'abstract',
+    'abstract-1': 'abstract',
+    'abstract-2': 'digest'
+}
+SPLITTER = re.compile('\.|/')
+
+def article_count(pair):
+    "figures out the type of the given path using the suffix (if one available)"
+    try:
+        if '/elife/' in pair[0]:
+            # handles valid but unsupported /content/elife/volume/id paths
+            # these paths appear in PDF files I've been told
+            bits = pair[0].split('/', 4)
+        else:
+            # handles standard /content/volume/id/ paths
+            bits = pair[0].split('/', 3)
+        art = bits[-1]
+        art = art.lower() # website isn't case sensitive, we are
+        more_bits = re.split(SPLITTER, art, maxsplit=1)
+        suffix = None
+        if len(more_bits) > 1:
+            art, suffix = more_bits
+        assert suffix in TYPE_MAP, "unknown suffix %r! received: %r split to %r" % (suffix, pair, more_bits)
+        return art, TYPE_MAP[suffix], int(pair[1])
+    except AssertionError:
+        # we have an unhandled path
+        LOG.warn("skpping unhandled path %s", pair)
+
 def article_counts(path_count_pairs):
     """takes raw path data from GA and groups by article, returning a
     list of (artid, full-count, abstract-count, digest-count)"""
-
-    type_map = {
-        None: 'full',
-        'full': 'full',
-        'abstract': 'abstract',
-        'short': 'abstract',
-        'abstract-1': 'abstract',
-        'abstract-2': 'digest'
-    }
-    splitter = re.compile('\.|/')
-
-    def article_count(pair):
-        "figures out the type of the given path using the suffix (if one available)"
-        try:
-            if '/elife/' in pair[0]:
-                # handles valid but unsupported /content/elife/volume/id paths
-                # these paths appear in PDF files I've been told
-                bits = pair[0].split('/', 4)
-            else:
-                # handles standard /content/volume/id/ paths
-                bits = pair[0].split('/', 3)
-            art = bits[-1]
-            art = art.lower() # website isn't case sensitive, we are
-            more_bits = re.split(splitter, art, maxsplit=1)
-            suffix = None
-            if len(more_bits) > 1:
-                art, suffix = more_bits
-            assert suffix in type_map, "unknown suffix %r! received: %r split to %r" % (suffix, pair, more_bits)
-            return art, type_map[suffix], int(pair[1])
-        except AssertionError:
-            # we have an unhandled path
-            LOG.warn("skpping unhandled path %s", pair)
     
     # for each path, build a list of path_type: value
     article_groups = {}
@@ -158,7 +162,7 @@ def article_counts(path_count_pairs):
         })
         triplet = article_count(pair)
         if not triplet:
-            continue # bad row
+            continue # skip bad row
         art, art_type, count = triplet
         group = article_groups.get(art, [row])
         group.append(Counter({art_type: count}))
@@ -172,27 +176,48 @@ def article_counts(path_count_pairs):
 
     return {enplumpen(art): reduce(update, group) for art, group in article_groups.items()}    
 
-def query_ga(q):
-    # Try to make a request to the API. Print the results or handle errors.
-    try:
-        return q.execute()
-            
-    except TypeError, error:      
-        # Handle errors in constructing a query.
-        print ('There was an error in constructing your query : %s' % error)
-        raise
+def query_ga(query):
+    "talks to google with the given query, applying exponential back-off if rate limited"
+    num_attempts = 5
+    for n in range(0, num_attempts):
+        try:
+            LOG.info("query attempt %r" % (n + 1))
+            response = query.execute()
+            query = response['query']
+            from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
+            to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
+            results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
+            path = output_path(results_type, from_date, to_date)
+            write_results(response, path)
+            return response
 
-    except HttpError, error:
-        # Handle API errors.
-        print ('Arg, there was an API error : %s : %s' %
-               (error.resp.status, error._get_reason()))
-        raise
+        except TypeError, error:      
+            # Handle errors in constructing a query.
+            print ('There was an error in constructing your query : %s' % error)
+            raise
+        
+        except errors.HttpError, e:
+            error = json.loads(e.content)
+            if error.get('code') == 403 \
+              and error.get('errors')[0].get('reason') in ['rateLimitExceeded', 'userRateLimitExceeded']:
 
-    except AccessTokenRefreshError:
-        # Handle Auth errors.
-        print ('The credentials have been revoked or expired, please re-run '
-               'the application to re-authorize')
-        raise    
+              # apply exponential backoff.
+              val = (2 ** n) + random.randint(0, 1000) / 1000
+              LOG.info("rate limited, backing off %r", val)
+              time.sleep(val)
+
+            else:
+              # some other sort of HttpError, re-raise
+              LOG.exception("unhandled exception!")
+              raise
+
+        except AccessTokenRefreshError:
+            # Handle Auth errors.
+            print ('The credentials have been revoked or expired, please re-run '
+                   'the application to re-authorize')
+            raise    
+
+
 
 def output_path(results_type, from_date, to_date):
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
