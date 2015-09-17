@@ -1,6 +1,6 @@
 """Bulk loading of eLife metrics from Google Analytics."""
 
-import os, sys, time, random, json
+import os, sys, time, random, json, calendar
 import core
 from datetime import datetime, date, timedelta
 from apiclient.http import BatchHttpRequest
@@ -28,6 +28,20 @@ def dt_range(from_date, to_date):
     for increment in range(0, diff.days + 1):
         yield from_date + timedelta(days=increment)
 
+def dt_month_range(from_date, to_date):
+    # figure out a list of years and months the dates span
+    ym = set()
+    for dt in dt_range(from_date, to_date):
+        ym.add((dt.year, dt.month))
+    # for each pair, generate a month max,min datetime pair
+    dt_list = []
+    for year, month in sorted(ym):
+        mmin, mmax = calendar.monthrange(year, month)
+        print year,month,mmin,mmax
+        dt_list.append((datetime(year=year, month=month, day=1), \
+                        datetime(year=year, month=month, day=mmax)))
+    return dt_list
+
 def generate_queries(service, table_id, query_func, from_date, to_date, use_cached=False):
     "returns a list of queries to be executed by google"
     query_list = []
@@ -51,7 +65,7 @@ def bulk_query(query_list):
     return map(core.query_ga, query_list)
 
 #
-#
+# daily metrics
 #
 
 def daily_metrics_between(table_id, from_date, to_date, use_cached=True):
@@ -73,7 +87,12 @@ def daily_metrics_between(table_id, from_date, to_date, use_cached=True):
             core.article_metrics(service, table_id, from_date=day_in_time, to_date=None, cached=True) # cached=True is DELIBERATE
     return results
 
+#
+# monthly metrics
+#
 
+def monthly_metrics_between(table_id, from_date, to_date, use_cached=True):
+    pass
 
 #
 # bootstrap
