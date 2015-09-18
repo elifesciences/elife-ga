@@ -71,8 +71,9 @@ def metrics_for_range(service, table_id, dt_range_list):
     # tell core to do it's data wrangling for us (using cached data)
     results = OrderedDict({})
     for dt1, dt2 in dt_range_list:
-        results[(ymd(dt1), ymd(dt2))] = \
-          core.article_metrics(service, table_id, from_date=dt1, to_date=dt2, cached=True) # cached=True is DELIBERATE
+        # cached=True is DELIBERATE here
+        res = core.article_metrics(service, table_id, from_date=dt1, to_date=dt2, cached=True)
+        results[(ymd(dt1), ymd(dt2))] = res
     return results
 
 def daily_metrics_between(table_id, from_date, to_date, use_cached=True):
@@ -94,8 +95,9 @@ def daily_metrics_between(table_id, from_date, to_date, use_cached=True):
                                        pdf_dt_range,
                                        use_cached))
     bulk_query(query_list)
+    
     # everything should be cached by now
-    return metrics_for_range(service, table_id, dt_range(from_date, to_date))
+    return metrics_for_range(service, table_id, views_dt_range) #dt_range(from_date, to_date))
 
 #
 # monthly metrics
@@ -118,6 +120,7 @@ def monthly_metrics_between(table_id, from_date, to_date, use_cached=True):
                                        use_cached))
     bulk_query(query_list)
     
+    # everything should be cached by now    
     return metrics_for_range(service, table_id, views_dt_range)
 
 
