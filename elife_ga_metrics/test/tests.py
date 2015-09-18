@@ -29,4 +29,4 @@ class TestUtils(BaseCase):
         ]
         start_dt = datetime(year=2014, month=12, day=15)
         end_dt = datetime(year=2015, month=3, day=12)
-        self.assertEqual(expected_output, bulk.dt_month_range(start_dt, end_dt))
+        self.assertEqual(expected_output, list(bulk.dt_month_range(start_dt, end_dt)))

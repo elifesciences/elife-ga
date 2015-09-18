@@ -24,10 +24,11 @@ import logging
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
+LOG.level = logging.INFO
 
 OUTPUT_DIR = join(os.path.dirname(os.path.dirname(__file__)), 'output')
-VIEWS_INCEPTION = datetime(year=2014, month=03, day=12)
-DOWNLOADS_INCEPTION = datetime(year=2015, month=02, day=13)
+VIEWS_INCEPTION = datetime(year=2014, month=3, day=12)
+DOWNLOADS_INCEPTION = datetime(year=2015, month=2, day=13)
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(add_help=False)
@@ -181,7 +182,10 @@ def query_ga(query):
     num_attempts = 5
     for n in range(0, num_attempts):
         try:
-            LOG.info("query attempt %r" % (n + 1))
+            if n > 1:
+                LOG.info("query attempt %r" % (n + 1))
+            else:
+                LOG.info("querying ...")
             response = query.execute()
             query = response['query']
             from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
@@ -221,8 +225,13 @@ def query_ga(query):
 
 def output_path(results_type, from_date, to_date):
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
-    if not isinstance(from_date, str): # they tend to come as pairs
+    if isinstance(from_date, str): # given strings
+        from_date_dt = datetime.strptime(from_date, "%Y-%m-%d")
+        to_date_dt = datetime.strptime(to_date, "%Y-%m-%d")
+    else: # given dt objects
+        from_date_dt, to_date_dt = from_date, to_date
         from_date, to_date = ymd(from_date), ymd(to_date)
+
     # different formatting if two different dates are provided
     if from_date == to_date:
         dt_str = to_date
@@ -230,14 +239,14 @@ def output_path(results_type, from_date, to_date):
         dt_str = "%s_%s" % (from_date, to_date)
 
     partial = ""
-    if to_date == ymd(datetime.now()):
-        # anything gathered today will only ever be partial
-        # when run again on a future day there will be cache miss
-        # and the full results downloaded
+    if to_date_dt >= datetime.now():
+        # anything gathered today or for the future (month ranges)
+        # will only ever be partial. when run again on a future day
+        # there will be cache miss and the full results downloaded
         partial = ".partial"
-        
+    
     # ll: output/downloads/2014-04-01.json
-    # ll: output/views/2014-04-01_2015-01-01.json
+    # ll: output/views/2014-01-01_2014-01-31.json.partial
     return join(OUTPUT_DIR, results_type, dt_str + ".json" + partial)
 
 def write_results(results, path):
@@ -253,25 +262,22 @@ def write_results(results, path):
 #
 #
 
-def wrangle_dates(result_type, from_date, to_date):
-    "total hack"
-    if from_date == to_date:
-        # we use 'None' on the `to_date` param to indicate 'the same day'
-        to_date = None
-    inception = DOWNLOADS_INCEPTION if result_type == 'downloads' else VIEWS_INCEPTION
-    if from_date < inception:
-        LOG.warning("given `from_date` %r for %s is older than known inception %r. capping", from_date, result_type, inception)
-        from_date = inception
 
-    # now that from_date has been adjusted, we can set the to_date
-    if not to_date:
-        to_date = from_date
+def valid_dt_pair(dt_pair, inception):
+    from_date, to_date = dt_pair
+    return from_date >= inception and to_date >= inception
 
-    # output_path is just a convenience. sorry.
-    return from_date, to_date, output_path(result_type, from_date, to_date)    
+def valid_view_dt_pair(dt_pair):
+    return valid_dt_pair(dt_pair, VIEWS_INCEPTION)
+
+def valid_downloads_dt_pair(dt_pair):
+    return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
 
 def article_views(service, table_id, from_date, to_date, cached=False):
-    from_date, to_date, path = wrangle_dates('views', from_date, to_date)
+    if not valid_view_dt_pair((from_date, to_date)):
+        LOG.warning("given date range %r for views is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), VIEWS_INCEPTION)
+        return {}
+    path = output_path('views', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
@@ -279,17 +285,21 @@ def article_views(service, table_id, from_date, to_date, cached=False):
         write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
-def article_downloads(service, table_id, from_date, to_date=None, cached=False):
-    from_date, to_date, path = wrangle_dates('downloads', from_date, to_date)
+def article_downloads(service, table_id, from_date, to_date, cached=False):
+    if not valid_downloads_dt_pair((from_date, to_date)):
+        LOG.warning("given date range %r for downloads is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), DOWNLOADS_INCEPTION)
+        return {}
+    path = output_path('downloads', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
         raw_data = query_ga(event_counts_query(service, table_id, from_date, to_date))
         write_results(raw_data, path)
-    return download_counts(raw_data['rows'])
+    return download_counts(raw_data.get('rows', []))
 
 def article_metrics(service, table_id, from_date, to_date, cached=False):
     "returns a dictionary of article metrics, combining the pdf downloads and the views"
+
     views = article_views(service, table_id, from_date, to_date, cached)
     downloads = article_downloads(service, table_id, from_date, to_date, cached)
 
