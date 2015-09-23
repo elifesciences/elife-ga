@@ -41,10 +41,11 @@ argparser.add_argument('table_id', type=str,
 #
 
 def ymd(dt):
+    "returns a yyyy-mm-dd version of the given datetime object"
     return dt.strftime("%Y-%m-%d")
 
 def enplumpen(artid):
-    "takes an article id like e01234 and returns a DOI"
+    "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
     return artid.replace('e', '10.7554/eLife.')
 
 def sanitize_ga_response(ga_response):
@@ -59,7 +60,7 @@ def sanitize_ga_response(ga_response):
     return ga_response
 
 def ga_service(table_id):
-    # Authenticate and construct service.
+    "does OAuth authentication and constructs the service object needed to query google."
     try:
         service, flags = sample_tools.init(
           [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
@@ -90,6 +91,7 @@ def event_counts_query(table_id, from_date, to_date):
     )
 
 def download_counts(row_list):
+    "parses the list of rows returned by google to extract the doi and count"
     def parse(row):
         label, count = row
         return label.split('::')[0], count
@@ -232,9 +234,8 @@ def query_ga(query):
                    'the application to re-authorize')
             raise    
 
-
-
 def output_path(results_type, from_date, to_date):
+    "generates a path for results of the given type"
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
     if isinstance(from_date, str): # given strings
         from_date_dt = datetime.strptime(from_date, "%Y-%m-%d")
@@ -243,6 +244,8 @@ def output_path(results_type, from_date, to_date):
         from_date_dt, to_date_dt = from_date, to_date
         from_date, to_date = ymd(from_date), ymd(to_date)
 
+    now, now_dt = ymd(datetime.now()), datetime.now()
+
     # different formatting if two different dates are provided
     if from_date == to_date:
         dt_str = to_date
@@ -250,7 +253,7 @@ def output_path(results_type, from_date, to_date):
         dt_str = "%s_%s" % (from_date, to_date)
 
     partial = ""
-    if to_date_dt >= datetime.now():
+    if to_date == now or to_date_dt >= now_dt:
         # anything gathered today or for the future (month ranges)
         # will only ever be partial. when run again on a future day
         # there will be cache miss and the full results downloaded
@@ -261,6 +264,7 @@ def output_path(results_type, from_date, to_date):
     return join(OUTPUT_DIR, results_type, dt_str + ".json" + partial)
 
 def write_results(results, path):
+    "writes sanitised response from Google as json to the given path"
     dirname = os.path.dirname(path)
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
@@ -275,19 +279,24 @@ def write_results(results, path):
 
 
 def valid_dt_pair(dt_pair, inception):
+    "returns true if both dates are greater than the date we started collecting on"    
     from_date, to_date = dt_pair
     return from_date >= inception and to_date >= inception
 
 def valid_view_dt_pair(dt_pair):
+    "returns true if both dates are greater than the date we started collecting on"
     return valid_dt_pair(dt_pair, VIEWS_INCEPTION)
 
 def valid_downloads_dt_pair(dt_pair):
+    "returns true if both dates are greater than the date we started collecting on"
     return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
 
 def article_views(table_id, from_date, to_date, cached=False):
+    "returns article view data either from the cache or from talking to google"
     if not valid_view_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for views is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), VIEWS_INCEPTION)
         return {}
+    
     path = output_path('views', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
@@ -297,6 +306,7 @@ def article_views(table_id, from_date, to_date, cached=False):
     return article_counts(raw_data.get('rows', []))
 
 def article_downloads(table_id, from_date, to_date, cached=False):
+    "returns article download data either from the cache or from talking to google"
     if not valid_downloads_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for downloads is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), DOWNLOADS_INCEPTION)
         return {}
@@ -309,7 +319,7 @@ def article_downloads(table_id, from_date, to_date, cached=False):
     return download_counts(raw_data.get('rows', []))
 
 def article_metrics(table_id, from_date, to_date, cached=False):
-    "returns a dictionary of article metrics, combining the pdf downloads and the views"
+    "returns a dictionary of article metrics, combining both article views and pdf downloads"
 
     views = article_views(table_id, from_date, to_date, cached)
     downloads = article_downloads(table_id, from_date, to_date, cached)
@@ -321,11 +331,6 @@ def article_metrics(table_id, from_date, to_date, cached=False):
         msg = "downloads with no corresponding page view: %r"
         LOG.warn(msg, {missing_doi:downloads[missing_doi] for missing_doi in list(sset)})
     
-    # update the views in-place :(
-    #for key, val in views.items():
-    #    views[key]['pdf'] = downloads.get(key, 0)
-    #return views
-
     # keep the two separate until we introduce POAs? or just always
     return {'views': views, 'downloads': downloads}
 
