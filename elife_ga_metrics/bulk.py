@@ -132,8 +132,10 @@ def regenerate_results(table_id):
 
 def main(table_id):
     "returns all results for today"
-    #return daily_metrics_between(table_id, from_date=datetime.now(), to_date=None)
-    return monthly_metrics_between(table_id, from_date=core.VIEWS_INCEPTION, to_date=datetime.now())
+    today = datetime.now()
+    last_week = datetime.now() - timedelta(days=7)
+    print daily_metrics_between(table_id, from_date=last_week, to_date=today)
+    print monthly_metrics_between(table_id, from_date=core.VIEWS_INCEPTION, to_date=datetime.now())
 
 if __name__ == '__main__':
-    pprint(main(sys.argv[1]))
+    main(sys.argv[1])

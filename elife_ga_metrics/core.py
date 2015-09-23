@@ -14,7 +14,7 @@ from collections import Counter
 import os, sys, re, argparse, json, time, random, json
 from datetime import datetime, timedelta
 from pprint import pprint
-
+import httplib2
 from apiclient.errors import HttpError
 from apiclient import sample_tools
 from apiclient import errors
@@ -60,20 +60,23 @@ def sanitize_ga_response(ga_response):
 
 def ga_service(table_id):
     # Authenticate and construct service.
-    service, flags = sample_tools.init(
-      [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
-      scope='https://www.googleapis.com/auth/analytics.readonly')
-    return service
-
+    try:
+        service, flags = sample_tools.init(
+          [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
+          scope='https://www.googleapis.com/auth/analytics.readonly')
+        return service
+    except httplib2.ServerNotFoundError, err:
+        LOG.exception("could not connect to Google, quitting")
+        raise
 #
 #
 #
 
-def event_counts_query(service, table_id, from_date, to_date):
+def event_counts_query(table_id, from_date, to_date):
     "returns the raw GA results for PDF downloads between the two given dates"
     assert isinstance(from_date, datetime), "'from' date must be a datetime object. received %r" % from_date
     assert isinstance(to_date, datetime), "'to' date must be a datetime object. received %r" % to_date
-    
+    service = ga_service(table_id)
     return service.data().ga().get(
         ids = table_id,
         max_results=10000, # 10,000 is the max GA will ever return
@@ -92,7 +95,7 @@ def download_counts(row_list):
         return label.split('::')[0], count
     return dict(map(parse, row_list))
 
-def path_counts_query(service, table_id, from_date, to_date):
+def path_counts_query(table_id, from_date, to_date):
     "returns the raw GA results for article page views between the two given dates"
     assert isinstance(from_date, datetime), "'from' date must be a datetime object. received %r" % from_date
     assert isinstance(to_date, datetime), "'to' date must be a datetime object. received %r" % to_date
@@ -111,6 +114,7 @@ def path_counts_query(service, table_id, from_date, to_date):
     # pipe-delimit the suffix list. ll: '(\.full)?|(\.abstract)?|...)'
     suffix_str = '|'.join(suffix_list)
     
+    service = ga_service(table_id)    
     return service.data().ga().get(
         ids = table_id,
         max_results=10000, # 10,000 is the max GA will ever return
@@ -288,8 +292,7 @@ def article_views(table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
-        service = ga_service(table_id)
-        raw_data = query_ga(path_counts_query(service, table_id, from_date, to_date))
+        raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
         write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
@@ -301,8 +304,7 @@ def article_downloads(table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
-        service = ga_service(table_id)
-        raw_data = query_ga(event_counts_query(service, table_id, from_date, to_date))
+        raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
         write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
