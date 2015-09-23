@@ -58,6 +58,13 @@ def sanitize_ga_response(ga_response):
         del ga_response['query']['ids']
     return ga_response
 
+def ga_service(table_id):
+    # Authenticate and construct service.
+    service, flags = sample_tools.init(
+      [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
+      scope='https://www.googleapis.com/auth/analytics.readonly')
+    return service
+
 #
 #
 #
@@ -273,7 +280,7 @@ def valid_view_dt_pair(dt_pair):
 def valid_downloads_dt_pair(dt_pair):
     return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
 
-def article_views(service, table_id, from_date, to_date, cached=False):
+def article_views(table_id, from_date, to_date, cached=False):
     if not valid_view_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for views is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), VIEWS_INCEPTION)
         return {}
@@ -281,11 +288,12 @@ def article_views(service, table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
+        service = ga_service(table_id)
         raw_data = query_ga(path_counts_query(service, table_id, from_date, to_date))
         write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
-def article_downloads(service, table_id, from_date, to_date, cached=False):
+def article_downloads(table_id, from_date, to_date, cached=False):
     if not valid_downloads_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for downloads is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), DOWNLOADS_INCEPTION)
         return {}
@@ -293,15 +301,16 @@ def article_downloads(service, table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
+        service = ga_service(table_id)
         raw_data = query_ga(event_counts_query(service, table_id, from_date, to_date))
         write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
-def article_metrics(service, table_id, from_date, to_date, cached=False):
+def article_metrics(table_id, from_date, to_date, cached=False):
     "returns a dictionary of article metrics, combining the pdf downloads and the views"
 
-    views = article_views(service, table_id, from_date, to_date, cached)
-    downloads = article_downloads(service, table_id, from_date, to_date, cached)
+    views = article_views(table_id, from_date, to_date, cached)
+    downloads = article_downloads(table_id, from_date, to_date, cached)
 
     download_dois = set(downloads.keys())
     views_dois = set(views.keys())
@@ -323,19 +332,11 @@ def article_metrics(service, table_id, from_date, to_date, cached=False):
 # bootstrap
 #
 
-def ga_service(table_id):
-    # Authenticate and construct service.
-    service, flags = sample_tools.init(
-      [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
-      scope='https://www.googleapis.com/auth/analytics.readonly')
-    return service
-
 def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
     call this app like: python core.py 'ga:12345678'"""
-    service = ga_service(table_id)
     to_date = from_date = datetime.now()
-    return article_metrics(service, table_id, from_date, to_date, cached=True)
+    return article_metrics(table_id, from_date, to_date, cached=True)
 
 if __name__ == '__main__':
     pprint(main(sys.argv[1]))
