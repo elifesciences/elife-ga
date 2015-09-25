@@ -300,15 +300,14 @@ def article_views(table_id, from_date, to_date, cached=False, only_cached=False)
     path = output_path('views', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
+    elif only_cached:
+        # no cache exists and we've been told to only use cache.
+        # no results found.
+        raw_data = {}
     else:
-        if only_cached:
-            # no cache exists and we've been told to only use cache.
-            # no results found.
-            raw_data = {}
-        else:
-            # talk to google
-            raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
-            write_results(raw_data, path)
+        # talk to google
+        raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
+        write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
 def article_downloads(table_id, from_date, to_date, cached=False, only_cached=False):
@@ -319,15 +318,14 @@ def article_downloads(table_id, from_date, to_date, cached=False, only_cached=Fa
     path = output_path('downloads', from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
+    elif only_cached:
+        # no cache exists and we've been told to only use cache.
+        # no results found.
+        raw_data = {}
     else:
-        if only_cached:
-            # no cache exists and we've been told to only use cache.
-            # no results found.
-            raw_data = {}
-        else:
-            # talk to google
-            raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
-            write_results(raw_data, path)
+        # talk to google
+        raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
+        write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
 def article_metrics(table_id, from_date, to_date, cached=False, only_cached=False):
