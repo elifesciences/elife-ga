@@ -146,11 +146,20 @@ def fill_gaps():
 
 def regenerate_results(table_id):
     "this will perform all queries again, overwriting the results in `output`"
+    today = datetime.now()
     use_cached, use_only_cached = False, False
-    return daily_metrics_between(table_id, \
-                                 core.VIEWS_INCEPTION, \
-                                 datetime.now(), \
-                                 use_cached, use_only_cached)    
+    LOG.info("querying daily metrics ...")
+    daily_metrics_between(table_id, \
+                          core.VIEWS_INCEPTION, \
+                          today, \
+                          use_cached, use_only_cached)    
+
+    LOG.info("querying monthly metrics ...")
+    monthly_metrics_between(table_id, \
+                            core.DOWNLOADS_INCEPTION, \
+                            today, \
+                            use_cached, use_only_cached)
+
 
 def main(table_id):
     "returns daily results for the last week, monthly results for the current month"
