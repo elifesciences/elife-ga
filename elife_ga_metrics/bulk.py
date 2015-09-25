@@ -124,12 +124,12 @@ def monthly_metrics_between(table_id, from_date, to_date, use_cached=True, use_o
     query_list.extend(generate_queries(table_id, \
                                        core.path_counts_query, \
                                        views_dt_range,
-                                       use_cached))
+                                       use_cached, use_only_cached))
     
     query_list.extend(generate_queries(table_id, \
                                        core.event_counts_query, \
                                        pdf_dt_range,
-                                       use_cached))
+                                       use_cached, use_only_cached))
     bulk_query(query_list)
     
     # everything should be cached by now
