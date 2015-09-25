@@ -291,7 +291,7 @@ def valid_downloads_dt_pair(dt_pair):
     "returns true if both dates are greater than the date we started collecting on"
     return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
 
-def article_views(table_id, from_date, to_date, cached=False):
+def article_views(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns article view data either from the cache or from talking to google"
     if not valid_view_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for views is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), VIEWS_INCEPTION)
@@ -301,11 +301,17 @@ def article_views(table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
-        raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
+        if only_cached:
+            # no cache exists and we've been told to only use cache.
+            # no results found.
+            raw_data = {}
+        else:
+            # talk to google
+            raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
+            write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
-def article_downloads(table_id, from_date, to_date, cached=False):
+def article_downloads(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns article download data either from the cache or from talking to google"
     if not valid_downloads_dt_pair((from_date, to_date)):
         LOG.warning("given date range %r for downloads is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), DOWNLOADS_INCEPTION)
@@ -314,15 +320,21 @@ def article_downloads(table_id, from_date, to_date, cached=False):
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     else:
-        raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
+        if only_cached:
+            # no cache exists and we've been told to only use cache.
+            # no results found.
+            raw_data = {}
+        else:
+            # talk to google
+            raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
+            write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
-def article_metrics(table_id, from_date, to_date, cached=False):
+def article_metrics(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns a dictionary of article metrics, combining both article views and pdf downloads"
 
-    views = article_views(table_id, from_date, to_date, cached)
-    downloads = article_downloads(table_id, from_date, to_date, cached)
+    views = article_views(table_id, from_date, to_date, cached, only_cached)
+    downloads = article_downloads(table_id, from_date, to_date, cached, only_cached)
 
     download_dois = set(downloads.keys())
     views_dois = set(views.keys())
@@ -343,7 +355,8 @@ def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
     call this app like: python core.py 'ga:12345678'"""
     to_date = from_date = datetime.now()
-    return article_metrics(table_id, from_date, to_date, cached=True)
+    cached, only_cached = True, True # use cached results, use *only* cached results
+    return article_metrics(table_id, from_date, to_date, cached, only_cached)
 
 if __name__ == '__main__':
     pprint(main(sys.argv[1]))
