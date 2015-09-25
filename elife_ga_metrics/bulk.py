@@ -57,11 +57,15 @@ def generate_queries(table_id, query_func, datetime_list, use_cached=False, use_
             LOG.debug("couldn't find file %r", output_path)
         
         if use_only_cached:
-            LOG.debug("skipping google query, using only cache files")
+            LOG.info("skipping google query, using only cache files")
             continue
         
         q = query_func(table_id, start_date, end_date)
         query_list.append(q)
+
+    if use_only_cached:
+        assert query_list == [], "code problem. use_only_cached=True but we're accumulating queries somehow"
+        
     return query_list
 
 def bulk_query(query_list):
