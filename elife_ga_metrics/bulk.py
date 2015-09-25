@@ -101,9 +101,6 @@ def daily_metrics_between(table_id, from_date, to_date, use_cached=True, use_onl
                                        core.event_counts_query, \
                                        pdf_dt_range,
                                        use_cached, use_only_cached))
-
-    if use_only_cached:
-        assert query_list == [], "code problem. use_only_cached=True but we're accumulating queries somehow"
     
     bulk_query(query_list)
     
