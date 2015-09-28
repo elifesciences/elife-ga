@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-04-11", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -1370,6 +1370,30 @@
             "2"
         ], 
         [
+            "/content/early/2014/04/11/eLife.01936", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02130", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02164", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02365", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02384", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02419", 
+            "2"
+        ], 
+        [
             "/content/1/e00003", 
             "1"
         ], 
@@ -2002,16 +2026,20 @@
             "1"
         ], 
         [
-            "/content/elife/3/e01808", 
+            "/content/early/2014/04/03/eLife.00731", 
             "1"
         ], 
         [
-            "/search?q=cache:http://elifesciences.org/content/3/e01808", 
+            "/content/early/2014/04/07/eLife.00731", 
+            "1"
+        ], 
+        [
+            "/content/elife/3/e01808", 
             "1"
         ]
     ], 
-    "totalResults": 495, 
+    "totalResults": 502, 
     "totalsForAllResults": {
-        "ga:pageviews": "2614"
+        "ga:pageviews": "2627"
     }
 }

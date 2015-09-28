@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-04-28", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -29,6 +29,14 @@
         "start-index": 1
     }, 
     "rows": [
+        [
+            "/content/early/2014/04/24/eLife.01381", 
+            "108"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02008", 
+            "106"
+        ], 
         [
             "/content/3/e02450", 
             "54"
@@ -58,6 +66,10 @@
             "39"
         ], 
         [
+            "/content/early/2014/04/24/eLife.02057", 
+            "38"
+        ], 
+        [
             "/content/3/e02763", 
             "35"
         ], 
@@ -78,6 +90,10 @@
             "29"
         ], 
         [
+            "/content/early/2014/04/24/eLife.02409", 
+            "29"
+        ], 
+        [
             "/content/3/e01831", 
             "28"
         ], 
@@ -86,7 +102,15 @@
             "27"
         ], 
         [
+            "/content/early/2014/04/23/eLife.02164", 
+            "27"
+        ], 
+        [
             "/content/3/e01699", 
+            "26"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.01911", 
             "26"
         ], 
         [
@@ -120,6 +144,10 @@
         [
             "/content/3/e01967", 
             "24"
+        ], 
+        [
+            "/content/early/2014/04/24/eLife.02525", 
+            "21"
         ], 
         [
             "/content/2/e01179", 
@@ -163,6 +191,10 @@
         ], 
         [
             "/content/3/e02217", 
+            "16"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.01936", 
             "16"
         ], 
         [
@@ -222,6 +254,10 @@
             "14"
         ], 
         [
+            "/content/early/2014/04/23/eLife.02384", 
+            "14"
+        ], 
+        [
             "/content/1/e00311", 
             "13"
         ], 
@@ -255,6 +291,10 @@
         ], 
         [
             "/content/3/e02517", 
+            "13"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02419", 
             "13"
         ], 
         [
@@ -295,6 +335,10 @@
         ], 
         [
             "/content/3/e02115", 
+            "12"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02365", 
             "12"
         ], 
         [
@@ -358,6 +402,10 @@
             "10"
         ], 
         [
+            "/content/early/2014/04/23/eLife.02130", 
+            "10"
+        ], 
+        [
             "/content/1/e00117", 
             "9"
         ], 
@@ -383,6 +431,10 @@
         ], 
         [
             "/content/3/e01944", 
+            "9"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02375", 
             "9"
         ], 
         [
@@ -1546,8 +1598,12 @@
             "2"
         ], 
         [
-            "/cgi/content/full/3/0/e01612", 
-            "1"
+            "/content/early/2014/04/25/eLife.02362", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/28/eLife.01776", 
+            "2"
         ], 
         [
             "/content/1/e00051", 
@@ -2204,10 +2260,26 @@
         [
             "/content/3/e02854", 
             "1"
+        ], 
+        [
+            "/content/early/2014/04/25/eLife.01776", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/25/eLife.02043", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/25/eLife.02252", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/25/eLife.02557", 
+            "1"
         ]
     ], 
-    "totalResults": 544, 
+    "totalResults": 562, 
     "totalsForAllResults": {
-        "ga:pageviews": "2876"
+        "ga:pageviews": "3312"
     }
 }

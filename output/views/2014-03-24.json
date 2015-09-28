@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-03-24", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -334,6 +334,10 @@
             "10"
         ], 
         [
+            "/content/early/2014/02/25/eLife.00012", 
+            "10"
+        ], 
+        [
             "/content/1/e00049", 
             "9"
         ], 
@@ -383,6 +387,10 @@
         ], 
         [
             "/content/3/e01623", 
+            "9"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.01326", 
             "9"
         ], 
         [
@@ -807,6 +815,10 @@
         ], 
         [
             "/content/3/e02189", 
+            "5"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00012", 
             "5"
         ], 
         [
@@ -1498,6 +1510,14 @@
             "2"
         ], 
         [
+            "/content/early/2014/03/03/eLife.00012", 
+            "2"
+        ], 
+        [
+            "/content/elife/early/2014/03/03/eLife.00012", 
+            "2"
+        ], 
+        [
             "/content/1/e00013", 
             "1"
         ], 
@@ -1962,12 +1982,28 @@
             "1"
         ], 
         [
-            "/han/PubMedMUW/elife.elifesciences.org/content/2/e00471", 
+            "/content/early/2013/12/25/eLife.00183", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00036", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00047", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/03/24/eLife.00012", 
+            "1"
+        ], 
+        [
+            "/content/elife/early/2014/03/07/eLife.00012", 
             "1"
         ]
     ], 
-    "totalResults": 484, 
+    "totalResults": 493, 
     "totalsForAllResults": {
-        "ga:pageviews": "3135"
+        "ga:pageviews": "3167"
     }
 }

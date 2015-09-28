@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-04-15", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -570,6 +570,10 @@
             "7"
         ], 
         [
+            "/content/early/2014/04/11/eLife.02130", 
+            "7"
+        ], 
+        [
             "/content/1/e00353", 
             "6"
         ], 
@@ -834,6 +838,10 @@
             "5"
         ], 
         [
+            "/content/early/2014/04/11/eLife.02419", 
+            "5"
+        ], 
+        [
             "/content/1/e00051", 
             "4"
         ], 
@@ -1043,6 +1051,10 @@
         ], 
         [
             "/content/3/e02589", 
+            "4"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.01936", 
             "4"
         ], 
         [
@@ -1339,6 +1351,10 @@
         ], 
         [
             "/content/3/e02897", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.01911", 
             "3"
         ], 
         [
@@ -1764,6 +1780,14 @@
         [
             "/content/3/e02515", 
             "2"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02384", 
+            "2"
+        ], 
+        [
+            "/content//early/2014/04/11/eLife.02130", 
+            "1"
         ], 
         [
             "/content/1/e00003.short", 
@@ -2498,12 +2522,20 @@
             "1"
         ], 
         [
-            "/cotent/3/e01739", 
+            "/content/early/2013/12/25/eLife.00731", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02164", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/11/eLife.02365", 
             "1"
         ]
     ], 
-    "totalResults": 618, 
+    "totalResults": 626, 
     "totalsForAllResults": {
-        "ga:pageviews": "5038"
+        "ga:pageviews": "5062"
     }
 }

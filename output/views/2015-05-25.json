@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2015-05-25", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -38,15 +38,47 @@
             "75"
         ], 
         [
+            "/content/early/2015/05/07/eLife.07218", 
+            "74"
+        ], 
+        [
             "/content/4/e05920", 
             "72"
+        ], 
+        [
+            "/content/early/2015/05/21/eLife.07380", 
+            "61"
+        ], 
+        [
+            "/content/early/2015/05/22/eLife.07369", 
+            "60"
+        ], 
+        [
+            "/content/early/2015/05/23/eLife.06792", 
+            "58"
         ], 
         [
             "/content/4/e06265", 
             "54"
         ], 
         [
+            "/content/early/2015/05/21/eLife.07253", 
+            "53"
+        ], 
+        [
+            "/content/early/2015/05/23/eLife.07236", 
+            "53"
+        ], 
+        [
+            "/content/early/2015/05/07/eLife.05519", 
+            "47"
+        ], 
+        [
             "/content/4/e07739", 
+            "40"
+        ], 
+        [
+            "/content/early/2015/05/20/eLife.07426", 
             "40"
         ], 
         [
@@ -55,6 +87,10 @@
         ], 
         [
             "/content/4/e05919", 
+            "35"
+        ], 
+        [
+            "/content/early/2015/05/21/eLife.05652", 
             "35"
         ], 
         [
@@ -70,6 +106,10 @@
             "29"
         ], 
         [
+            "/content/early/2015/05/22/eLife.07370", 
+            "28"
+        ], 
+        [
             "/content/2/e01202", 
             "25"
         ], 
@@ -82,11 +122,19 @@
             "24"
         ], 
         [
+            "/content/early/2015/05/18/eLife.06559", 
+            "24"
+        ], 
+        [
             "/content/4/e06967", 
             "23"
         ], 
         [
             "/content/3/e05614", 
+            "22"
+        ], 
+        [
+            "/content/early/2015/05/15/eLife.06516", 
             "22"
         ], 
         [
@@ -110,8 +158,28 @@
             "18"
         ], 
         [
+            "/content/early/2015/03/11/eLife.06380", 
+            "18"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.07205", 
+            "18"
+        ], 
+        [
+            "/content/early/2015/05/13/eLife.06878", 
+            "18"
+        ], 
+        [
+            "/content/early/2015/05/18/eLife.06041", 
+            "18"
+        ], 
+        [
             "/content/3/e03896", 
             "17"
+        ], 
+        [
+            "/content/early/2015/05/19/eLife.07558", 
+            "16"
         ], 
         [
             "/content/4/e06421", 
@@ -135,6 +203,14 @@
         ], 
         [
             "/content/4/e06959", 
+            "14"
+        ], 
+        [
+            "/content/early/2015/05/07/eLife.05142", 
+            "14"
+        ], 
+        [
+            "/content/early/2015/05/11/eLife.07304", 
             "14"
         ], 
         [
@@ -182,6 +258,10 @@
             "11"
         ], 
         [
+            "/content/early/2015/05/08/eLife.06659", 
+            "11"
+        ], 
+        [
             "/content/3/e01641", 
             "10"
         ], 
@@ -207,6 +287,14 @@
         ], 
         [
             "/content/4/e06722", 
+            "10"
+        ], 
+        [
+            "/content/early/2015/05/18/eLife.07794", 
+            "10"
+        ], 
+        [
+            "/content/early/2015/05/20/eLife.07578", 
             "10"
         ], 
         [
@@ -266,6 +354,30 @@
             "9"
         ], 
         [
+            "/content/early/2014/09/05/eLife.04395", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/04/28/eLife.06496", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/05/07/eLife.06659", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/05/07/eLife.07186", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/05/14/eLife.06651", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/05/15/eLife.07423", 
+            "9"
+        ], 
+        [
             "/content/2/e00731", 
             "8"
         ], 
@@ -311,6 +423,18 @@
         ], 
         [
             "/content/4/e06369", 
+            "8"
+        ], 
+        [
+            "/content/early/2015/05/06/eLife.06229", 
+            "8"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.05462", 
+            "8"
+        ], 
+        [
+            "/content/early/2015/05/15/eLife.06500", 
             "8"
         ], 
         [
@@ -387,6 +511,18 @@
         ], 
         [
             "/content/4/e08086", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/01/07/eLife.03868", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/01/09/eLife.04885", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/02/12/eLife.04535", 
             "7"
         ], 
         [
@@ -507,6 +643,18 @@
         ], 
         [
             "/content/4/e07961.full", 
+            "6"
+        ], 
+        [
+            "/content/early/2015/02/20/eLife.06074", 
+            "6"
+        ], 
+        [
+            "/content/early/2015/04/24/eLife.05979", 
+            "6"
+        ], 
+        [
+            "/content/early/2015/05/05/eLife.05068", 
             "6"
         ], 
         [
@@ -715,6 +863,34 @@
         ], 
         [
             "/content/4/e08658", 
+            "5"
+        ], 
+        [
+            "/content/early/2014/11/17/eLife.03896", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/02/27/eLife.04550", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/04/13/eLife.03700", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.07046", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.07118", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/05/12/eLife.06498", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/05/19/eLife.08025", 
             "5"
         ], 
         [
@@ -1047,6 +1223,22 @@
         ], 
         [
             "/content/4/e07771", 
+            "4"
+        ], 
+        [
+            "/content/early/2015/03/31/eLife.06567", 
+            "4"
+        ], 
+        [
+            "/content/early/2015/04/22/eLife.07403", 
+            "4"
+        ], 
+        [
+            "/content/early/2015/05/05/eLife.06225", 
+            "4"
+        ], 
+        [
+            "/content/early/2015/05/12/eLife.06262", 
             "4"
         ], 
         [
@@ -1691,6 +1883,50 @@
         ], 
         [
             "/content/4/e08283.full", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/06/12/eLife.02230", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/07/16/eLife.03357", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/10/23/eLife.03581", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/12/02/eLife.04247", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/12/23/eLife.04581", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/01/08/eLife.05198", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/02/25/eLife.04379", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/03/11/eLife.04232", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/04/17/eLife.05473", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/04/27/eLife.06545", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/05/14/eLife.06376", 
             "3"
         ], 
         [
@@ -2751,6 +2987,106 @@
         ], 
         [
             "/content/4/e08168", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/06/04/eLife.02734", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/06/14/eLife.03005", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/06/26/eLife.02910", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/07/21/eLife.03496", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/08/14/eLife.02893", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/08/22/eLife.04177", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/09/16/eLife.02809", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/09/25/eLife.03696", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/10/01/eLife.03949", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/10/17/eLife.03564", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/12/15/eLife.04766", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/12/19/eLife.04617", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/01/08/eLife.04851", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/01/16/eLife.05055", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/02/04/eLife.06156", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/02/10/eLife.02948", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/02/25/eLife.06346", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/03/03/eLife.04979", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/03/06/eLife.06633", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/03/20/eLife.05651", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/04/14/eLife.05531", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/04/22/eLife.06953", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/04/28/eLife.07739", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/05/05/eLife.05505", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/05/13/eLife.06562", 
             "2"
         ], 
         [
@@ -4790,6 +5126,270 @@
             "1"
         ], 
         [
+            "/content/early/2014/04/28/eLife.02043", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/05/09/eLife.02105", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/05/23/eLife.01964", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/05/27/eLife.02730", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/06/04/eLife.02104", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/06/11/eLife.02882", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/06/17/eLife.02792", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/06/27/eLife.02851", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/07/09/eLife.03342", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/07/14/eLife.03427", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/08/21/eLife.03528", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/08/22/eLife.03239", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/09/25/eLife.03251", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/09/25/eLife.03430", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/10/06/eLife.03596", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/10/14/eLife.04390", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/10/29/eLife.03293", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/11/10/eLife.04353", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/11/11/eLife.04132", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/11/19/eLife.03582", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/11/20/eLife.04686", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/02/eLife.04265", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/02/eLife.04273", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/09/eLife.05115", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/18/eLife.02777", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/19/eLife.05422", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/12/24/eLife.04407", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/03/eLife.04263", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/03/eLife.04378", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/08/eLife.04158", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/15/eLife.03256", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/16/eLife.03977", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/27/eLife.04489", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/27/eLife.05290", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/01/29/eLife.05378", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/02/eLife.04645", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/02/eLife.05701", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/04/eLife.05463", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/04/eLife.06166", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/05/eLife.04260", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/09/eLife.04585", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/11/eLife.06303", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/23/eLife.04599", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/24/eLife.05118", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/25/eLife.05544", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/02/27/eLife.06412", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/06/eLife.04052", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/16/eLife.04872", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/16/eLife.06179", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/19/eLife.03270", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/25/eLife.04745", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/25/eLife.07074", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/27/eLife.03390", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/27/eLife.03708", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/03/30/eLife.07074", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/15/eLife.07314", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/17/eLife.05506", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/21/eLife.06683", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/22/eLife.07736", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/23/eLife.05648", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/27/eLife.06421", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/04/27/eLife.06604", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/05/01/eLife.06327", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/05/07/eLife.07118", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.06664", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/05/13/eLife.07423", 
+            "1"
+        ], 
+        [
             "/content/elife/4/e06184.full", 
             "1"
         ], 
@@ -4864,10 +5464,14 @@
         [
             "/content/4/e06758", 
             "0"
+        ], 
+        [
+            "/content/early/2015/02/13/eLife.05733", 
+            "0"
         ]
     ], 
-    "totalResults": 1209, 
+    "totalResults": 1360, 
     "totalsForAllResults": {
-        "ga:pageviews": "3676"
+        "ga:pageviews": "4695"
     }
 }

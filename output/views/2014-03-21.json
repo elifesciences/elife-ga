@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-03-21", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -106,6 +106,10 @@
             "20"
         ], 
         [
+            "/content/early/2013/12/25/eLife.01326", 
+            "20"
+        ], 
+        [
             "/content/2/e00458", 
             "19"
         ], 
@@ -147,6 +151,10 @@
         ], 
         [
             "/content/3/e02046", 
+            "15"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00012", 
             "15"
         ], 
         [
@@ -343,6 +351,14 @@
         ], 
         [
             "/content/3/e01630", 
+            "8"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.00183", 
+            "8"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00036", 
             "8"
         ], 
         [
@@ -619,6 +635,14 @@
         ], 
         [
             "/content/3/e02369", 
+            "5"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.00731", 
+            "5"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00047", 
             "5"
         ], 
         [
@@ -1294,6 +1318,14 @@
             "2"
         ], 
         [
+            "/content/early/2013/12/25/eLife.00461", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/02/25/eLife.00012", 
+            "2"
+        ], 
+        [
             "/content/1/e00005/abstract-1", 
             "1"
         ], 
@@ -1740,10 +1772,22 @@
         [
             "/content/3/e02313/abstract-2", 
             "1"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.01123", 
+            "1"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.01501", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/02/25/eLife.00036", 
+            "1"
         ]
     ], 
-    "totalResults": 428, 
+    "totalResults": 439, 
     "totalsForAllResults": {
-        "ga:pageviews": "2380"
+        "ga:pageviews": "2448"
     }
 }

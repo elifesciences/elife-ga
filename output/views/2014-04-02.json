@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-04-02", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -331,6 +331,10 @@
         ], 
         [
             "/content/3/e02369", 
+            "10"
+        ], 
+        [
+            "/content/early/2014/03/25/eLife.00036", 
             "10"
         ], 
         [
@@ -1546,6 +1550,14 @@
             "2"
         ], 
         [
+            "/content/early/2014/02/25/eLife.00012", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/03/25/eLife.00012", 
+            "2"
+        ], 
+        [
             "/content/1/e00003", 
             "1"
         ], 
@@ -1938,6 +1950,10 @@
             "1"
         ], 
         [
+            "/content/2/eLife.00036", 
+            "1"
+        ], 
+        [
             "/content/3/e01239/abstract-1", 
             "1"
         ], 
@@ -2088,10 +2104,38 @@
         [
             "/content/3/e02583.abstract", 
             "1"
+        ], 
+        [
+            "/content/3/eLife.00036", 
+            "1"
+        ], 
+        [
+            "/content/3/eLife.01326", 
+            "1"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.00731", 
+            "1"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.01326", 
+            "1"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.01501", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/03/07/eLife.00012", 
+            "1"
+        ], 
+        [
+            "/content/elife/early/2014/03/25/eLife.00047", 
+            "1"
         ]
     ], 
-    "totalResults": 515, 
+    "totalResults": 526, 
     "totalsForAllResults": {
-        "ga:pageviews": "4574"
+        "ga:pageviews": "4596"
     }
 }

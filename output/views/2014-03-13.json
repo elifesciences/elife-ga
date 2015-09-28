@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-03-13", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -1868,18 +1868,10 @@
         [
             "/content/3/e02313/abstract-1", 
             "1"
-        ], 
-        [
-            "/content2/e00441", 
-            "1"
-        ], 
-        [
-            "/search?q=cache:http://elife.elifesciences.org/content/2/e01402", 
-            "1"
         ]
     ], 
-    "totalResults": 462, 
+    "totalResults": 460, 
     "totalsForAllResults": {
-        "ga:pageviews": "3141"
+        "ga:pageviews": "3139"
     }
 }

@@ -17,7 +17,7 @@
     "query": {
         "dimensions": "ga:pagePath", 
         "end-date": "2014-04-23", 
-        "filters": "ga:pagePath=~/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
             "ga:pageviews"
@@ -1038,6 +1038,10 @@
             "4"
         ], 
         [
+            "/content/early/2014/04/23/eLife.02130", 
+            "4"
+        ], 
+        [
             "/content/1/e00003", 
             "3"
         ], 
@@ -1323,6 +1327,14 @@
         ], 
         [
             "/content/3/e02945", 
+            "3"
+        ], 
+        [
+            "/content/early/2013/12/25/eLife.00183", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/034/23/eLife.01381", 
             "3"
         ], 
         [
@@ -1683,6 +1695,14 @@
         ], 
         [
             "/content/3/e02897", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.01381", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02525", 
             "2"
         ], 
         [
@@ -2276,10 +2296,22 @@
         [
             "/content/3/e02715.abstract", 
             "1"
+        ], 
+        [
+            "/content/early/2014/04/17/eLife.02130", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02057", 
+            "1"
+        ], 
+        [
+            "/content/early/2014/04/23/eLife.02409", 
+            "1"
         ]
     ], 
-    "totalResults": 562, 
+    "totalResults": 570, 
     "totalsForAllResults": {
-        "ga:pageviews": "3783"
+        "ga:pageviews": "3800"
     }
 }
