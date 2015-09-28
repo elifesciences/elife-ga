@@ -48,6 +48,14 @@ def enplumpen(artid):
     "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
     return artid.replace('e', '10.7554/eLife.')
 
+def deplumpen(artid):
+    "takes an article id like eLife.01234 and returns a DOI like e01234"
+    try:
+        return "e" + artid.split('.')[1]
+    except IndexError:
+        LOG.error("unable to deplump %r", artid)
+        return artid
+
 def sanitize_ga_response(ga_response):
     """The GA responses contain no sensitive information, however it does
     have a collection of identifiers I'd feel happier if the world didn't
@@ -94,7 +102,7 @@ def download_counts(row_list):
     "parses the list of rows returned by google to extract the doi and count"
     def parse(row):
         label, count = row
-        return label.split('::')[0], count
+        return label.split('::')[0], int(count)
     return dict(map(parse, row_list))
 
 def path_counts_query(table_id, from_date, to_date):
@@ -125,8 +133,11 @@ def path_counts_query(table_id, from_date, to_date):
         metrics = 'ga:pageviews',
         dimensions = 'ga:pagePath',
         sort = '-ga:pageviews',
-        #filters = 'ga:pagePath=~/e[0-9]+((\.full)?|(\.abstract)|(\.abstract-2)(/abstract))?$',
-        filters = r'ga:pagePath=~/e[0-9]{5}(%s)$' % suffix_str,
+        filters = ','.join([
+            # these filters are OR'ed
+            r'ga:pagePath=~^/content/.*/e[0-9]{5}(%s)$' % suffix_str,
+            r'ga:pagePath=~^/content/.*/elife\.[0-9]{5}$',
+        ])
     )
 
 
@@ -143,23 +154,38 @@ SPLITTER = re.compile('\.|/')
 def article_count(pair):
     "figures out the type of the given path using the suffix (if one available)"
     try:
-        if '/elife/' in pair[0]:
+        if pair[0].lower().startswith('/content/early/'):
+            # handles POA article variation 1 "/content/early/yyyy/mm/dd/doi/" type urls
+            bits = pair[0].split('/', 6)
+            bits[-1] = deplumpen(bits[-1])
+
+        elif pair[0].lower().startswith('/content/elife/early/'):
+            # handles POA article variation 2 "/content/elife/early/yyyy/mm/dd/doi/" type urls
+            bits = pair[0].split('/', 7)
+            bits[-1] = deplumpen(bits[-1])
+
+        elif pair[0].lower().startswith('/content/elife/'):
             # handles valid but unsupported /content/elife/volume/id paths
             # these paths appear in PDF files I've been told
             bits = pair[0].split('/', 4)
+            
         else:
             # handles standard /content/volume/id/ paths
             bits = pair[0].split('/', 3)
+        
         art = bits[-1]
         art = art.lower() # website isn't case sensitive, we are
         more_bits = re.split(SPLITTER, art, maxsplit=1)
+        
         suffix = None
         if len(more_bits) > 1:
             art, suffix = more_bits
         assert suffix in TYPE_MAP, "unknown suffix %r! received: %r split to %r" % (suffix, pair, more_bits)
         return art, TYPE_MAP[suffix], int(pair[1])
-    except AssertionError:
+
+    except AssertionError, e:
         # we have an unhandled path
+        #LOG.warn("skpping unhandled path %s (%r)", pair, e)
         LOG.warn("skpping unhandled path %s", pair)
 
 def article_counts(path_count_pairs):
@@ -210,7 +236,7 @@ def query_ga(query):
 
         except TypeError, error:      
             # Handle errors in constructing a query.
-            print ('There was an error in constructing your query : %s' % error)
+            LOG.exception('There was an error in constructing your query : %s', error)
             raise
         
         except errors.HttpError, e:
@@ -230,7 +256,7 @@ def query_ga(query):
 
         except AccessTokenRefreshError:
             # Handle Auth errors.
-            print ('The credentials have been revoked or expired, please re-run '
+            LOG.exception ('The credentials have been revoked or expired, please re-run '
                    'the application to re-authorize')
             raise    
 
@@ -353,7 +379,7 @@ def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
     call this app like: python core.py 'ga:12345678'"""
     to_date = from_date = datetime.now()
-    cached, only_cached = True, True # use cached results, use *only* cached results
+    cached, only_cached = True, False # use cached results, use *only* cached results
     return article_metrics(table_id, from_date, to_date, cached, only_cached)
 
 if __name__ == '__main__':
