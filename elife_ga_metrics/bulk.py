@@ -163,18 +163,18 @@ def regenerate_results(table_id):
 
 def main(table_id):
     "returns daily results for the last week, monthly results for the current month"
-    today = datetime.now()
-    last_week = datetime.now() - timedelta(days=7)
-    use_cached, use_only_cached = True, False
+    from_date = datetime.now() - timedelta(days=7)
+    to_date = datetime.now()
+    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
     
     print daily_metrics_between(table_id, \
-                                last_week, \
-                                today, \
+                                from_date, \
+                                to_date, \
                                 use_cached, use_only_cached)
 
     print monthly_metrics_between(table_id, \
-                                  today, \
-                                  today, \
+                                  to_date, \
+                                  to_date, \
                                   use_cached, use_only_cached)
 
 if __name__ == '__main__':

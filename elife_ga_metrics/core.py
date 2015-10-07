@@ -378,9 +378,9 @@ def article_metrics(table_id, from_date, to_date, cached=False, only_cached=Fals
 def main(table_id):
     """has to be called with the 'table-id', which looks like 12345678
     call this app like: python core.py 'ga:12345678'"""
-    to_date = from_date = datetime.now()
-    cached, only_cached = True, False # use cached results, use *only* cached results
-    return article_metrics(table_id, from_date, to_date, cached, only_cached)
+    to_date = from_date = datetime.now() - timedelta(days=1)
+    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    return article_metrics(table_id, from_date, to_date, use_cached, use_only_cached)
 
 if __name__ == '__main__':
     pprint(main(sys.argv[1]))

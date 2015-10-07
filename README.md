@@ -1,25 +1,41 @@
-# elife-ga
+# elife-ga-metrics
 
-Example code that talks to Google Analytics to return a list of paths and their 
-view counts for the last day, figures out the type of page it is looking at 
-(abstract, full text or digest) and returns a dictionary of article id's to 
-page type counts.
+Two responsibilities of this code:
+
+1. Talk to Google Analytics and store the raw data returned.
+
+2. Analyse the raw data and then aggregate and filter as necessary.
+
+Provides the interface `core.article_metrics` that returns a dictionary of 
+article views and article downloads, keyed by DOI.
 
 # installation
 
     ./install.sh
 
-You will need a `client_secrets.json` file in the source root. Read the 
-[official documentation](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets) 
-for more. 
+## authentication
+
+For fetching fresh data you will need to authenticate against the eLife 
+Google Analytics account using OAuth.
+
+This code can be used entirely without the need for authentication, using only 
+the raw data in the `outputs/` directory.
+
+To authenticate you will need a `client_secrets.json` file in the source root. 
+Read the [official documentation](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets) for more.
 
 An example has been provided in `client.secrets.example`. You'll need to slot in
 your own `client_secret` and `client_id` values.
     
 # usage
 
-    source venv/bin/activate
-    python mains.py 'ga:12345678'
+For yesterday's results, use:
+
+    ./run.sh
+
+For daily metrics and a monthly aggregate for the last month, use:
+
+    ./run-bulk.sh
 
 # example
 
