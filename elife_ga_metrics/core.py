@@ -6,7 +6,6 @@
 
 __author__ = [
     'Luke Skibinski <l.skibinski@elifesciences.org>',
-    'Nick Mihailovski <api.nickm@gmail.com>', # (ga client sample)
 ]
 
 from os.path import join
@@ -16,9 +15,12 @@ from datetime import datetime, timedelta
 from pprint import pprint
 import httplib2
 from apiclient.errors import HttpError
-from apiclient import sample_tools
 from apiclient import errors
+from apiclient.discovery import build
 from oauth2client.client import AccessTokenRefreshError
+from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client import file as oauth_file
+from httplib2 import Http
 
 import logging
 
@@ -68,15 +70,21 @@ def sanitize_ga_response(ga_response):
     return ga_response
 
 def ga_service(table_id):
-    "does OAuth authentication and constructs the service object needed to query google."
-    try:
-        service, flags = sample_tools.init(
-          [__name__, table_id], 'analytics', 'v3', __doc__, __file__, parents=[argparser],
-          scope='https://www.googleapis.com/auth/analytics.readonly')
-        return service
-    except httplib2.ServerNotFoundError, err:
-        LOG.exception("could not connect to Google, quitting")
-        raise
+    service_name = 'analytics'    
+    settings_file = 'client-secrets.json'
+    settings_data = sd = json.load(open(settings_file, 'r'))
+    scope = 'https://www.googleapis.com/auth/analytics.readonly'
+    
+    storage = oauth_file.Storage(service_name + '.dat')
+    credentials = storage.get()
+    if credentials is None or credentials.invalid:
+        credentials = SignedJwtAssertionCredentials(sd['client_email'], sd['private_key'], scope)
+
+    http = Http()
+    credentials.authorize(http) # does this 'put' back into the credentials file??
+    service = build(service_name, 'v3', http=http)
+    return service
+
 #
 #
 #
