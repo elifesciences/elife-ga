@@ -1,9 +1,7 @@
+from base import BaseCase
 from datetime import datetime
 import unittest
-from elife_ga_metrics import core, bulk
-
-class BaseCase(unittest.TestCase):
-    maxDiff = None
+from elife_ga_metrics import core, bulk, utils
 
 class TestUtils(BaseCase):
 
@@ -29,4 +27,4 @@ class TestUtils(BaseCase):
         ]
         start_dt = datetime(year=2014, month=12, day=15)
         end_dt = datetime(year=2015, month=3, day=12)
-        self.assertEqual(expected_output, list(bulk.dt_month_range(start_dt, end_dt)))
+        self.assertEqual(expected_output, list(utils.dt_month_range(start_dt, end_dt)))

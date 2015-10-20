@@ -21,7 +21,7 @@ from oauth2client.client import AccessTokenRefreshError
 from oauth2client.client import SignedJwtAssertionCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
-
+from elife_ga_metrics.utils import ymd
 import logging
 
 logging.basicConfig()
@@ -41,10 +41,6 @@ argparser.add_argument('table_id', type=str,
 #
 # utils
 #
-
-def ymd(dt):
-    "returns a yyyy-mm-dd version of the given datetime object"
-    return dt.strftime("%Y-%m-%d")
 
 def enplumpen(artid):
     "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
@@ -233,14 +229,7 @@ def query_ga(query):
                 LOG.info("query attempt %r" % (n + 1))
             else:
                 LOG.info("querying ...")
-            response = query.execute()
-            query = response['query']
-            from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
-            to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
-            results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
-            path = output_path(results_type, from_date, to_date)
-            write_results(response, path)
-            return response
+            return query.execute()
 
         except TypeError, error:      
             # Handle errors in constructing a query.
@@ -267,6 +256,16 @@ def query_ga(query):
             LOG.exception ('The credentials have been revoked or expired, please re-run '
                    'the application to re-authorize')
             raise    
+
+def query_ga_write_results(*args, **kwargs):
+    response = query_ga(*args, **kwargs)
+    query = response['query']            
+    from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
+    to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
+    results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
+    path = output_path(results_type, from_date, to_date)
+    write_results(response, path)
+    return response
 
 def output_path(results_type, from_date, to_date):
     "generates a path for results of the given type"
@@ -340,7 +339,7 @@ def article_views(table_id, from_date, to_date, cached=False, only_cached=False)
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga(path_counts_query(table_id, from_date, to_date))
+        raw_data = query_ga_write_results(path_counts_query(table_id, from_date, to_date))
         write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
@@ -358,7 +357,7 @@ def article_downloads(table_id, from_date, to_date, cached=False, only_cached=Fa
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga(event_counts_query(table_id, from_date, to_date))
+        raw_data = query_ga_write_results(event_counts_query(table_id, from_date, to_date))
         write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
