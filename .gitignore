@@ -3,11 +3,12 @@
 *.sqlite*
 *.orig
 *.log
+*.partial
 media/**
 collected-static/**
 elife-articles
 venv
-client_secrets.json
+client-secrets.json
 oauth2.dat
 analytics.dat
 build
