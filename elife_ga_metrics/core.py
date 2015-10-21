@@ -21,7 +21,7 @@ from oauth2client.client import AccessTokenRefreshError
 from oauth2client.client import SignedJwtAssertionCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
-from elife_ga_metrics.utils import ymd
+from elife_ga_metrics.utils import ymd, memoized
 import logging
 
 logging.basicConfig()
@@ -65,6 +65,7 @@ def sanitize_ga_response(ga_response):
         del ga_response['query']['ids']
     return ga_response
 
+@memoized
 def ga_service(table_id):
     service_name = 'analytics'    
     settings_file = 'client-secrets.json'
