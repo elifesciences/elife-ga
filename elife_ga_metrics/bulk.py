@@ -1,8 +1,9 @@
-"""Bulk loading of eLife metrics from Google Analytics."""
+__description__ = """Bulk loading of eLife metrics from Google Analytics."""
 
 import os, sys, time, random, json, calendar
 import core
-from core import ymd
+from elife_ga_metrics import utils
+from elife_ga_metrics.core import ymd
 from datetime import datetime, date, timedelta
 from apiclient.http import BatchHttpRequest
 from apiclient import errors
@@ -17,29 +18,6 @@ LOG.level = logging.INFO
 #
 # bulk requests to ga
 #
-
-def dt_range(from_date, to_date):
-    """returns series of datetime objects starting at from_date
-    and ending on to_date inclusive."""
-    if not to_date:
-        to_date = from_date
-    if from_date > to_date:
-        to_date, from_date = from_date, to_date
-    diff = to_date - from_date
-    for increment in range(0, diff.days + 1):
-        dt = from_date + timedelta(days=increment)
-        yield (dt, dt)  # daily
-
-def dt_month_range(from_date, to_date):
-    # figure out a list of years and months the dates span
-    ym = set()
-    for dt1, dt2 in dt_range(from_date, to_date):
-        ym.add((dt1.year, dt1.month))
-    # for each pair, generate a month max,min datetime pair
-    for year, month in sorted(ym):
-        mmin, mmax = calendar.monthrange(year, month)
-        yield (datetime(year=year, month=month, day=1), \
-               datetime(year=year, month=month, day=mmax))
 
 def generate_queries(table_id, query_func, datetime_list, use_cached=False, use_only_cached=False):
     "returns a list of queries to be executed by google"
@@ -70,7 +48,7 @@ def generate_queries(table_id, query_func, datetime_list, use_cached=False, use_
 
 def bulk_query(query_list):
     "executes a list of queries"
-    return map(core.query_ga, query_list)
+    return map(core.query_ga_write_results, query_list)
 
 #
 # daily metrics
@@ -86,7 +64,7 @@ def metrics_for_range(table_id, dt_range_list, use_cached=False, use_only_cached
 
 def daily_metrics_between(table_id, from_date, to_date, use_cached=True, use_only_cached=False):
     "does a DAILY query between two dates, NOT a single query within a date range"
-    date_list = dt_range(from_date, to_date)
+    date_list = utils.dt_range(from_date, to_date)
     views_dt_range = filter(core.valid_view_dt_pair, date_list)
     pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
 
@@ -113,7 +91,7 @@ def daily_metrics_between(table_id, from_date, to_date, use_cached=True, use_onl
 #
 
 def monthly_metrics_between(table_id, from_date, to_date, use_cached=True, use_only_cached=False):
-    date_list = dt_month_range(from_date, to_date)
+    date_list = utils.dt_month_range(from_date, to_date)
     views_dt_range = filter(core.valid_view_dt_pair, date_list)
     pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
     
@@ -163,18 +141,18 @@ def regenerate_results(table_id):
 
 def main(table_id):
     "returns daily results for the last week, monthly results for the current month"
-    today = datetime.now()
-    last_week = datetime.now() - timedelta(days=7)
-    use_cached, use_only_cached = True, False
+    from_date = datetime.now() - timedelta(days=7)
+    to_date = datetime.now()
+    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
     
     print daily_metrics_between(table_id, \
-                                last_week, \
-                                today, \
+                                from_date, \
+                                to_date, \
                                 use_cached, use_only_cached)
 
     print monthly_metrics_between(table_id, \
-                                  today, \
-                                  today, \
+                                  to_date, \
+                                  to_date, \
                                   use_cached, use_only_cached)
 
 if __name__ == '__main__':
