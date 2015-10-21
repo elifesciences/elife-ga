@@ -33,6 +33,10 @@ def dt_month_range(from_date, to_date):
         yield (datetime(year=year, month=month, day=1), \
                datetime(year=year, month=month, day=mmax))
 
+def firstof(fn, x):
+    for i in x:
+        if fn(i):
+            return i
 
 # stolen from: https://wiki.python.org/moin/PythonDecoratorLibrary#Memoize
 class memoized(object):

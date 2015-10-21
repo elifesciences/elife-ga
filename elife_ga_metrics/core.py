@@ -21,7 +21,7 @@ from oauth2client.client import AccessTokenRefreshError
 from oauth2client.client import SignedJwtAssertionCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
-from elife_ga_metrics.utils import ymd, memoized
+from elife_ga_metrics.utils import ymd, memoized, firstof
 import logging
 
 logging.basicConfig()
@@ -41,6 +41,12 @@ argparser.add_argument('table_id', type=str,
 #
 # utils
 #
+
+class NoSettings(RuntimeError):
+    def __init__(self, settings_locations):
+        msg = "could not find the credentials file! I looked here:\n%s" % '\n'.join(settings_locations)
+        super(NoSettings, self).__init__(msg)
+
 
 def enplumpen(artid):
     "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
@@ -67,8 +73,12 @@ def sanitize_ga_response(ga_response):
 
 @memoized
 def ga_service(table_id):
-    service_name = 'analytics'    
-    settings_file = 'client-secrets.json'
+    service_name = 'analytics'
+    settings_file_locations = ['client-secrets.json',
+                               '/etc/elife-ga-metrics/client-secrets.json']
+    settings_file = firstof(os.path.exists, settings_file_locations)
+    if not settings_file:
+        raise NoSettings(settings_file_locations)
     settings_data = sd = json.load(open(settings_file, 'r'))
     scope = 'https://www.googleapis.com/auth/analytics.readonly'
     
