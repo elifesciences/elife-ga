@@ -239,18 +239,25 @@ def query_ga(query):
         
         except errors.HttpError, e:
             error = json.loads(e.content)
-            if error.get('code') == 403 \
-              and error.get('errors')[0].get('reason') in ['rateLimitExceeded', 'userRateLimitExceeded']:
+            status_code = error.get('code')
+            #if status_code == 403 \
+            #  and error.get('errors')[0].get('reason') in ['rateLimitExceeded', 'userRateLimitExceeded']:
+            LOG.warn("HttpError ... can we recover?")
+            if status_code in [403, 503]:
 
-              # apply exponential backoff.
-              val = (2 ** n) + random.randint(0, 1000) / 1000
-              LOG.info("rate limited, backing off %r", val)
-              time.sleep(val)
+                # apply exponential backoff.
+                val = (2 ** n) + random.randint(0, 1000) / 1000
+                if status_code == 503:
+                    # wait even longer
+                    val = val * 2
+                
+                LOG.info("rate limited. backing off %r", val)
+                time.sleep(val)
 
             else:
-              # some other sort of HttpError, re-raise
-              LOG.exception("unhandled exception!")
-              raise
+                # some other sort of HttpError, re-raise
+                LOG.exception("unhandled exception!")
+                raise
 
         except AccessTokenRefreshError:
             # Handle Auth errors.
