@@ -1,4 +1,4 @@
-# elife-ga-metrics 
+# elife-ga-metrics
 
 Two responsibilities of this code:
 
