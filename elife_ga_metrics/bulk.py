@@ -65,21 +65,20 @@ def metrics_for_range(table_id, dt_range_list, use_cached=False, use_only_cached
 def daily_metrics_between(table_id, from_date, to_date, use_cached=True, use_only_cached=False):
     "does a DAILY query between two dates, NOT a single query within a date range"
     date_list = utils.dt_range(from_date, to_date)
-    views_dt_range = filter(core.valid_view_dt_pair, date_list)
-    pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
-
-    # ensure our raw data exists on disk
     query_list = []
+    
+    views_dt_range = filter(core.valid_view_dt_pair, date_list)
     query_list.extend(generate_queries(table_id, \
                                        core.path_counts_query, \
                                        views_dt_range, \
                                        use_cached, use_only_cached))
-    
+
+    pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
     query_list.extend(generate_queries(table_id, \
                                        core.event_counts_query, \
                                        pdf_dt_range,
                                        use_cached, use_only_cached))
-    
+
     bulk_query(query_list)
     
     # everything should be cached by now
@@ -134,9 +133,11 @@ def regenerate_results(table_id):
 
     LOG.info("querying monthly metrics ...")
     monthly_metrics_between(table_id, \
-                            core.DOWNLOADS_INCEPTION, \
+                            #core.DOWNLOADS_INCEPTION, \ # wtf?
+                            core.VIEWS_INCEPTION, \
                             today, \
                             use_cached, use_only_cached)
+    
 
 
 def main(table_id):

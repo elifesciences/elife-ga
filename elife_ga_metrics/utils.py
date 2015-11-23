@@ -10,7 +10,7 @@ def ymd(dt):
     "returns a yyyy-mm-dd version of the given datetime object"
     return dt.strftime("%Y-%m-%d")
 
-def dt_range(from_date, to_date):
+def dt_range_gen(from_date, to_date):
     """returns series of datetime objects starting at from_date
     and ending on to_date inclusive."""
     if not to_date:
@@ -22,7 +22,10 @@ def dt_range(from_date, to_date):
         dt = from_date + timedelta(days=increment)
         yield (dt, dt)  # daily
 
-def dt_month_range(from_date, to_date):
+def dt_range(from_date, to_date):
+    return list(dt_range_gen(from_date, to_date))
+
+def dt_month_range_gen(from_date, to_date):
     # figure out a list of years and months the dates span
     ym = set()
     for dt1, dt2 in dt_range(from_date, to_date):
@@ -32,6 +35,9 @@ def dt_month_range(from_date, to_date):
         mmin, mmax = calendar.monthrange(year, month)
         yield (datetime(year=year, month=month, day=1), \
                datetime(year=year, month=month, day=mmax))
+
+def dt_month_range(from_date, to_date):
+    return list(dt_month_range_gen(from_date, to_date))
 
 def firstof(fn, x):
     for i in x:
