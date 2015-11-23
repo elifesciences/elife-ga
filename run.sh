@@ -1,5 +1,9 @@
 #!/bin/bash
 # Returns the daily views and downloads for the last day.
-set -e
+set -e # all commands must pass
 source install.sh
+if [ -f .env ]; then 
+    set -a # all vars are exported
+    source .env
+fi
 python elife_ga_metrics/core.py

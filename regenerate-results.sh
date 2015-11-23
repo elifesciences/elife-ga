@@ -5,4 +5,8 @@
 # code changes affect the results output.
 set -e
 source install.sh
+if [ -f .env ]; then 
+    set -a # all vars are exported
+    source .env
+fi
 python -c "import os; from elife_ga_metrics import bulk; bulk.regenerate_results(os.environ['GA_TABLE']);"
