@@ -5,4 +5,4 @@
 # code changes affect the results output.
 set -e
 source install.sh
-python -c "from elife_ga_metrics import bulk; bulk.regenerate_results('ga:82618489');"
+python -c "from elife_ga_metrics import bulk; bulk.regenerate_results(os.environ['GA_TABLE']);"

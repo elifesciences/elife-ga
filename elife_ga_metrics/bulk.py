@@ -156,4 +156,6 @@ def main(table_id):
                                   use_cached, use_only_cached)
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    "call this app like: GA_TABLE='ga:12345678' python bulk.py"
+    assert os.environ.has_key('GA_TABLE'), "the environment variable 'GA_TABLE' not found. It looks like 'ga:12345678'"
+    main(os.environ['GA_TABLE'])

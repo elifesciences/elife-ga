@@ -401,12 +401,12 @@ def article_metrics(table_id, from_date, to_date, cached=False, only_cached=Fals
 #
 
 def main(table_id):
-    """has to be called with the 'table-id', which looks like 12345678
-    call this app like: python core.py 'ga:12345678'"""
     to_date = from_date = datetime.now() - timedelta(days=1)
     use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
     #use_cached = use_only_cached = False
     return article_metrics(table_id, from_date, to_date, use_cached, use_only_cached)
 
 if __name__ == '__main__':
-    pprint(main(sys.argv[1]))
+    "call this app like: GA_TABLE='ga:12345678' python core.py"
+    assert os.environ.has_key('GA_TABLE'), "the environment variable 'GA_TABLE' not found. It looks like 'ga:12345678'"
+    pprint(main(os.environ['GA_TABLE']))
