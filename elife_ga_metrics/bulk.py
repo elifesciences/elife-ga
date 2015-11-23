@@ -140,23 +140,23 @@ def regenerate_results(table_id):
     
 
 
-def main(table_id):
+def article_metrics(table_id):
     "returns daily results for the last week, monthly results for the current month"
-    from_date = datetime.now() - timedelta(days=7)
+    from_date = datetime.now() - timedelta(days=1)
     to_date = datetime.now()
     use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
     
-    print daily_metrics_between(table_id, \
-                                from_date, \
-                                to_date, \
-                                use_cached, use_only_cached)
+    return {'daily': dict(daily_metrics_between(table_id, \
+                                           from_date, \
+                                           to_date, \
+                                           use_cached, use_only_cached)),
 
-    print monthly_metrics_between(table_id, \
-                                  to_date, \
-                                  to_date, \
-                                  use_cached, use_only_cached)
+            'monthly': dict(monthly_metrics_between(table_id, \
+                                               to_date, \
+                                               to_date, \
+                                               use_cached, use_only_cached))}
 
 if __name__ == '__main__':
     "call this app like: GA_TABLE='ga:12345678' python bulk.py"
     assert os.environ.has_key('GA_TABLE'), "the environment variable 'GA_TABLE' not found. It looks like 'ga:12345678'"
-    main(os.environ['GA_TABLE'])
+    pprint(article_metrics(os.environ['GA_TABLE']))
