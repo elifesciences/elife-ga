@@ -6,50 +6,78 @@ Two responsibilities of this code:
 
 2. Analyse the raw data and then aggregate and filter as necessary.
 
-Provides the interface `core.article_metrics` that returns a dictionary of 
-article views and article downloads, keyed by DOI.
+Provides `core.article_metrics` that returns a dictionary of article views and 
+article downloads, keyed by DOI for a given date range. See See `./run.sh`
+
+Looks like: 
+
+```python
+    {'downloads': {u'10.7554/eLife.00012': 1,
+                   u'10.7554/eLife.00049': 4,
+                   u'10.7554/eLife.00260': 1,           
+                   # ... [snip] ...
+                   },
+               
+     'views': {u'10.7554/eLife.00003': Counter({'full': 2, 'abstract': 0, 'digest': 0}),
+               u'10.7554/eLife.00005': Counter({'full': 3, 'abstract': 0, 'digest': 0}),
+               u'10.7554/eLife.00012': Counter({'full': 2, 'abstract': 1, 'digest': 1}),
+               # ... [snip] ...
+               }
+    }
+```
+
+Provides `bulk.article_metrics` that returns a dictionary of daily and monthly
+views and downloads, keyed by DOI, for a given date range. See `./run-bulk.sh`
+
+Looks like:
+
+```python
+    {'daily': {('2015-11-22', '2015-11-22'): {
+                 'downloads': {
+                        u'10.7554/eLife.00012': 1,
+                        u'10.7554/eLife.00049': 4,
+                        u'10.7554/eLife.00260': 1,
+                        # ...
+                        },
+                  'views': {
+                        u'10.7554/eLife.00003': Counter({'full': 2, 'abstract': 0, 'digest': 0}),
+                        u'10.7554/eLife.00005': Counter({'full': 3, 'abstract': 0, 'digest': 0}),
+                        u'10.7554/eLife.00007': Counter({'full': 1, 'abstract': 0, 'digest': 0}),
+                        # ...
+                        },
+                   },
+            },
+       'monthly': {('2015-11-01', '2015-11-30'): {
+                    'downloads': {u'10.7554/eLife.00003': 8,
+                                  u'10.7554/eLife.00005': 13,
+                                  u'10.7554/eLife.00007': 5,
+                                  # ...
+                                  },
+                     'views': {u'10.7554/eLife.00003': Counter({'full': 44, 'abstract': 1, 'digest': 0}),
+                               u'10.7554/eLife.00005': Counter({'full': 157, 'abstract': 6, 'digest': 0}),
+                               u'10.7554/eLife.00007': Counter({'full': 36, 'abstract': 5, 'digest': 0}),
+                               # ...
+                               },
+                  }
+            }
+       }
+```                                     
 
 # installation
 
-    ./install.sh
+    $ git clone https://github.com/elifesciences/elife-ga-metrics
+    $ ./install.sh
 
 ## authentication
 
 For fetching fresh data you will need to authenticate against the eLife 
 Google Analytics account using OAuth.
 
-This code can be used entirely without the need for authentication, using only 
-the raw data in the `outputs/` directory.
+This code can be used *entirely without* the need for authentication, using only 
+the raw data in the `outputs/` directory (updated daily).
 
 To authenticate you will need a `client_secrets.json` file in the source root. 
 Read the [official documentation](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets) for more.
-
-An example has been provided in `client.secrets.example`. You'll need to slot in
-your own `client_secret` and `client_id` values.
-    
-# usage
-
-For yesterday's results, use:
-
-    ./run.sh
-
-For daily metrics and a monthly aggregate for the last month, use:
-
-    ./run-bulk.sh
-
-# example
-
-```python
-{
- u'e01489': Counter({'full': 21, 'abstract': 0, 'digest': 0}),
- u'e01496': Counter({'abstract': 2, 'full': 0, 'digest': 0}),
- u'e01498': Counter({'full': 2, 'abstract': 0, 'digest': 0}),
- u'e01503': Counter({'full': 8, 'abstract': 2, 'digest': 0}),
- u'e01524': Counter({'full': 3, 'abstract': 0, 'digest': 0}),
- u'e01530': Counter({'full': 5, 'abstract': 2, 'digest': 2}),
- # ...
-}
-```
 
 ## Copyright & Licence
 
