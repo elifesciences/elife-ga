@@ -23,28 +23,12 @@
             "ga:pageviews"
         ], 
         "sort": [
-            "-ga:pageviews"
+            "ga:pagePath"
         ], 
         "start-date": "2014-05-15", 
         "start-index": 1
     }, 
     "rows": [
-        [
-            "/content/3/e02557", 
-            "4"
-        ], 
-        [
-            "/content/3/e02904", 
-            "3"
-        ], 
-        [
-            "/content/3/e01385", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/04/24/eLife.01381", 
-            "2"
-        ], 
         [
             "/content/2/e00523", 
             "1"
@@ -68,6 +52,10 @@
         [
             "/content/3/e01322", 
             "1"
+        ], 
+        [
+            "/content/3/e01385", 
+            "2"
         ], 
         [
             "/content/3/e01385.abstract", 
@@ -102,12 +90,24 @@
             "1"
         ], 
         [
+            "/content/3/e02557", 
+            "4"
+        ], 
+        [
             "/content/3/e02576", 
             "1"
         ], 
         [
             "/content/3/e02763", 
             "1"
+        ], 
+        [
+            "/content/3/e02904", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/04/24/eLife.01381", 
+            "2"
         ], 
         [
             "/content/early/2014/05/03/eLife.02482", 

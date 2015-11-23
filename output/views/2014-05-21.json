@@ -23,7 +23,7 @@
             "ga:pageviews"
         ], 
         "sort": [
-            "-ga:pageviews"
+            "ga:pagePath"
         ], 
         "start-date": "2014-05-21", 
         "start-index": 1

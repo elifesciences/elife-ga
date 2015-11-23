@@ -23,515 +23,19 @@
             "ga:totalEvents"
         ], 
         "sort": [
-            "-ga:totalEvents"
+            "ga:eventLabel"
         ], 
         "start-date": "2015-04-19", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "10.7554/eLife.05473::pdf-article", 
-            "17"
-        ], 
-        [
-            "10.7554/eLife.04988::pdf-article", 
-            "12"
-        ], 
-        [
-            "10.7554/eLife.05457::pdf-article", 
-            "11"
-        ], 
-        [
-            "10.7554/eLife.05604::pdf-article", 
-            "9"
-        ], 
-        [
-            "10.7554/eLife.05531::pdf-article", 
-            "8"
-        ], 
-        [
-            "10.7554/eLife.07314::pdf-article", 
-            "8"
-        ], 
-        [
-            "10.7554/eLife.03700::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.03790::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.05361::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.05421::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.06029::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.07527::pdf-article", 
-            "7"
-        ], 
-        [
-            "10.7554/eLife.05279::pdf-article", 
-            "6"
-        ], 
-        [
-            "10.7554/eLife.05423::pdf-article", 
-            "6"
-        ], 
-        [
-            "10.7554/eLife.06184::pdf-article", 
-            "6"
-        ], 
-        [
-            "10.7554/eLife.00785::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.03600::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.05042::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.06327::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.06346::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.06557::pdf-article", 
-            "5"
-        ], 
-        [
-            "10.7554/eLife.07074::pdf-article", 
-            "5"
+            "10.7554/eLife.00065::pdf-article", 
+            "1"
         ], 
         [
             "10.7554/eLife.00090::pdf-article", 
             "4"
-        ], 
-        [
-            "10.7554/eLife.00726::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.01350::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.02217::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.02403::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.03058::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.03372::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04395::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04660::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04766::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04883::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04960::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04970::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.04979::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.05345::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.05378::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.05538::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.05868::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.05913::pdf-article", 
-            "4"
-        ], 
-        [
-            "10.7554/eLife.01749::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.02687::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.02743::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.02747::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.03342::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.03703::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.04490::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.04581::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.04659::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.05003::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.05098::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.06205::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.06250::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.06358::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.06567::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.06734::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.07604::pdf-article", 
-            "3"
-        ], 
-        [
-            "10.7554/eLife.00269::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00334::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00400::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00590::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00731::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00762::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00780::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00813::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00943::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01119::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01120::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01157::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01256::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01488::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01539::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01808::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01828::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01849::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01963::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.01967::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.02030::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.02523::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.02653::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.02676::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.02725::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03189::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03245::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03363::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03430::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03497::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03564::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03678::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03708::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03772::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03868::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03883::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03939::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03970::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03971::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.03981::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04069::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04379::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04407::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04478::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04586::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04645::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04729::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04837::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.04872::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05033::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05118::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05154::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05224::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05269::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05491::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05534::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05635::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05789::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05826::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05846::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.05871::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.06034::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.06074::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.06156::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.06179::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.07322::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.07390::pdf-article", 
-            "2"
-        ], 
-        [
-            "10.7554/eLife.00065::pdf-article", 
-            "1"
         ], 
         [
             "10.7554/eLife.00116::pdf-article", 
@@ -554,6 +58,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.00269::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.00290::pdf-article", 
             "1"
         ], 
@@ -570,6 +78,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.00334::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.00348::pdf-article", 
             "1"
         ], 
@@ -580,6 +92,10 @@
         [
             "10.7554/eLife.00367::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.00400::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.00458::pdf-article", 
@@ -612,6 +128,10 @@
         [
             "10.7554/eLife.00571::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.00590::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.00594::pdf-article", 
@@ -662,6 +182,14 @@
             "1"
         ], 
         [
+            "10.7554/eLife.00726::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.00731::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.00745::pdf-article", 
             "1"
         ], 
@@ -670,12 +198,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.00762::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.00780::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.00782::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.00785::pdf-article", 
+            "5"
+        ], 
+        [
             "10.7554/eLife.00808::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.00813::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.00844::pdf-article", 
@@ -688,6 +232,10 @@
         [
             "10.7554/eLife.00905::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.00943::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.00969::pdf-article", 
@@ -710,6 +258,18 @@
             "1"
         ], 
         [
+            "10.7554/eLife.01119::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.01120::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.01157::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.01179::pdf-article", 
             "1"
         ], 
@@ -720,6 +280,10 @@
         [
             "10.7554/eLife.01234::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.01256::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.01279::pdf-article", 
@@ -746,6 +310,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.01350::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.01385::pdf-article", 
             "1"
         ], 
@@ -760,6 +328,14 @@
         [
             "10.7554/eLife.01465::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.01488::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.01539::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.01557::pdf-article", 
@@ -794,12 +370,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.01749::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.01808::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.01817::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.01828::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.01832::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.01849::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.01861::pdf-article", 
@@ -820,6 +412,18 @@
         [
             "10.7554/eLife.01949::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.01963::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.01967::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.02030::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.02040::pdf-article", 
@@ -866,6 +470,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.02217::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.02230::pdf-article", 
             "1"
         ], 
@@ -886,12 +494,20 @@
             "1"
         ], 
         [
+            "10.7554/eLife.02403::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.02504::pdf-article", 
             "1"
         ], 
         [
             "10.7554/eLife.02517::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.02523::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.02525::pdf-article", 
@@ -902,6 +518,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.02653::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.02669::pdf-article", 
             "1"
         ], 
@@ -910,8 +530,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.02676::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.02687::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.02725::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.02740::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.02743::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.02747::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.02786::pdf-article", 
@@ -950,6 +590,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03058::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.03080::pdf-article", 
             "1"
         ], 
@@ -958,8 +602,16 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03189::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03229::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03245::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.03254::pdf-article", 
@@ -982,8 +634,20 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03342::pdf-article", 
+            "3"
+        ], 
+        [
             "10.7554/eLife.03351::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03363::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.03372::pdf-article", 
+            "4"
         ], 
         [
             "10.7554/eLife.03390::pdf-article", 
@@ -998,6 +662,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03430::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03433::pdf-article", 
             "1"
         ], 
@@ -1010,12 +678,24 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03497::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03498::pdf-article", 
             "1"
         ], 
         [
             "10.7554/eLife.03523::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03564::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.03600::pdf-article", 
+            "5"
         ], 
         [
             "10.7554/eLife.03614::pdf-article", 
@@ -1050,12 +730,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03678::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03679::pdf-article", 
             "1"
         ], 
         [
             "10.7554/eLife.03697::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03700::pdf-article", 
+            "7"
+        ], 
+        [
+            "10.7554/eLife.03703::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.03708::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.03735::pdf-article", 
@@ -1066,8 +762,16 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03772::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03781::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03790::pdf-article", 
+            "7"
         ], 
         [
             "10.7554/eLife.03819::pdf-article", 
@@ -1076,6 +780,14 @@
         [
             "10.7554/eLife.03848::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03868::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.03883::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.03891::pdf-article", 
@@ -1090,12 +802,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.03939::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03949::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.03970::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.03971::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.03980::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.03981::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.04000::pdf-article", 
@@ -1112,6 +840,10 @@
         [
             "10.7554/eLife.04066::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04069::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.04094::pdf-article", 
@@ -1166,16 +898,36 @@
             "1"
         ], 
         [
+            "10.7554/eLife.04379::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.04390::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04395::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.04407::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.04463::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.04478::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.04489::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04490::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.04491::pdf-article", 
@@ -1194,6 +946,14 @@
             "1"
         ], 
         [
+            "10.7554/eLife.04581::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.04586::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.04601::pdf-article", 
             "1"
         ], 
@@ -1210,12 +970,32 @@
             "1"
         ], 
         [
+            "10.7554/eLife.04645::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.04659::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.04660::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.04711::pdf-article", 
             "1"
         ], 
         [
             "10.7554/eLife.04726::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04729::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.04766::pdf-article", 
+            "4"
         ], 
         [
             "10.7554/eLife.04775::pdf-article", 
@@ -1226,8 +1006,16 @@
             "1"
         ], 
         [
+            "10.7554/eLife.04837::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.04871::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04872::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.04875::pdf-article", 
@@ -1242,8 +1030,32 @@
             "1"
         ], 
         [
+            "10.7554/eLife.04883::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.04960::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.04970::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.04979::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.04986::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.04988::pdf-article", 
+            "12"
+        ], 
+        [
+            "10.7554/eLife.05003::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.05007::pdf-article", 
@@ -1254,8 +1066,20 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05033::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05042::pdf-article", 
+            "5"
+        ], 
+        [
             "10.7554/eLife.05055::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05098::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.05105::pdf-article", 
@@ -1266,12 +1090,32 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05118::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05154::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.05161::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.05224::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.05242::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05269::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05279::pdf-article", 
+            "6"
         ], 
         [
             "10.7554/eLife.05289::pdf-article", 
@@ -1282,12 +1126,36 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05345::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.05361::pdf-article", 
+            "7"
+        ], 
+        [
             "10.7554/eLife.05375::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.05378::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.05421::pdf-article", 
+            "7"
+        ], 
+        [
+            "10.7554/eLife.05423::pdf-article", 
+            "6"
+        ], 
+        [
             "10.7554/eLife.05449::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05457::pdf-article", 
+            "11"
         ], 
         [
             "10.7554/eLife.05464::pdf-article", 
@@ -1298,8 +1166,16 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05473::pdf-article", 
+            "17"
+        ], 
+        [
             "10.7554/eLife.05477::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05491::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.05503::pdf-article", 
@@ -1314,6 +1190,18 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05531::pdf-article", 
+            "8"
+        ], 
+        [
+            "10.7554/eLife.05534::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05538::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.05544::pdf-article", 
             "1"
         ], 
@@ -1326,12 +1214,20 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05604::pdf-article", 
+            "9"
+        ], 
+        [
             "10.7554/eLife.05606::pdf-article", 
             "1"
         ], 
         [
             "10.7554/eLife.05608::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05635::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.05651::pdf-article", 
@@ -1342,8 +1238,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05789::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05826::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.05835::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.05846::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.05868::pdf-article", 
+            "4"
+        ], 
+        [
+            "10.7554/eLife.05871::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.05875::pdf-article", 
@@ -1354,8 +1270,20 @@
             "1"
         ], 
         [
+            "10.7554/eLife.05913::pdf-article", 
+            "4"
+        ], 
+        [
             "10.7554/eLife.06024::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.06029::pdf-article", 
+            "7"
+        ], 
+        [
+            "10.7554/eLife.06034::pdf-article", 
+            "2"
         ], 
         [
             "10.7554/eLife.06054::pdf-article", 
@@ -1366,16 +1294,52 @@
             "1"
         ], 
         [
+            "10.7554/eLife.06074::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.06119::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.06156::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.06179::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.06184::pdf-article", 
+            "6"
         ], 
         [
             "10.7554/eLife.06195::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.06205::pdf-article", 
+            "3"
+        ], 
+        [
+            "10.7554/eLife.06250::pdf-article", 
+            "3"
+        ], 
+        [
             "10.7554/eLife.06253::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.06327::pdf-article", 
+            "5"
+        ], 
+        [
+            "10.7554/eLife.06346::pdf-article", 
+            "5"
+        ], 
+        [
+            "10.7554/eLife.06358::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.06380::pdf-article", 
@@ -1390,12 +1354,24 @@
             "1"
         ], 
         [
+            "10.7554/eLife.06557::pdf-article", 
+            "5"
+        ], 
+        [
             "10.7554/eLife.06565::pdf-article", 
             "1"
         ], 
         [
+            "10.7554/eLife.06567::pdf-article", 
+            "3"
+        ], 
+        [
             "10.7554/eLife.06633::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.06734::pdf-article", 
+            "3"
         ], 
         [
             "10.7554/eLife.06758::pdf-article", 
@@ -1414,6 +1390,10 @@
             "1"
         ], 
         [
+            "10.7554/eLife.07074::pdf-article", 
+            "5"
+        ], 
+        [
             "10.7554/eLife.07108::pdf-article", 
             "1"
         ], 
@@ -1422,8 +1402,28 @@
             "1"
         ], 
         [
+            "10.7554/eLife.07314::pdf-article", 
+            "8"
+        ], 
+        [
+            "10.7554/eLife.07322::pdf-article", 
+            "2"
+        ], 
+        [
+            "10.7554/eLife.07390::pdf-article", 
+            "2"
+        ], 
+        [
             "10.7554/eLife.07431::pdf-article", 
             "1"
+        ], 
+        [
+            "10.7554/eLife.07527::pdf-article", 
+            "7"
+        ], 
+        [
+            "10.7554/eLife.07604::pdf-article", 
+            "3"
         ]
     ], 
     "totalResults": 349, 

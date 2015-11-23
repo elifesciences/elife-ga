@@ -23,611 +23,19 @@
             "ga:pageviews"
         ], 
         "sort": [
-            "-ga:pageviews"
+            "ga:pagePath"
         ], 
         "start-date": "2015-08-29", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "/content/early/2015/08/27/eLife.07242", 
-            "50"
-        ], 
-        [
-            "/content/4/e07957", 
-            "49"
-        ], 
-        [
-            "/content/4/e08709", 
-            "40"
-        ], 
-        [
-            "/content/4/e08261", 
-            "31"
-        ], 
-        [
-            "/content/4/e08964", 
-            "26"
-        ], 
-        [
-            "/content/4/e09305", 
-            "26"
-        ], 
-        [
-            "/content/4/e09336", 
-            "25"
-        ], 
-        [
-            "/content/4/e07048", 
-            "24"
-        ], 
-        [
-            "/content/early/2015/08/19/eLife.07597", 
-            "24"
-        ], 
-        [
-            "/content/early/2015/08/25/eLife.08828", 
-            "24"
-        ], 
-        [
-            "/content/4/e06394", 
-            "21"
-        ], 
-        [
-            "/content/early/2015/08/26/eLife.08417", 
-            "20"
-        ], 
-        [
-            "/content/early/2015/08/27/eLife.09221", 
-            "20"
-        ], 
-        [
-            "/content/4/e04805", 
-            "18"
-        ], 
-        [
-            "/content/4/e10233", 
-            "17"
-        ], 
-        [
-            "/content/early/2015/08/26/eLife.09457", 
-            "17"
-        ], 
-        [
-            "/content/early/2015/08/28/eLife.07777", 
-            "17"
-        ], 
-        [
-            "/content/4/e07467", 
-            "16"
-        ], 
-        [
-            "/content/early/2015/08/26/eLife.09358", 
-            "16"
-        ], 
-        [
-            "/content/4/e05795", 
-            "14"
-        ], 
-        [
-            "/content/early/2015/08/28/eLife.10782", 
-            "14"
-        ], 
-        [
-            "/content/4/e06956", 
-            "13"
-        ], 
-        [
-            "/content/4/e07546", 
-            "13"
-        ], 
-        [
-            "/content/3/e04333", 
-            "12"
-        ], 
-        [
-            "/content/4/e06054", 
-            "12"
-        ], 
-        [
-            "/content/4/e06063", 
-            "12"
-        ], 
-        [
-            "/content/4/e06967", 
-            "12"
-        ], 
-        [
-            "/content/early/2015/08/22/eLife.09178", 
-            "12"
-        ], 
-        [
-            "/content/early/2015/08/26/eLife.07886", 
-            "12"
-        ], 
-        [
-            "/content/early/2015/08/28/eLife.07687", 
-            "12"
-        ], 
-        [
-            "/content/early/2015/08/29/eLife.08647", 
-            "12"
-        ], 
-        [
-            "/content/2/e01202", 
-            "11"
-        ], 
-        [
-            "/content/early/2015/06/15/eLife.07864", 
-            "11"
-        ], 
-        [
-            "/content/early/2015/08/24/eLife.08627", 
-            "11"
-        ], 
-        [
-            "/content/early/2015/08/29/eLife.07902", 
-            "11"
-        ], 
-        [
-            "/content/4/e05397", 
-            "10"
-        ], 
-        [
-            "/content/4/e07158", 
-            "10"
-        ], 
-        [
-            "/content/4/e07935", 
-            "10"
-        ], 
-        [
-            "/content/early/2015/08/24/eLife.07830", 
-            "10"
-        ], 
-        [
-            "/content/early/2015/08/25/eLife.08193", 
-            "10"
-        ], 
-        [
-            "/content/early/2015/08/27/eLife.07759", 
-            "10"
-        ], 
-        [
-            "/content/3/e01489", 
-            "9"
-        ], 
-        [
-            "/content/4/e06619", 
-            "9"
-        ], 
-        [
-            "/content/4/e06883", 
-            "9"
-        ], 
-        [
-            "/content/4/e07836", 
-            "9"
-        ], 
-        [
-            "/content/4/e10040", 
-            "9"
-        ], 
-        [
-            "/content/early/2015/08/22/eLife.08142", 
-            "9"
-        ], 
-        [
-            "/content/2/e00288", 
-            "8"
-        ], 
-        [
-            "/content/2/e00471", 
-            "8"
-        ], 
-        [
-            "/content/4/e05005", 
-            "8"
-        ], 
-        [
-            "/content/4/e06356", 
-            "8"
-        ], 
-        [
-            "/content/4/e07865", 
-            "8"
-        ], 
-        [
-            "/content/4/e08490", 
-            "8"
-        ], 
-        [
-            "/content/4/e10161", 
-            "8"
-        ], 
-        [
-            "/content/early/2015/08/17/eLife.09031", 
-            "8"
-        ], 
-        [
-            "/content/early/2015/08/26/eLife.08493", 
-            "8"
-        ], 
-        [
-            "/content/early/2015/08/27/eLife.10782", 
-            "8"
-        ], 
-        [
             "/content/1/e00005", 
             "7"
         ], 
         [
-            "/content/3/e01916", 
-            "7"
-        ], 
-        [
-            "/content/3/e03678", 
-            "7"
-        ], 
-        [
-            "/content/3/e04660", 
-            "7"
-        ], 
-        [
-            "/content/4/e06394.abstract", 
-            "7"
-        ], 
-        [
-            "/content/4/e06444", 
-            "7"
-        ], 
-        [
-            "/content/4/e07433", 
-            "7"
-        ], 
-        [
-            "/content/4/e07750", 
-            "7"
-        ], 
-        [
-            "/content/4/e10054", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/06/eLife.06414", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/14/eLife.09590", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/14/eLife.10072", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/17/eLife.05828", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/24/eLife.07519", 
-            "7"
-        ], 
-        [
-            "/content/early/2015/08/24/eLife.08088", 
-            "7"
-        ], 
-        [
-            "/content/1/e00181", 
-            "6"
-        ], 
-        [
-            "/content/4/e04260", 
-            "6"
-        ], 
-        [
-            "/content/4/e05793", 
-            "6"
-        ], 
-        [
-            "/content/4/e07343", 
-            "6"
-        ], 
-        [
-            "/content/4/e07607", 
-            "6"
-        ], 
-        [
-            "/content/4/e08127", 
-            "6"
-        ], 
-        [
-            "/content/4/e08163", 
-            "6"
-        ], 
-        [
-            "/content/early/2014/09/05/eLife.04395", 
-            "6"
-        ], 
-        [
-            "/content/early/2015/08/19/eLife.07909", 
-            "6"
-        ], 
-        [
-            "/content/early/2015/08/19/eLife.09351", 
-            "6"
-        ], 
-        [
-            "/content/1/e00090", 
-            "5"
-        ], 
-        [
-            "/content/2/e00476", 
-            "5"
-        ], 
-        [
-            "/content/2/e00960/abstract-2", 
-            "5"
-        ], 
-        [
-            "/content/2/e01402", 
-            "5"
-        ], 
-        [
-            "/content/3/e03473", 
-            "5"
-        ], 
-        [
-            "/content/3/e03896", 
-            "5"
-        ], 
-        [
-            "/content/3/e04686", 
-            "5"
-        ], 
-        [
-            "/content/3/e05031.abstract", 
-            "5"
-        ], 
-        [
-            "/content/4/e03599", 
-            "5"
-        ], 
-        [
-            "/content/4/e05563", 
-            "5"
-        ], 
-        [
-            "/content/4/e05849", 
-            "5"
-        ], 
-        [
-            "/content/4/e05979", 
-            "5"
-        ], 
-        [
-            "/content/4/e06585", 
-            "5"
-        ], 
-        [
-            "/content/4/e06807", 
-            "5"
-        ], 
-        [
-            "/content/4/e06930", 
-            "5"
-        ], 
-        [
-            "/content/4/e06935", 
-            "5"
-        ], 
-        [
-            "/content/4/e06942", 
-            "5"
-        ], 
-        [
-            "/content/4/e07205", 
-            "5"
-        ], 
-        [
-            "/content/4/e07301", 
-            "5"
-        ], 
-        [
-            "/content/4/e07935.abstract", 
-            "5"
-        ], 
-        [
-            "/content/4/e07956", 
-            "5"
-        ], 
-        [
-            "/content/4/e09017", 
-            "5"
-        ], 
-        [
-            "/content/4/e09519", 
-            "5"
-        ], 
-        [
-            "/content/4/e10317", 
-            "5"
-        ], 
-        [
-            "/content/early/2015/06/07/eLife.08352", 
-            "5"
-        ], 
-        [
-            "/content/early/2015/07/21/eLife.07836", 
-            "5"
-        ], 
-        [
-            "/content/early/2015/08/14/eLife.08905", 
-            "5"
-        ], 
-        [
-            "/content/early/2015/08/27/eLife.09073", 
-            "5"
-        ], 
-        [
-            "/content/1/e00117", 
-            "4"
-        ], 
-        [
-            "/content/2/e00669", 
-            "4"
-        ], 
-        [
-            "/content/2/e00747", 
-            "4"
-        ], 
-        [
-            "/content/2/e00861", 
-            "4"
-        ], 
-        [
-            "/content/3/e01385", 
-            "4"
-        ], 
-        [
-            "/content/3/e01739", 
-            "4"
-        ], 
-        [
-            "/content/3/e02641", 
-            "4"
-        ], 
-        [
-            "/content/3/e02844", 
-            "4"
-        ], 
-        [
-            "/content/3/e03401.abstract", 
-            "4"
-        ], 
-        [
-            "/content/3/e03430", 
-            "4"
-        ], 
-        [
-            "/content/3/e04006", 
-            "4"
-        ], 
-        [
-            "/content/3/e04193", 
-            "4"
-        ], 
-        [
-            "/content/3/e04235", 
-            "4"
-        ], 
-        [
-            "/content/3/e04395", 
-            "4"
-        ], 
-        [
-            "/content/3/e04577", 
-            "4"
-        ], 
-        [
-            "/content/3/e04969", 
-            "4"
-        ], 
-        [
-            "/content/4/e05635", 
-            "4"
-        ], 
-        [
-            "/content/4/e05856", 
-            "4"
-        ], 
-        [
-            "/content/4/e06114", 
-            "4"
-        ], 
-        [
-            "/content/4/e06346", 
-            "4"
-        ], 
-        [
-            "/content/4/e06620", 
-            "4"
-        ], 
-        [
-            "/content/4/e06678", 
-            "4"
-        ], 
-        [
-            "/content/4/e06907", 
-            "4"
-        ], 
-        [
-            "/content/4/e07187", 
-            "4"
-        ], 
-        [
-            "/content/4/e07378", 
-            "4"
-        ], 
-        [
-            "/content/4/e07460", 
-            "4"
-        ], 
-        [
-            "/content/4/e07635.abstract", 
-            "4"
-        ], 
-        [
-            "/content/4/e07643", 
-            "4"
-        ], 
-        [
-            "/content/4/e07808", 
-            "4"
-        ], 
-        [
-            "/content/4/e08007", 
-            "4"
-        ], 
-        [
-            "/content/4/e08274", 
-            "4"
-        ], 
-        [
-            "/content/4/e08298", 
-            "4"
-        ], 
-        [
-            "/content/4/e08811", 
-            "4"
-        ], 
-        [
-            "/content/4/e09225", 
-            "4"
-        ], 
-        [
-            "/content/4/e09275", 
-            "4"
-        ], 
-        [
-            "/content/4/e09666", 
-            "4"
-        ], 
-        [
-            "/content/4/e10233.full", 
-            "4"
-        ], 
-        [
-            "/content/early/2014/11/20/eLife.04686", 
-            "4"
-        ], 
-        [
-            "/content/early/2015/06/23/eLife.07090", 
-            "4"
-        ], 
-        [
-            "/content/early/2015/08/13/eLife.06885", 
-            "4"
+            "/content/1/e00031", 
+            "1"
         ], 
         [
             "/content/1/e00049", 
@@ -638,1040 +46,24 @@
             "3"
         ], 
         [
-            "/content/2/e00421", 
-            "3"
-        ], 
-        [
-            "/content/2/e00425", 
-            "3"
-        ], 
-        [
-            "/content/2/e00675", 
-            "3"
-        ], 
-        [
-            "/content/2/e00731", 
-            "3"
-        ], 
-        [
-            "/content/2/e00731.full", 
-            "3"
-        ], 
-        [
-            "/content/3/e01308", 
-            "3"
-        ], 
-        [
-            "/content/3/e01566/abstract-2", 
-            "3"
-        ], 
-        [
-            "/content/3/e02171.short", 
-            "3"
-        ], 
-        [
-            "/content/3/e02236", 
-            "3"
-        ], 
-        [
-            "/content/3/e02362", 
-            "3"
-        ], 
-        [
-            "/content/3/e02715", 
-            "3"
-        ], 
-        [
-            "/content/3/e02956", 
-            "3"
-        ], 
-        [
-            "/content/3/e02956.full", 
-            "3"
-        ], 
-        [
-            "/content/3/e03091", 
-            "3"
-        ], 
-        [
-            "/content/3/e03245", 
-            "3"
-        ], 
-        [
-            "/content/3/e03383", 
-            "3"
-        ], 
-        [
-            "/content/3/e03401", 
-            "3"
-        ], 
-        [
-            "/content/3/e03848", 
-            "3"
-        ], 
-        [
-            "/content/3/e03891", 
-            "3"
-        ], 
-        [
-            "/content/3/e04165.abstract", 
-            "3"
-        ], 
-        [
-            "/content/3/e04177", 
-            "3"
-        ], 
-        [
-            "/content/3/e04766", 
-            "3"
-        ], 
-        [
-            "/content/3/e04875", 
-            "3"
-        ], 
-        [
-            "/content/4/e04493", 
-            "3"
-        ], 
-        [
-            "/content/4/e05007", 
-            "3"
-        ], 
-        [
-            "/content/4/e05178", 
-            "3"
-        ], 
-        [
-            "/content/4/e05767", 
-            "3"
-        ], 
-        [
-            "/content/4/e05808", 
-            "3"
-        ], 
-        [
-            "/content/4/e05864", 
-            "3"
-        ], 
-        [
-            "/content/4/e05868", 
-            "3"
-        ], 
-        [
-            "/content/4/e05875", 
-            "3"
-        ], 
-        [
-            "/content/4/e05919", 
-            "3"
-        ], 
-        [
-            "/content/4/e06203", 
-            "3"
-        ], 
-        [
-            "/content/4/e06205", 
-            "3"
-        ], 
-        [
-            "/content/4/e06213", 
-            "3"
-        ], 
-        [
-            "/content/4/e06416", 
-            "3"
-        ], 
-        [
-            "/content/4/e06467", 
-            "3"
-        ], 
-        [
-            "/content/4/e06513", 
-            "3"
-        ], 
-        [
-            "/content/4/e06513.abstract", 
-            "3"
-        ], 
-        [
-            "/content/4/e06848", 
-            "3"
-        ], 
-        [
-            "/content/4/e06956/abstract-1", 
-            "3"
-        ], 
-        [
-            "/content/4/e06974", 
-            "3"
-        ], 
-        [
-            "/content/4/e07025.abstract", 
-            "3"
-        ], 
-        [
-            "/content/4/e07192", 
-            "3"
-        ], 
-        [
-            "/content/4/e07224", 
-            "3"
-        ], 
-        [
-            "/content/4/e07288", 
-            "3"
-        ], 
-        [
-            "/content/4/e07366", 
-            "3"
-        ], 
-        [
-            "/content/4/e07527", 
-            "3"
-        ], 
-        [
-            "/content/4/e07635", 
-            "3"
-        ], 
-        [
-            "/content/4/e07641", 
-            "3"
-        ], 
-        [
-            "/content/4/e07736.abstract", 
-            "3"
-        ], 
-        [
-            "/content/4/e07808.full", 
-            "3"
-        ], 
-        [
-            "/content/4/e07860", 
-            "3"
-        ], 
-        [
-            "/content/4/e07864", 
-            "3"
-        ], 
-        [
-            "/content/4/e07901", 
-            "3"
-        ], 
-        [
-            "/content/4/e07961", 
-            "3"
-        ], 
-        [
-            "/content/4/e08710", 
-            "3"
-        ], 
-        [
-            "/content/4/e09103", 
-            "3"
-        ], 
-        [
-            "/content/4/e09262", 
-            "3"
-        ], 
-        [
-            "/content/4/e09713", 
-            "3"
-        ], 
-        [
-            "/content/4/e09919", 
-            "3"
-        ], 
-        [
-            "/content/4/e10328", 
-            "3"
-        ], 
-        [
-            "/content/early/2014/12/05/eLife.04389", 
-            "3"
-        ], 
-        [
-            "/content/early/2014/12/18/eLife.02777", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/03/16/eLife.05224", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/03/30/eLife.06073", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/06/17/eLife.07493", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/08/10/eLife.06925", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/08/11/eLife.07486", 
-            "3"
-        ], 
-        [
-            "/content/early/2015/08/19/eLife.07735", 
-            "3"
-        ], 
-        [
-            "/content/1/e00387", 
-            "2"
-        ], 
-        [
-            "/content/2/e00321", 
-            "2"
-        ], 
-        [
-            "/content/2/e00348", 
-            "2"
-        ], 
-        [
-            "/content/2/e00458", 
-            "2"
-        ], 
-        [
-            "/content/2/e00498", 
-            "2"
-        ], 
-        [
-            "/content/2/e00499", 
-            "2"
-        ], 
-        [
-            "/content/2/e00523", 
-            "2"
-        ], 
-        [
-            "/content/2/e00571", 
-            "2"
-        ], 
-        [
-            "/content/2/e00625", 
-            "2"
-        ], 
-        [
-            "/content/2/e00658", 
-            "2"
-        ], 
-        [
-            "/content/2/e00659", 
-            "2"
-        ], 
-        [
-            "/content/2/e00824", 
-            "2"
-        ], 
-        [
-            "/content/2/e00943", 
-            "2"
-        ], 
-        [
-            "/content/2/e00943.full", 
-            "2"
-        ], 
-        [
-            "/content/2/e01089", 
-            "2"
-        ], 
-        [
-            "/content/2/e01102", 
-            "2"
-        ], 
-        [
-            "/content/2/e01157", 
-            "2"
-        ], 
-        [
-            "/content/2/e01256", 
-            "2"
-        ], 
-        [
-            "/content/2/e01341", 
-            "2"
-        ], 
-        [
-            "/content/2/e01403", 
-            "2"
-        ], 
-        [
-            "/content/2/e01501", 
-            "2"
-        ], 
-        [
-            "/content/3/e00590", 
-            "2"
-        ], 
-        [
-            "/content/3/e01433.short", 
-            "2"
-        ], 
-        [
-            "/content/3/e01566", 
-            "2"
-        ], 
-        [
-            "/content/3/e01569", 
-            "2"
-        ], 
-        [
-            "/content/3/e01621", 
-            "2"
-        ], 
-        [
-            "/content/3/e01632", 
-            "2"
-        ], 
-        [
-            "/content/3/e01695", 
-            "2"
-        ], 
-        [
-            "/content/3/e01751", 
-            "2"
-        ], 
-        [
-            "/content/3/e01888", 
-            "2"
-        ], 
-        [
-            "/content/3/e01913", 
-            "2"
-        ], 
-        [
-            "/content/3/e01936", 
-            "2"
-        ], 
-        [
-            "/content/3/e01967", 
-            "2"
-        ], 
-        [
-            "/content/3/e02009", 
-            "2"
-        ], 
-        [
-            "/content/3/e02030", 
-            "2"
-        ], 
-        [
-            "/content/3/e02053", 
-            "2"
-        ], 
-        [
-            "/content/3/e02115", 
-            "2"
-        ], 
-        [
-            "/content/3/e02184", 
-            "2"
-        ], 
-        [
-            "/content/3/e02200", 
-            "2"
-        ], 
-        [
-            "/content/3/e02286", 
-            "2"
-        ], 
-        [
-            "/content/3/e02372", 
-            "2"
-        ], 
-        [
-            "/content/3/e02394", 
-            "2"
-        ], 
-        [
-            "/content/3/e02525", 
-            "2"
-        ], 
-        [
-            "/content/3/e02740.full", 
-            "2"
-        ], 
-        [
-            "/content/3/e02750", 
-            "2"
-        ], 
-        [
-            "/content/3/e02780", 
-            "2"
-        ], 
-        [
-            "/content/3/e02784", 
-            "2"
-        ], 
-        [
-            "/content/3/e02869", 
-            "2"
-        ], 
-        [
-            "/content/3/e02975.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e03031", 
-            "2"
-        ], 
-        [
-            "/content/3/e03080", 
-            "2"
-        ], 
-        [
-            "/content/3/e03080.full", 
-            "2"
-        ], 
-        [
-            "/content/3/e03115", 
-            "2"
-        ], 
-        [
-            "/content/3/e03116", 
-            "2"
-        ], 
-        [
-            "/content/3/e03300", 
-            "2"
-        ], 
-        [
-            "/content/3/e03307", 
-            "2"
-        ], 
-        [
-            "/content/3/e03311", 
-            "2"
-        ], 
-        [
-            "/content/3/e03351", 
-            "2"
-        ], 
-        [
-            "/content/3/e03372.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e03427.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e03523", 
-            "2"
-        ], 
-        [
-            "/content/3/e03528.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e03573", 
-            "2"
-        ], 
-        [
-            "/content/3/e03635", 
-            "2"
-        ], 
-        [
-            "/content/3/e03648", 
-            "2"
-        ], 
-        [
-            "/content/3/e03679", 
-            "2"
-        ], 
-        [
-            "/content/3/e03697.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e03895", 
-            "2"
-        ], 
-        [
-            "/content/3/e04094", 
-            "2"
-        ], 
-        [
-            "/content/3/e04111.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e04114.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e04135", 
-            "2"
-        ], 
-        [
-            "/content/3/e04165", 
-            "2"
-        ], 
-        [
-            "/content/3/e04406", 
-            "2"
-        ], 
-        [
-            "/content/3/e04591.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e04660.abstract", 
-            "2"
-        ], 
-        [
-            "/content/3/e04779", 
-            "2"
-        ], 
-        [
-            "/content/3/e05031", 
-            "2"
-        ], 
-        [
-            "/content/3/e05418", 
-            "2"
-        ], 
-        [
-            "/content/4/e03522", 
-            "2"
-        ], 
-        [
-            "/content/4/e03614", 
-            "2"
-        ], 
-        [
-            "/content/4/e03778.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e04250", 
-            "2"
-        ], 
-        [
-            "/content/4/e04586.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e04640", 
-            "2"
-        ], 
-        [
-            "/content/4/e04693", 
-            "2"
-        ], 
-        [
-            "/content/4/e04803.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e04837", 
-            "2"
-        ], 
-        [
-            "/content/4/e04851", 
-            "2"
-        ], 
-        [
-            "/content/4/e05033.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e05098", 
-            "2"
-        ], 
-        [
-            "/content/4/e05124", 
-            "2"
-        ], 
-        [
-            "/content/4/e05161", 
-            "2"
-        ], 
-        [
-            "/content/4/e05196", 
-            "2"
-        ], 
-        [
-            "/content/4/e05224.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e05255", 
-            "2"
-        ], 
-        [
-            "/content/4/e05279", 
-            "2"
-        ], 
-        [
-            "/content/4/e05291", 
-            "2"
-        ], 
-        [
-            "/content/4/e05291.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e05338", 
-            "2"
-        ], 
-        [
-            "/content/4/e05421", 
-            "2"
-        ], 
-        [
-            "/content/4/e05506.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e05663/abstract-1", 
-            "2"
-        ], 
-        [
-            "/content/4/e05789", 
-            "2"
-        ], 
-        [
-            "/content/4/e05835", 
-            "2"
-        ], 
-        [
-            "/content/4/e05871", 
-            "2"
-        ], 
-        [
-            "/content/4/e05896", 
-            "2"
-        ], 
-        [
-            "/content/4/e05919/abstract-1", 
-            "2"
-        ], 
-        [
-            "/content/4/e05920", 
-            "2"
-        ], 
-        [
-            "/content/4/e05996", 
-            "2"
-        ], 
-        [
-            "/content/4/e06029.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e06063.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e06119", 
-            "2"
-        ], 
-        [
-            "/content/4/e06356.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e06416.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e06516", 
-            "2"
-        ], 
-        [
-            "/content/4/e06559", 
-            "2"
-        ], 
-        [
-            "/content/4/e06620.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e06717", 
-            "2"
-        ], 
-        [
-            "/content/4/e06738", 
-            "2"
-        ], 
-        [
-            "/content/4/e06793.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e06857", 
-            "2"
-        ], 
-        [
-            "/content/4/e06866", 
-            "2"
-        ], 
-        [
-            "/content/4/e06878", 
-            "2"
-        ], 
-        [
-            "/content/4/e07091", 
-            "2"
-        ], 
-        [
-            "/content/4/e07108", 
-            "2"
-        ], 
-        [
-            "/content/4/e07125", 
-            "2"
-        ], 
-        [
-            "/content/4/e07197", 
-            "2"
-        ], 
-        [
-            "/content/4/e07296", 
-            "2"
-        ], 
-        [
-            "/content/4/e07314", 
-            "2"
-        ], 
-        [
-            "/content/4/e07322", 
-            "2"
-        ], 
-        [
-            "/content/4/e07335", 
-            "2"
-        ], 
-        [
-            "/content/4/e07405.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e07464", 
-            "2"
-        ], 
-        [
-            "/content/4/e07493", 
-            "2"
-        ], 
-        [
-            "/content/4/e07558", 
-            "2"
-        ], 
-        [
-            "/content/4/e07600", 
-            "2"
-        ], 
-        [
-            "/content/4/e07728", 
-            "2"
-        ], 
-        [
-            "/content/4/e07739", 
-            "2"
-        ], 
-        [
-            "/content/4/e07836.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e07861", 
-            "2"
-        ], 
-        [
-            "/content/4/e07865.full", 
-            "2"
-        ], 
-        [
-            "/content/4/e07918", 
-            "2"
-        ], 
-        [
-            "/content/4/e07975", 
-            "2"
-        ], 
-        [
-            "/content/4/e08005", 
-            "2"
-        ], 
-        [
-            "/content/4/e08009", 
-            "2"
-        ], 
-        [
-            "/content/4/e08033", 
-            "2"
-        ], 
-        [
-            "/content/4/e08261.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e08347", 
-            "2"
-        ], 
-        [
-            "/content/4/e08407", 
-            "2"
-        ], 
-        [
-            "/content/4/e08811/abstract-2", 
-            "2"
-        ], 
-        [
-            "/content/4/e09315", 
-            "2"
-        ], 
-        [
-            "/content/4/e09944", 
-            "2"
-        ], 
-        [
-            "/content/4/e10233.abstract", 
-            "2"
-        ], 
-        [
-            "/content/4/e10317.full", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/09/18/eLife.03574", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/10/23/eLife.03766", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/11/19/eLife.03635", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/11/20/eLife.04530", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/12/15/eLife.04766", 
-            "2"
-        ], 
-        [
-            "/content/early/2014/12/19/eLife.05422", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/01/23/eLife.04069", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/02/12/eLife.04535", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/02/25/eLife.04379", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/03/05/eLife.05868", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/03/11/eLife.06380", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/03/27/eLife.06119", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/04/08/eLife.06205", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/05/05/eLife.05068", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/05/08/eLife.05462", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/06/05/eLife.06907", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/06/12/eLife.05607", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/06/23/eLife.07103", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/06/26/eLife.07999", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/06/29/eLife.08347", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/03/eLife.08964", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/14/eLife.07861", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/14/eLife.09143", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/20/eLife.07839", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/20/eLife.08733", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/07/30/eLife.07607", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/08/03/eLife.07247", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/08/10/eLife.06994", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/08/12/eLife.06234", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/08/12/eLife.07455", 
-            "2"
-        ], 
-        [
-            "/content/early/2015/08/14/eLife.06492", 
-            "2"
-        ], 
-        [
-            "/content/1/e00031", 
-            "1"
-        ], 
-        [
             "/content/1/e00078", 
             "1"
         ], 
         [
+            "/content/1/e00090", 
+            "5"
+        ], 
+        [
+            "/content/1/e00117", 
+            "4"
+        ], 
+        [
             "/content/1/e00173", 
             "1"
+        ], 
+        [
+            "/content/1/e00181", 
+            "6"
         ], 
         [
             "/content/1/e00205", 
@@ -1680,6 +72,10 @@
         [
             "/content/1/e00302", 
             "1"
+        ], 
+        [
+            "/content/1/e00387", 
+            "2"
         ], 
         [
             "/content/1/e00387.full", 
@@ -1714,8 +110,20 @@
             "1"
         ], 
         [
+            "/content/2/e00288", 
+            "8"
+        ], 
+        [
+            "/content/2/e00321", 
+            "2"
+        ], 
+        [
             "/content/2/e00334", 
             "1"
+        ], 
+        [
+            "/content/2/e00348", 
+            "2"
         ], 
         [
             "/content/2/e00354", 
@@ -1734,12 +142,28 @@
             "1"
         ], 
         [
+            "/content/2/e00421", 
+            "3"
+        ], 
+        [
+            "/content/2/e00425", 
+            "3"
+        ], 
+        [
             "/content/2/e00435", 
             "1"
         ], 
         [
             "/content/2/e00452", 
             "1"
+        ], 
+        [
+            "/content/2/e00458", 
+            "2"
+        ], 
+        [
+            "/content/2/e00471", 
+            "8"
         ], 
         [
             "/content/2/e00471.full", 
@@ -1750,6 +174,10 @@
             "1"
         ], 
         [
+            "/content/2/e00476", 
+            "5"
+        ], 
+        [
             "/content/2/e00476.full", 
             "1"
         ], 
@@ -1758,12 +186,24 @@
             "1"
         ], 
         [
+            "/content/2/e00498", 
+            "2"
+        ], 
+        [
+            "/content/2/e00499", 
+            "2"
+        ], 
+        [
             "/content/2/e00505", 
             "1"
         ], 
         [
             "/content/2/e00518.abstract", 
             "1"
+        ], 
+        [
+            "/content/2/e00523", 
+            "2"
         ], 
         [
             "/content/2/e00523.abstract", 
@@ -1786,12 +226,20 @@
             "1"
         ], 
         [
+            "/content/2/e00571", 
+            "2"
+        ], 
+        [
             "/content/2/e00571.full", 
             "1"
         ], 
         [
             "/content/2/e00603", 
             "1"
+        ], 
+        [
+            "/content/2/e00625", 
+            "2"
         ], 
         [
             "/content/2/e00631.abstract", 
@@ -1802,12 +250,28 @@
             "1"
         ], 
         [
+            "/content/2/e00658", 
+            "2"
+        ], 
+        [
+            "/content/2/e00659", 
+            "2"
+        ], 
+        [
             "/content/2/e00666", 
             "1"
         ], 
         [
+            "/content/2/e00669", 
+            "4"
+        ], 
+        [
             "/content/2/e00672", 
             "1"
+        ], 
+        [
+            "/content/2/e00675", 
+            "3"
         ], 
         [
             "/content/2/e00683", 
@@ -1830,12 +294,24 @@
             "1"
         ], 
         [
+            "/content/2/e00731", 
+            "3"
+        ], 
+        [
             "/content/2/e00731.abstract", 
             "1"
         ], 
         [
+            "/content/2/e00731.full", 
+            "3"
+        ], 
+        [
             "/content/2/e00744", 
             "1"
+        ], 
+        [
+            "/content/2/e00747", 
+            "4"
         ], 
         [
             "/content/2/e00757", 
@@ -1870,8 +346,16 @@
             "1"
         ], 
         [
+            "/content/2/e00824", 
+            "2"
+        ], 
+        [
             "/content/2/e00828.abstract", 
             "1"
+        ], 
+        [
+            "/content/2/e00861", 
+            "4"
         ], 
         [
             "/content/2/e00862", 
@@ -1882,8 +366,20 @@
             "1"
         ], 
         [
+            "/content/2/e00886", 
+            "0"
+        ], 
+        [
+            "/content/2/e00943", 
+            "2"
+        ], 
+        [
             "/content/2/e00943.abstract", 
             "1"
+        ], 
+        [
+            "/content/2/e00943.full", 
+            "2"
         ], 
         [
             "/content/2/e00960.abstract", 
@@ -1892,6 +388,10 @@
         [
             "/content/2/e00960.full", 
             "1"
+        ], 
+        [
+            "/content/2/e00960/abstract-2", 
+            "5"
         ], 
         [
             "/content/2/e00961.abstract", 
@@ -1906,8 +406,20 @@
             "1"
         ], 
         [
+            "/content/2/e01089", 
+            "2"
+        ], 
+        [
             "/content/2/e01098", 
             "1"
+        ], 
+        [
+            "/content/2/e01102", 
+            "2"
+        ], 
+        [
+            "/content/2/e01104.full", 
+            "0"
         ], 
         [
             "/content/2/e01127", 
@@ -1926,12 +438,24 @@
             "1"
         ], 
         [
+            "/content/2/e01157", 
+            "2"
+        ], 
+        [
             "/content/2/e01179", 
             "1"
         ], 
         [
+            "/content/2/e01202", 
+            "11"
+        ], 
+        [
             "/content/2/e01202/abstract-2", 
             "1"
+        ], 
+        [
+            "/content/2/e01256", 
+            "2"
         ], 
         [
             "/content/2/e01279", 
@@ -1946,6 +470,18 @@
             "1"
         ], 
         [
+            "/content/2/e01341", 
+            "2"
+        ], 
+        [
+            "/content/2/e01402", 
+            "5"
+        ], 
+        [
+            "/content/2/e01403", 
+            "2"
+        ], 
+        [
             "/content/2/e01403.full", 
             "1"
         ], 
@@ -1958,8 +494,20 @@
             "1"
         ], 
         [
+            "/content/2/e01501", 
+            "2"
+        ], 
+        [
             "/content/2/e01503", 
             "1"
+        ], 
+        [
+            "/content/2/e01749", 
+            "0"
+        ], 
+        [
+            "/content/3/e00590", 
+            "2"
         ], 
         [
             "/content/3/e01239.abstract", 
@@ -1970,12 +518,24 @@
             "1"
         ], 
         [
+            "/content/3/e01308", 
+            "3"
+        ], 
+        [
             "/content/3/e01308/abstract-2", 
             "1"
         ], 
         [
             "/content/3/e01370", 
             "1"
+        ], 
+        [
+            "/content/3/e01385", 
+            "4"
+        ], 
+        [
+            "/content/3/e01433.short", 
+            "2"
         ], 
         [
             "/content/3/e01473", 
@@ -1990,8 +550,24 @@
             "1"
         ], 
         [
+            "/content/3/e01489", 
+            "9"
+        ], 
+        [
             "/content/3/e01489/abstract-1", 
             "1"
+        ], 
+        [
+            "/content/3/e01566", 
+            "2"
+        ], 
+        [
+            "/content/3/e01566/abstract-2", 
+            "3"
+        ], 
+        [
+            "/content/3/e01569", 
+            "2"
         ], 
         [
             "/content/3/e01607", 
@@ -2002,6 +578,14 @@
             "1"
         ], 
         [
+            "/content/3/e01612", 
+            "0"
+        ], 
+        [
+            "/content/3/e01621", 
+            "2"
+        ], 
+        [
             "/content/3/e01623", 
             "1"
         ], 
@@ -2010,8 +594,20 @@
             "1"
         ], 
         [
+            "/content/3/e01632", 
+            "2"
+        ], 
+        [
             "/content/3/e01641", 
             "1"
+        ], 
+        [
+            "/content/3/e01695", 
+            "2"
+        ], 
+        [
+            "/content/3/e01739", 
+            "4"
         ], 
         [
             "/content/3/e01741", 
@@ -2020,6 +616,10 @@
         [
             "/content/3/e01741.abstract", 
             "1"
+        ], 
+        [
+            "/content/3/e01751", 
+            "2"
         ], 
         [
             "/content/3/e01754", 
@@ -2054,12 +654,28 @@
             "1"
         ], 
         [
+            "/content/3/e01888", 
+            "2"
+        ], 
+        [
             "/content/3/e01911", 
             "1"
         ], 
         [
+            "/content/3/e01913", 
+            "2"
+        ], 
+        [
+            "/content/3/e01916", 
+            "7"
+        ], 
+        [
             "/content/3/e01917", 
             "1"
+        ], 
+        [
+            "/content/3/e01936", 
+            "2"
         ], 
         [
             "/content/3/e01948", 
@@ -2078,6 +694,10 @@
             "1"
         ], 
         [
+            "/content/3/e01967", 
+            "2"
+        ], 
+        [
             "/content/3/e01982", 
             "1"
         ], 
@@ -2086,12 +706,20 @@
             "1"
         ], 
         [
+            "/content/3/e02009", 
+            "2"
+        ], 
+        [
             "/content/3/e02024", 
             "1"
         ], 
         [
             "/content/3/e02028", 
             "1"
+        ], 
+        [
+            "/content/3/e02030", 
+            "2"
         ], 
         [
             "/content/3/e02040", 
@@ -2106,6 +734,10 @@
             "1"
         ], 
         [
+            "/content/3/e02053", 
+            "2"
+        ], 
+        [
             "/content/3/e02076.short", 
             "1"
         ], 
@@ -2118,6 +750,10 @@
             "1"
         ], 
         [
+            "/content/3/e02115", 
+            "2"
+        ], 
+        [
             "/content/3/e02115.abstract", 
             "1"
         ], 
@@ -2126,8 +762,16 @@
             "1"
         ], 
         [
+            "/content/3/e02171.short", 
+            "3"
+        ], 
+        [
             "/content/3/e02181.short", 
             "1"
+        ], 
+        [
+            "/content/3/e02184", 
+            "2"
         ], 
         [
             "/content/3/e02184.abstract", 
@@ -2138,8 +782,16 @@
             "1"
         ], 
         [
+            "/content/3/e02200", 
+            "2"
+        ], 
+        [
             "/content/3/e02230", 
             "1"
+        ], 
+        [
+            "/content/3/e02236", 
+            "3"
         ], 
         [
             "/content/3/e02238", 
@@ -2158,8 +810,24 @@
             "1"
         ], 
         [
+            "/content/3/e02286", 
+            "2"
+        ], 
+        [
+            "/content/3/e02362", 
+            "3"
+        ], 
+        [
             "/content/3/e02369", 
             "1"
+        ], 
+        [
+            "/content/3/e02372", 
+            "2"
+        ], 
+        [
+            "/content/3/e02394", 
+            "2"
         ], 
         [
             "/content/3/e02395", 
@@ -2172,6 +840,14 @@
         [
             "/content/3/e02407", 
             "1"
+        ], 
+        [
+            "/content/3/e02439", 
+            "0"
+        ], 
+        [
+            "/content/3/e02443", 
+            "0"
         ], 
         [
             "/content/3/e02444", 
@@ -2190,12 +866,20 @@
             "1"
         ], 
         [
+            "/content/3/e02525", 
+            "2"
+        ], 
+        [
             "/content/3/e02535", 
             "1"
         ], 
         [
             "/content/3/e02576", 
             "1"
+        ], 
+        [
+            "/content/3/e02641", 
+            "4"
         ], 
         [
             "/content/3/e02658", 
@@ -2206,6 +890,10 @@
             "1"
         ], 
         [
+            "/content/3/e02715", 
+            "3"
+        ], 
+        [
             "/content/3/e02725", 
             "1"
         ], 
@@ -2214,8 +902,16 @@
             "1"
         ], 
         [
+            "/content/3/e02740.full", 
+            "2"
+        ], 
+        [
             "/content/3/e02743", 
             "1"
+        ], 
+        [
+            "/content/3/e02750", 
+            "2"
         ], 
         [
             "/content/3/e02758", 
@@ -2224,6 +920,14 @@
         [
             "/content/3/e02763", 
             "1"
+        ], 
+        [
+            "/content/3/e02780", 
+            "2"
+        ], 
+        [
+            "/content/3/e02784", 
+            "2"
         ], 
         [
             "/content/3/e02792", 
@@ -2242,12 +946,20 @@
             "1"
         ], 
         [
+            "/content/3/e02844", 
+            "4"
+        ], 
+        [
             "/content/3/e02851.abstract", 
             "1"
         ], 
         [
             "/content/3/e02860", 
             "1"
+        ], 
+        [
+            "/content/3/e02869", 
+            "2"
         ], 
         [
             "/content/3/e02872", 
@@ -2262,8 +974,20 @@
             "1"
         ], 
         [
+            "/content/3/e02956", 
+            "3"
+        ], 
+        [
+            "/content/3/e02956.full", 
+            "3"
+        ], 
+        [
             "/content/3/e02963", 
             "1"
+        ], 
+        [
+            "/content/3/e02975.abstract", 
+            "2"
         ], 
         [
             "/content/3/e02996", 
@@ -2276,6 +1000,10 @@
         [
             "/content/3/e03011", 
             "1"
+        ], 
+        [
+            "/content/3/e03031", 
+            "2"
         ], 
         [
             "/content/3/e03031.full", 
@@ -2294,6 +1022,26 @@
             "1"
         ], 
         [
+            "/content/3/e03080", 
+            "2"
+        ], 
+        [
+            "/content/3/e03080.full", 
+            "2"
+        ], 
+        [
+            "/content/3/e03091", 
+            "3"
+        ], 
+        [
+            "/content/3/e03115", 
+            "2"
+        ], 
+        [
+            "/content/3/e03116", 
+            "2"
+        ], 
+        [
             "/content/3/e03191", 
             "1"
         ], 
@@ -2304,6 +1052,10 @@
         [
             "/content/3/e03198", 
             "1"
+        ], 
+        [
+            "/content/3/e03245", 
+            "3"
         ], 
         [
             "/content/3/e03254.abstract", 
@@ -2322,6 +1074,18 @@
             "1"
         ], 
         [
+            "/content/3/e03300", 
+            "2"
+        ], 
+        [
+            "/content/3/e03307", 
+            "2"
+        ], 
+        [
+            "/content/3/e03311", 
+            "2"
+        ], 
+        [
             "/content/3/e03318", 
             "1"
         ], 
@@ -2330,8 +1094,20 @@
             "1"
         ], 
         [
+            "/content/3/e03351", 
+            "2"
+        ], 
+        [
             "/content/3/e03357", 
             "1"
+        ], 
+        [
+            "/content/3/e03372.abstract", 
+            "2"
+        ], 
+        [
+            "/content/3/e03383", 
+            "3"
         ], 
         [
             "/content/3/e03397", 
@@ -2340,6 +1116,14 @@
         [
             "/content/3/e03399", 
             "1"
+        ], 
+        [
+            "/content/3/e03401", 
+            "3"
+        ], 
+        [
+            "/content/3/e03401.abstract", 
+            "4"
         ], 
         [
             "/content/3/e03401.full", 
@@ -2358,8 +1142,16 @@
             "1"
         ], 
         [
+            "/content/3/e03427.abstract", 
+            "2"
+        ], 
+        [
             "/content/3/e03427.full", 
             "1"
+        ], 
+        [
+            "/content/3/e03430", 
+            "4"
         ], 
         [
             "/content/3/e03443", 
@@ -2370,12 +1162,24 @@
             "1"
         ], 
         [
+            "/content/3/e03473", 
+            "5"
+        ], 
+        [
             "/content/3/e03498.abstract", 
             "1"
         ], 
         [
+            "/content/3/e03523", 
+            "2"
+        ], 
+        [
             "/content/3/e03528", 
             "1"
+        ], 
+        [
+            "/content/3/e03528.abstract", 
+            "2"
         ], 
         [
             "/content/3/e03528.full", 
@@ -2394,6 +1198,18 @@
             "1"
         ], 
         [
+            "/content/3/e03573", 
+            "2"
+        ], 
+        [
+            "/content/3/e03583", 
+            "0"
+        ], 
+        [
+            "/content/3/e03635", 
+            "2"
+        ], 
+        [
             "/content/3/e03635.abstract", 
             "1"
         ], 
@@ -2410,8 +1226,20 @@
             "1"
         ], 
         [
+            "/content/3/e03648", 
+            "2"
+        ], 
+        [
             "/content/3/e03658", 
             "1"
+        ], 
+        [
+            "/content/3/e03678", 
+            "7"
+        ], 
+        [
+            "/content/3/e03679", 
+            "2"
         ], 
         [
             "/content/3/e03679.full", 
@@ -2420,6 +1248,10 @@
         [
             "/content/3/e03680", 
             "1"
+        ], 
+        [
+            "/content/3/e03697.abstract", 
+            "2"
         ], 
         [
             "/content/3/e03720", 
@@ -2466,6 +1298,22 @@
             "1"
         ], 
         [
+            "/content/3/e03848", 
+            "3"
+        ], 
+        [
+            "/content/3/e03891", 
+            "3"
+        ], 
+        [
+            "/content/3/e03895", 
+            "2"
+        ], 
+        [
+            "/content/3/e03896", 
+            "5"
+        ], 
+        [
             "/content/3/e03896.abstract", 
             "1"
         ], 
@@ -2486,12 +1334,40 @@
             "1"
         ], 
         [
+            "/content/3/e04006", 
+            "4"
+        ], 
+        [
             "/content/3/e04008", 
             "1"
         ], 
         [
+            "/content/3/e04094", 
+            "2"
+        ], 
+        [
+            "/content/3/e04111.abstract", 
+            "2"
+        ], 
+        [
+            "/content/3/e04114.abstract", 
+            "2"
+        ], 
+        [
             "/content/3/e04126", 
             "1"
+        ], 
+        [
+            "/content/3/e04135", 
+            "2"
+        ], 
+        [
+            "/content/3/e04165", 
+            "2"
+        ], 
+        [
+            "/content/3/e04165.abstract", 
+            "3"
         ], 
         [
             "/content/3/e04168", 
@@ -2502,8 +1378,16 @@
             "1"
         ], 
         [
+            "/content/3/e04177", 
+            "3"
+        ], 
+        [
             "/content/3/e04187", 
             "1"
+        ], 
+        [
+            "/content/3/e04193", 
+            "4"
         ], 
         [
             "/content/3/e04207", 
@@ -2516,6 +1400,10 @@
         [
             "/content/3/e04234", 
             "1"
+        ], 
+        [
+            "/content/3/e04235", 
+            "4"
         ], 
         [
             "/content/3/e04236", 
@@ -2534,12 +1422,24 @@
             "1"
         ], 
         [
+            "/content/3/e04333", 
+            "12"
+        ], 
+        [
             "/content/3/e04353", 
             "1"
         ], 
         [
             "/content/3/e04389", 
             "1"
+        ], 
+        [
+            "/content/3/e04395", 
+            "4"
+        ], 
+        [
+            "/content/3/e04406", 
+            "2"
         ], 
         [
             "/content/3/e04501", 
@@ -2554,12 +1454,20 @@
             "1"
         ], 
         [
+            "/content/3/e04577", 
+            "4"
+        ], 
+        [
             "/content/3/e04580", 
             "1"
         ], 
         [
             "/content/3/e04581", 
             "1"
+        ], 
+        [
+            "/content/3/e04591.abstract", 
+            "2"
         ], 
         [
             "/content/3/e04600", 
@@ -2574,8 +1482,44 @@
             "1"
         ], 
         [
+            "/content/3/e04660", 
+            "7"
+        ], 
+        [
+            "/content/3/e04660.abstract", 
+            "2"
+        ], 
+        [
+            "/content/3/e04686", 
+            "5"
+        ], 
+        [
+            "/content/3/e04766", 
+            "3"
+        ], 
+        [
+            "/content/3/e04779", 
+            "2"
+        ], 
+        [
+            "/content/3/e04875", 
+            "3"
+        ], 
+        [
             "/content/3/e04901", 
             "1"
+        ], 
+        [
+            "/content/3/e04969", 
+            "4"
+        ], 
+        [
+            "/content/3/e05031", 
+            "2"
+        ], 
+        [
+            "/content/3/e05031.abstract", 
+            "5"
         ], 
         [
             "/content/3/e05060", 
@@ -2602,6 +1546,10 @@
             "1"
         ], 
         [
+            "/content/3/e05418", 
+            "2"
+        ], 
+        [
             "/content/3/e05422", 
             "1"
         ], 
@@ -2626,8 +1574,20 @@
             "1"
         ], 
         [
+            "/content/4/e03522", 
+            "2"
+        ], 
+        [
+            "/content/4/e03599", 
+            "5"
+        ], 
+        [
             "/content/4/e03599.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e03614", 
+            "2"
         ], 
         [
             "/content/4/e03708", 
@@ -2636,6 +1596,10 @@
         [
             "/content/4/e03753", 
             "1"
+        ], 
+        [
+            "/content/4/e03778.abstract", 
+            "2"
         ], 
         [
             "/content/4/e03952", 
@@ -2656,6 +1620,14 @@
         [
             "/content/4/e04241.full", 
             "1"
+        ], 
+        [
+            "/content/4/e04250", 
+            "2"
+        ], 
+        [
+            "/content/4/e04260", 
+            "6"
         ], 
         [
             "/content/4/e04260.abstract", 
@@ -2682,6 +1654,10 @@
             "1"
         ], 
         [
+            "/content/4/e04493", 
+            "3"
+        ], 
+        [
             "/content/4/e04585.abstract", 
             "1"
         ], 
@@ -2690,8 +1666,16 @@
             "1"
         ], 
         [
+            "/content/4/e04586.full", 
+            "2"
+        ], 
+        [
             "/content/4/e04637.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e04640", 
+            "2"
         ], 
         [
             "/content/4/e04677", 
@@ -2700,6 +1684,10 @@
         [
             "/content/4/e04677.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e04693", 
+            "2"
         ], 
         [
             "/content/4/e04745", 
@@ -2714,6 +1702,14 @@
             "1"
         ], 
         [
+            "/content/4/e04803.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e04805", 
+            "18"
+        ], 
+        [
             "/content/4/e04805.full", 
             "1"
         ], 
@@ -2724,6 +1720,14 @@
         [
             "/content/4/e04806", 
             "1"
+        ], 
+        [
+            "/content/4/e04837", 
+            "2"
+        ], 
+        [
+            "/content/4/e04851", 
+            "2"
         ], 
         [
             "/content/4/e04883", 
@@ -2746,6 +1750,10 @@
             "1"
         ], 
         [
+            "/content/4/e05005", 
+            "8"
+        ], 
+        [
             "/content/4/e05005.abstract", 
             "1"
         ], 
@@ -2754,8 +1762,16 @@
             "1"
         ], 
         [
+            "/content/4/e05007", 
+            "3"
+        ], 
+        [
             "/content/4/e05033", 
             "1"
+        ], 
+        [
+            "/content/4/e05033.abstract", 
+            "2"
         ], 
         [
             "/content/4/e05033.full", 
@@ -2774,8 +1790,20 @@
             "1"
         ], 
         [
+            "/content/4/e05098", 
+            "2"
+        ], 
+        [
+            "/content/4/e05124", 
+            "2"
+        ], 
+        [
             "/content/4/e05142", 
             "1"
+        ], 
+        [
+            "/content/4/e05161", 
+            "2"
         ], 
         [
             "/content/4/e05165", 
@@ -2790,8 +1818,48 @@
             "1"
         ], 
         [
+            "/content/4/e05178", 
+            "3"
+        ], 
+        [
+            "/content/4/e05196", 
+            "2"
+        ], 
+        [
+            "/content/4/e05224.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e05255", 
+            "2"
+        ], 
+        [
+            "/content/4/e05279", 
+            "2"
+        ], 
+        [
+            "/content/4/e05291", 
+            "2"
+        ], 
+        [
+            "/content/4/e05291.full", 
+            "2"
+        ], 
+        [
+            "/content/4/e05338", 
+            "2"
+        ], 
+        [
             "/content/4/e05361", 
             "1"
+        ], 
+        [
+            "/content/4/e05397", 
+            "10"
+        ], 
+        [
+            "/content/4/e05421", 
+            "2"
         ], 
         [
             "/content/4/e05447", 
@@ -2822,6 +1890,14 @@
             "1"
         ], 
         [
+            "/content/4/e05506.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e05521", 
+            "0"
+        ], 
+        [
             "/content/4/e05534", 
             "1"
         ], 
@@ -2834,12 +1910,24 @@
             "1"
         ], 
         [
+            "/content/4/e05560.full", 
+            "0"
+        ], 
+        [
+            "/content/4/e05563", 
+            "5"
+        ], 
+        [
             "/content/4/e05564", 
             "1"
         ], 
         [
             "/content/4/e05607", 
             "1"
+        ], 
+        [
+            "/content/4/e05635", 
+            "4"
         ], 
         [
             "/content/4/e05648", 
@@ -2862,28 +1950,116 @@
             "1"
         ], 
         [
+            "/content/4/e05663/abstract-1", 
+            "2"
+        ], 
+        [
             "/content/4/e05745", 
             "1"
+        ], 
+        [
+            "/content/4/e05767", 
+            "3"
         ], 
         [
             "/content/4/e05770", 
             "1"
         ], 
         [
+            "/content/4/e05787", 
+            "0"
+        ], 
+        [
+            "/content/4/e05789", 
+            "2"
+        ], 
+        [
+            "/content/4/e05793", 
+            "6"
+        ], 
+        [
+            "/content/4/e05795", 
+            "14"
+        ], 
+        [
+            "/content/4/e05808", 
+            "3"
+        ], 
+        [
             "/content/4/e05808/abstract-2", 
             "1"
+        ], 
+        [
+            "/content/4/e05835", 
+            "2"
         ], 
         [
             "/content/4/e05846", 
             "1"
         ], 
         [
+            "/content/4/e05849", 
+            "5"
+        ], 
+        [
+            "/content/4/e05856", 
+            "4"
+        ], 
+        [
+            "/content/4/e05864", 
+            "3"
+        ], 
+        [
+            "/content/4/e05868", 
+            "3"
+        ], 
+        [
             "/content/4/e05868.abstract", 
             "1"
         ], 
         [
+            "/content/4/e05871", 
+            "2"
+        ], 
+        [
+            "/content/4/e05875", 
+            "3"
+        ], 
+        [
+            "/content/4/e05896", 
+            "2"
+        ], 
+        [
+            "/content/4/e05919", 
+            "3"
+        ], 
+        [
+            "/content/4/e05919/abstract-1", 
+            "2"
+        ], 
+        [
+            "/content/4/e05920", 
+            "2"
+        ], 
+        [
+            "/content/4/e05979", 
+            "5"
+        ], 
+        [
+            "/content/4/e05996", 
+            "2"
+        ], 
+        [
             "/content/4/e06003", 
             "1"
+        ], 
+        [
+            "/content/4/e06029.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e06054", 
+            "12"
         ], 
         [
             "/content/4/e06054.abstract", 
@@ -2898,8 +2074,16 @@
             "1"
         ], 
         [
+            "/content/4/e06063", 
+            "12"
+        ], 
+        [
             "/content/4/e06063.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e06063.full", 
+            "2"
         ], 
         [
             "/content/4/e06085", 
@@ -2910,8 +2094,16 @@
             "1"
         ], 
         [
+            "/content/4/e06114", 
+            "4"
+        ], 
+        [
             "/content/4/e06114.full", 
             "1"
+        ], 
+        [
+            "/content/4/e06119", 
+            "2"
         ], 
         [
             "/content/4/e06132", 
@@ -2928,6 +2120,18 @@
         [
             "/content/4/e06200", 
             "1"
+        ], 
+        [
+            "/content/4/e06203", 
+            "3"
+        ], 
+        [
+            "/content/4/e06205", 
+            "3"
+        ], 
+        [
+            "/content/4/e06213", 
+            "3"
         ], 
         [
             "/content/4/e06225", 
@@ -2958,12 +2162,24 @@
             "1"
         ], 
         [
+            "/content/4/e06346", 
+            "4"
+        ], 
+        [
             "/content/4/e06346.full", 
             "1"
         ], 
         [
             "/content/4/e06346/abstract-1", 
             "1"
+        ], 
+        [
+            "/content/4/e06356", 
+            "8"
+        ], 
+        [
+            "/content/4/e06356.full", 
+            "2"
         ], 
         [
             "/content/4/e06376", 
@@ -2974,12 +2190,36 @@
             "1"
         ], 
         [
+            "/content/4/e06394", 
+            "21"
+        ], 
+        [
+            "/content/4/e06394.abstract", 
+            "7"
+        ], 
+        [
             "/content/4/e06412", 
             "1"
         ], 
         [
+            "/content/4/e06416", 
+            "3"
+        ], 
+        [
+            "/content/4/e06416.abstract", 
+            "2"
+        ], 
+        [
             "/content/4/e06430", 
             "1"
+        ], 
+        [
+            "/content/4/e06444", 
+            "7"
+        ], 
+        [
+            "/content/4/e06467", 
+            "3"
         ], 
         [
             "/content/4/e06481", 
@@ -2994,8 +2234,24 @@
             "1"
         ], 
         [
+            "/content/4/e06513", 
+            "3"
+        ], 
+        [
+            "/content/4/e06513.abstract", 
+            "3"
+        ], 
+        [
+            "/content/4/e06516", 
+            "2"
+        ], 
+        [
             "/content/4/e06535", 
             "1"
+        ], 
+        [
+            "/content/4/e06559", 
+            "2"
         ], 
         [
             "/content/4/e06564", 
@@ -3010,8 +2266,24 @@
             "1"
         ], 
         [
+            "/content/4/e06585", 
+            "5"
+        ], 
+        [
             "/content/4/e06587", 
             "1"
+        ], 
+        [
+            "/content/4/e06619", 
+            "9"
+        ], 
+        [
+            "/content/4/e06620", 
+            "4"
+        ], 
+        [
+            "/content/4/e06620.full", 
+            "2"
         ], 
         [
             "/content/4/e06620/abstract-1", 
@@ -3034,6 +2306,10 @@
             "1"
         ], 
         [
+            "/content/4/e06678", 
+            "4"
+        ], 
+        [
             "/content/4/e06678.full", 
             "1"
         ], 
@@ -3046,12 +2322,20 @@
             "1"
         ], 
         [
+            "/content/4/e06717", 
+            "2"
+        ], 
+        [
             "/content/4/e06726", 
             "1"
         ], 
         [
             "/content/4/e06734", 
             "1"
+        ], 
+        [
+            "/content/4/e06738", 
+            "2"
         ], 
         [
             "/content/4/e06744", 
@@ -3064,6 +2348,14 @@
         [
             "/content/4/e06793", 
             "1"
+        ], 
+        [
+            "/content/4/e06793.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e06807", 
+            "5"
         ], 
         [
             "/content/4/e06808", 
@@ -3082,8 +2374,28 @@
             "1"
         ], 
         [
+            "/content/4/e06848", 
+            "3"
+        ], 
+        [
+            "/content/4/e06857", 
+            "2"
+        ], 
+        [
+            "/content/4/e06866", 
+            "2"
+        ], 
+        [
             "/content/4/e06877", 
             "1"
+        ], 
+        [
+            "/content/4/e06878", 
+            "2"
+        ], 
+        [
+            "/content/4/e06883", 
+            "9"
         ], 
         [
             "/content/4/e06901.abstract", 
@@ -3094,16 +2406,48 @@
             "1"
         ], 
         [
+            "/content/4/e06907", 
+            "4"
+        ], 
+        [
             "/content/4/e06914", 
             "1"
+        ], 
+        [
+            "/content/4/e06930", 
+            "5"
+        ], 
+        [
+            "/content/4/e06935", 
+            "5"
         ], 
         [
             "/content/4/e06938", 
             "1"
         ], 
         [
+            "/content/4/e06942", 
+            "5"
+        ], 
+        [
+            "/content/4/e06956", 
+            "13"
+        ], 
+        [
+            "/content/4/e06956/abstract-1", 
+            "3"
+        ], 
+        [
             "/content/4/e06963", 
             "1"
+        ], 
+        [
+            "/content/4/e06967", 
+            "12"
+        ], 
+        [
+            "/content/4/e06974", 
+            "3"
         ], 
         [
             "/content/4/e06974.abstract", 
@@ -3130,8 +2474,16 @@
             "1"
         ], 
         [
+            "/content/4/e07025.abstract", 
+            "3"
+        ], 
+        [
             "/content/4/e07025.full", 
             "1"
+        ], 
+        [
+            "/content/4/e07048", 
+            "24"
         ], 
         [
             "/content/4/e07048.abstract", 
@@ -3142,6 +2494,14 @@
             "1"
         ], 
         [
+            "/content/4/e07091", 
+            "2"
+        ], 
+        [
+            "/content/4/e07108", 
+            "2"
+        ], 
+        [
             "/content/4/e07113", 
             "1"
         ], 
@@ -3150,8 +2510,36 @@
             "1"
         ], 
         [
+            "/content/4/e07125", 
+            "2"
+        ], 
+        [
+            "/content/4/e07158", 
+            "10"
+        ], 
+        [
+            "/content/4/e07187", 
+            "4"
+        ], 
+        [
+            "/content/4/e07192", 
+            "3"
+        ], 
+        [
+            "/content/4/e07197", 
+            "2"
+        ], 
+        [
+            "/content/4/e07205", 
+            "5"
+        ], 
+        [
             "/content/4/e07218", 
             "1"
+        ], 
+        [
+            "/content/4/e07224", 
+            "3"
         ], 
         [
             "/content/4/e07236", 
@@ -3162,6 +2550,10 @@
             "1"
         ], 
         [
+            "/content/4/e07288", 
+            "3"
+        ], 
+        [
             "/content/4/e07295", 
             "1"
         ], 
@@ -3170,8 +2562,40 @@
             "1"
         ], 
         [
+            "/content/4/e07296", 
+            "2"
+        ], 
+        [
+            "/content/4/e07301", 
+            "5"
+        ], 
+        [
+            "/content/4/e07314", 
+            "2"
+        ], 
+        [
+            "/content/4/e07322", 
+            "2"
+        ], 
+        [
+            "/content/4/e07335", 
+            "2"
+        ], 
+        [
+            "/content/4/e07343", 
+            "6"
+        ], 
+        [
+            "/content/4/e07366", 
+            "3"
+        ], 
+        [
             "/content/4/e07369", 
             "1"
+        ], 
+        [
+            "/content/4/e07378", 
+            "4"
         ], 
         [
             "/content/4/e07380", 
@@ -3190,12 +2614,32 @@
             "1"
         ], 
         [
+            "/content/4/e07405.full", 
+            "2"
+        ], 
+        [
             "/content/4/e07420", 
             "1"
         ], 
         [
+            "/content/4/e07433", 
+            "7"
+        ], 
+        [
             "/content/4/e07454", 
             "1"
+        ], 
+        [
+            "/content/4/e07460", 
+            "4"
+        ], 
+        [
+            "/content/4/e07464", 
+            "2"
+        ], 
+        [
+            "/content/4/e07467", 
+            "16"
         ], 
         [
             "/content/4/e07467.full", 
@@ -3206,32 +2650,164 @@
             "1"
         ], 
         [
+            "/content/4/e07493", 
+            "2"
+        ], 
+        [
+            "/content/4/e07527", 
+            "3"
+        ], 
+        [
+            "/content/4/e07546", 
+            "13"
+        ], 
+        [
             "/content/4/e07552", 
             "1"
+        ], 
+        [
+            "/content/4/e07558", 
+            "2"
+        ], 
+        [
+            "/content/4/e07600", 
+            "2"
         ], 
         [
             "/content/4/e07604", 
             "1"
         ], 
         [
+            "/content/4/e07607", 
+            "6"
+        ], 
+        [
+            "/content/4/e07635", 
+            "3"
+        ], 
+        [
+            "/content/4/e07635.abstract", 
+            "4"
+        ], 
+        [
+            "/content/4/e07641", 
+            "3"
+        ], 
+        [
+            "/content/4/e07643", 
+            "4"
+        ], 
+        [
+            "/content/4/e07728", 
+            "2"
+        ], 
+        [
             "/content/4/e07736", 
             "1"
+        ], 
+        [
+            "/content/4/e07736.abstract", 
+            "3"
+        ], 
+        [
+            "/content/4/e07739", 
+            "2"
+        ], 
+        [
+            "/content/4/e07750", 
+            "7"
+        ], 
+        [
+            "/content/4/e07808", 
+            "4"
+        ], 
+        [
+            "/content/4/e07808.full", 
+            "3"
+        ], 
+        [
+            "/content/4/e07836", 
+            "9"
+        ], 
+        [
+            "/content/4/e07836.full", 
+            "2"
         ], 
         [
             "/content/4/e07836/abstract-2", 
             "1"
         ], 
         [
+            "/content/4/e07860", 
+            "3"
+        ], 
+        [
+            "/content/4/e07861", 
+            "2"
+        ], 
+        [
+            "/content/4/e07864", 
+            "3"
+        ], 
+        [
+            "/content/4/e07865", 
+            "8"
+        ], 
+        [
+            "/content/4/e07865.full", 
+            "2"
+        ], 
+        [
+            "/content/4/e07901", 
+            "3"
+        ], 
+        [
+            "/content/4/e07918", 
+            "2"
+        ], 
+        [
             "/content/4/e07919", 
             "1"
+        ], 
+        [
+            "/content/4/e07935", 
+            "10"
+        ], 
+        [
+            "/content/4/e07935.abstract", 
+            "5"
         ], 
         [
             "/content/4/e07935.full", 
             "1"
         ], 
         [
+            "/content/4/e07956", 
+            "5"
+        ], 
+        [
+            "/content/4/e07957", 
+            "49"
+        ], 
+        [
             "/content/4/e07957/abstract-2", 
             "1"
+        ], 
+        [
+            "/content/4/e07961", 
+            "3"
+        ], 
+        [
+            "/content/4/e07975", 
+            "2"
+        ], 
+        [
+            "/content/4/e08005", 
+            "2"
+        ], 
+        [
+            "/content/4/e08007", 
+            "4"
         ], 
         [
             "/content/4/e08007.full", 
@@ -3242,24 +2818,72 @@
             "1"
         ], 
         [
+            "/content/4/e08009", 
+            "2"
+        ], 
+        [
+            "/content/4/e08033", 
+            "2"
+        ], 
+        [
             "/content/4/e08069.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e08127", 
+            "6"
+        ], 
+        [
+            "/content/4/e08163", 
+            "6"
+        ], 
+        [
+            "/content/4/e08261", 
+            "31"
+        ], 
+        [
+            "/content/4/e08261.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e08274", 
+            "4"
         ], 
         [
             "/content/4/e08274/abstract-2", 
             "1"
         ], 
         [
+            "/content/4/e08298", 
+            "4"
+        ], 
+        [
             "/content/4/e08314.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e08347", 
+            "2"
         ], 
         [
             "/content/4/e08366", 
             "1"
         ], 
         [
+            "/content/4/e08407", 
+            "2"
+        ], 
+        [
             "/content/4/e08469", 
             "1"
+        ], 
+        [
+            "/content/4/e08490", 
+            "8"
+        ], 
+        [
+            "/content/4/e08709", 
+            "40"
         ], 
         [
             "/content/4/e08709.abstract", 
@@ -3270,12 +2894,28 @@
             "1"
         ], 
         [
+            "/content/4/e08710", 
+            "3"
+        ], 
+        [
             "/content/4/e08715", 
             "1"
         ], 
         [
+            "/content/4/e08811", 
+            "4"
+        ], 
+        [
+            "/content/4/e08811/abstract-2", 
+            "2"
+        ], 
+        [
             "/content/4/e08942.abstract", 
             "1"
+        ], 
+        [
+            "/content/4/e08964", 
+            "26"
         ], 
         [
             "/content/4/e08964.abstract", 
@@ -3290,6 +2930,14 @@
             "1"
         ], 
         [
+            "/content/4/e09017", 
+            "5"
+        ], 
+        [
+            "/content/4/e09103", 
+            "3"
+        ], 
+        [
             "/content/4/e09103.abstract", 
             "1"
         ], 
@@ -3300,6 +2948,30 @@
         [
             "/content/4/e09143", 
             "1"
+        ], 
+        [
+            "/content/4/e09225", 
+            "4"
+        ], 
+        [
+            "/content/4/e09262", 
+            "3"
+        ], 
+        [
+            "/content/4/e09275", 
+            "4"
+        ], 
+        [
+            "/content/4/e09305", 
+            "26"
+        ], 
+        [
+            "/content/4/e09315", 
+            "2"
+        ], 
+        [
+            "/content/4/e09336", 
+            "25"
         ], 
         [
             "/content/4/e09336.abstract", 
@@ -3322,6 +2994,10 @@
             "1"
         ], 
         [
+            "/content/4/e09519", 
+            "5"
+        ], 
+        [
             "/content/4/e09519.full", 
             "1"
         ], 
@@ -3330,16 +3006,44 @@
             "1"
         ], 
         [
+            "/content/4/e09666", 
+            "4"
+        ], 
+        [
+            "/content/4/e09713", 
+            "3"
+        ], 
+        [
             "/content/4/e09790", 
             "1"
+        ], 
+        [
+            "/content/4/e09853", 
+            "0"
+        ], 
+        [
+            "/content/4/e09919", 
+            "3"
         ], 
         [
             "/content/4/e09919.full", 
             "1"
         ], 
         [
+            "/content/4/e09944", 
+            "2"
+        ], 
+        [
+            "/content/4/e10040", 
+            "9"
+        ], 
+        [
             "/content/4/e10040.full", 
             "1"
+        ], 
+        [
+            "/content/4/e10054", 
+            "7"
         ], 
         [
             "/content/4/e10054.full", 
@@ -3350,8 +3054,36 @@
             "1"
         ], 
         [
+            "/content/4/e10161", 
+            "8"
+        ], 
+        [
             "/content/4/e10161.full", 
             "1"
+        ], 
+        [
+            "/content/4/e10233", 
+            "17"
+        ], 
+        [
+            "/content/4/e10233.abstract", 
+            "2"
+        ], 
+        [
+            "/content/4/e10233.full", 
+            "4"
+        ], 
+        [
+            "/content/4/e10317", 
+            "5"
+        ], 
+        [
+            "/content/4/e10317.full", 
+            "2"
+        ], 
+        [
+            "/content/4/e10328", 
+            "3"
         ], 
         [
             "/content/early/2014/05/17/eLife.02283", 
@@ -3398,8 +3130,16 @@
             "1"
         ], 
         [
+            "/content/early/2014/09/05/eLife.04395", 
+            "6"
+        ], 
+        [
             "/content/early/2014/09/08/eLife.03626", 
             "1"
+        ], 
+        [
+            "/content/early/2014/09/18/eLife.03574", 
+            "2"
         ], 
         [
             "/content/early/2014/09/25/eLife.03397", 
@@ -3418,16 +3158,48 @@
             "1"
         ], 
         [
+            "/content/early/2014/10/23/eLife.03766", 
+            "2"
+        ], 
+        [
             "/content/early/2014/11/17/eLife.03896", 
             "1"
+        ], 
+        [
+            "/content/early/2014/11/19/eLife.03635", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/11/20/eLife.04530", 
+            "2"
+        ], 
+        [
+            "/content/early/2014/11/20/eLife.04686", 
+            "4"
+        ], 
+        [
+            "/content/early/2014/12/05/eLife.04389", 
+            "3"
         ], 
         [
             "/content/early/2014/12/09/eLife.05115", 
             "1"
         ], 
         [
+            "/content/early/2014/12/15/eLife.04766", 
+            "2"
+        ], 
+        [
             "/content/early/2014/12/17/eLife.04114", 
             "1"
+        ], 
+        [
+            "/content/early/2014/12/18/eLife.02777", 
+            "3"
+        ], 
+        [
+            "/content/early/2014/12/19/eLife.05422", 
+            "2"
         ], 
         [
             "/content/early/2014/12/22/eLife.05401", 
@@ -3454,12 +3226,24 @@
             "1"
         ], 
         [
+            "/content/early/2015/01/23/eLife.04069", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/02/12/eLife.04535", 
+            "2"
+        ], 
+        [
             "/content/early/2015/02/20/eLife.06074", 
             "1"
         ], 
         [
             "/content/early/2015/02/24/eLife.05165", 
             "1"
+        ], 
+        [
+            "/content/early/2015/02/25/eLife.04379", 
+            "2"
         ], 
         [
             "/content/early/2015/02/25/eLife.06346", 
@@ -3474,8 +3258,20 @@
             "1"
         ], 
         [
+            "/content/early/2015/03/05/eLife.05868", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/03/11/eLife.06380", 
+            "2"
+        ], 
+        [
             "/content/early/2015/03/12/eLife.04803", 
             "1"
+        ], 
+        [
+            "/content/early/2015/03/16/eLife.05224", 
+            "3"
         ], 
         [
             "/content/early/2015/03/20/eLife.05651", 
@@ -3484,6 +3280,18 @@
         [
             "/content/early/2015/03/25/eLife.04539", 
             "1"
+        ], 
+        [
+            "/content/early/2015/03/27/eLife.06119", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/03/30/eLife.06073", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/04/08/eLife.06205", 
+            "2"
         ], 
         [
             "/content/early/2015/04/13/eLife.05361", 
@@ -3502,8 +3310,16 @@
             "1"
         ], 
         [
+            "/content/early/2015/05/05/eLife.05068", 
+            "2"
+        ], 
+        [
             "/content/early/2015/05/05/eLife.06225", 
             "1"
+        ], 
+        [
+            "/content/early/2015/05/08/eLife.05462", 
+            "2"
         ], 
         [
             "/content/early/2015/05/08/eLife.06664", 
@@ -3526,8 +3342,28 @@
             "1"
         ], 
         [
+            "/content/early/2015/06/05/eLife.06907", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/06/07/eLife.08352", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/06/12/eLife.05607", 
+            "2"
+        ], 
+        [
             "/content/early/2015/06/15/eLife.07433", 
             "1"
+        ], 
+        [
+            "/content/early/2015/06/15/eLife.07864", 
+            "11"
+        ], 
+        [
+            "/content/early/2015/06/17/eLife.07493", 
+            "3"
         ], 
         [
             "/content/early/2015/06/19/eLife.05767", 
@@ -3550,8 +3386,24 @@
             "1"
         ], 
         [
+            "/content/early/2015/06/23/eLife.07090", 
+            "4"
+        ], 
+        [
+            "/content/early/2015/06/23/eLife.07103", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/06/26/eLife.07999", 
+            "2"
+        ], 
+        [
             "/content/early/2015/06/27/eLife.06845", 
             "1"
+        ], 
+        [
+            "/content/early/2015/06/29/eLife.08347", 
+            "2"
         ], 
         [
             "/content/early/2015/07/01/eLife.07197", 
@@ -3562,12 +3414,24 @@
             "1"
         ], 
         [
+            "/content/early/2015/07/03/eLife.08964", 
+            "2"
+        ], 
+        [
             "/content/early/2015/07/04/eLife.07919", 
             "1"
         ], 
         [
             "/content/early/2015/07/07/eLife.07125", 
             "1"
+        ], 
+        [
+            "/content/early/2015/07/14/eLife.07861", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/07/14/eLife.09143", 
+            "2"
         ], 
         [
             "/content/early/2015/07/16/eLife.08231", 
@@ -3582,8 +3446,56 @@
             "1"
         ], 
         [
+            "/content/early/2015/07/20/eLife.07839", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/07/20/eLife.08733", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/07/21/eLife.07836", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/07/30/eLife.07607", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/08/03/eLife.07247", 
+            "2"
+        ], 
+        [
             "/content/early/2015/08/06/eLife.05563", 
             "1"
+        ], 
+        [
+            "/content/early/2015/08/06/eLife.06414", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/10/eLife.06925", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/08/10/eLife.06994", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/08/11/eLife.07486", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/08/12/eLife.06234", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/08/12/eLife.07455", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/08/13/eLife.06885", 
+            "4"
         ], 
         [
             "/content/early/2015/08/13/eLife.07789", 
@@ -3594,56 +3506,144 @@
             "1"
         ], 
         [
+            "/content/early/2015/08/14/eLife.06492", 
+            "2"
+        ], 
+        [
+            "/content/early/2015/08/14/eLife.08905", 
+            "5"
+        ], 
+        [
+            "/content/early/2015/08/14/eLife.09590", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/14/eLife.10072", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/17/eLife.05828", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/17/eLife.09031", 
+            "8"
+        ], 
+        [
+            "/content/early/2015/08/19/eLife.07597", 
+            "24"
+        ], 
+        [
+            "/content/early/2015/08/19/eLife.07735", 
+            "3"
+        ], 
+        [
+            "/content/early/2015/08/19/eLife.07909", 
+            "6"
+        ], 
+        [
+            "/content/early/2015/08/19/eLife.09351", 
+            "6"
+        ], 
+        [
             "/content/early/2015/08/22/eLife.07519", 
             "1"
+        ], 
+        [
+            "/content/early/2015/08/22/eLife.08142", 
+            "9"
+        ], 
+        [
+            "/content/early/2015/08/22/eLife.09178", 
+            "12"
+        ], 
+        [
+            "/content/early/2015/08/24/eLife.07519", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/24/eLife.07830", 
+            "10"
+        ], 
+        [
+            "/content/early/2015/08/24/eLife.08088", 
+            "7"
+        ], 
+        [
+            "/content/early/2015/08/24/eLife.08627", 
+            "11"
         ], 
         [
             "/content/early/2015/08/24/elife.08627", 
             "1"
         ], 
         [
-            "/content/2/e00886", 
-            "0"
+            "/content/early/2015/08/25/eLife.08193", 
+            "10"
         ], 
         [
-            "/content/2/e01104.full", 
-            "0"
+            "/content/early/2015/08/25/eLife.08828", 
+            "24"
         ], 
         [
-            "/content/2/e01749", 
-            "0"
+            "/content/early/2015/08/26/eLife.07886", 
+            "12"
         ], 
         [
-            "/content/3/e01612", 
-            "0"
+            "/content/early/2015/08/26/eLife.08417", 
+            "20"
         ], 
         [
-            "/content/3/e02439", 
-            "0"
+            "/content/early/2015/08/26/eLife.08493", 
+            "8"
         ], 
         [
-            "/content/3/e02443", 
-            "0"
+            "/content/early/2015/08/26/eLife.09358", 
+            "16"
         ], 
         [
-            "/content/3/e03583", 
-            "0"
+            "/content/early/2015/08/26/eLife.09457", 
+            "17"
         ], 
         [
-            "/content/4/e05521", 
-            "0"
+            "/content/early/2015/08/27/eLife.07242", 
+            "50"
         ], 
         [
-            "/content/4/e05560.full", 
-            "0"
+            "/content/early/2015/08/27/eLife.07759", 
+            "10"
         ], 
         [
-            "/content/4/e05787", 
-            "0"
+            "/content/early/2015/08/27/eLife.09073", 
+            "5"
         ], 
         [
-            "/content/4/e09853", 
-            "0"
+            "/content/early/2015/08/27/eLife.09221", 
+            "20"
+        ], 
+        [
+            "/content/early/2015/08/27/eLife.10782", 
+            "8"
+        ], 
+        [
+            "/content/early/2015/08/28/eLife.07687", 
+            "12"
+        ], 
+        [
+            "/content/early/2015/08/28/eLife.07777", 
+            "17"
+        ], 
+        [
+            "/content/early/2015/08/28/eLife.10782", 
+            "14"
+        ], 
+        [
+            "/content/early/2015/08/29/eLife.07902", 
+            "11"
+        ], 
+        [
+            "/content/early/2015/08/29/eLife.08647", 
+            "12"
         ]
     ], 
     "totalResults": 904, 

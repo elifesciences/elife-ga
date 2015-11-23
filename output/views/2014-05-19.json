@@ -23,16 +23,12 @@
             "ga:pageviews"
         ], 
         "sort": [
-            "-ga:pageviews"
+            "ga:pagePath"
         ], 
         "start-date": "2014-05-19", 
         "start-index": 1
     }, 
     "rows": [
-        [
-            "/content/3/e01775", 
-            "2"
-        ], 
         [
             "/content/2/e00573", 
             "1"
@@ -52,6 +48,10 @@
         [
             "/content/3/e01596", 
             "1"
+        ], 
+        [
+            "/content/3/e01775", 
+            "2"
         ], 
         [
             "/content/3/e02407", 
