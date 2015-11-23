@@ -108,7 +108,7 @@ def event_counts_query(table_id, from_date, to_date):
         end_date = ymd(to_date),
         metrics = 'ga:totalEvents',
         dimensions = 'ga:eventLabel',
-        sort = '-ga:totalEvents',
+        sort = 'ga:eventLabel',
         # ';' separates AND expressions, ',' separates OR expressions
         filters = r'ga:eventAction==Download;ga:eventCategory==Article;ga:eventLabel=~pdf-article',
     )
@@ -147,7 +147,7 @@ def path_counts_query(table_id, from_date, to_date):
         end_date = ymd(to_date),
         metrics = 'ga:pageviews',
         dimensions = 'ga:pagePath',
-        sort = '-ga:pageviews',
+        sort = 'ga:pagePath',
         filters = ','.join([
             # these filters are OR'ed
             r'ga:pagePath=~^/content/.*/e[0-9]{5}(%s)$' % suffix_str,
