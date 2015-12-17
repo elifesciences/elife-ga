@@ -76,8 +76,12 @@ Google Analytics account using OAuth.
 This code can be used *entirely without* the need for authentication, using only 
 the raw data in the `outputs/` directory (updated daily).
 
-To authenticate you will need a `client_secrets.json` file in the source root. 
+To authenticate you will need a `client-secrets.json` file in the source root or
+at `/etc/elife-ga-metrics/client-secrets.json`.
 Read the [official documentation](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets) for more.
+
+The only parameter this application requires is which table to look at, and this
+is specified in a `.env` file as `GA_TABLE='ga:12345678'`.
 
 ## Copyright & Licence
 
