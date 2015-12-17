@@ -231,9 +231,8 @@ def article_counts(path_count_pairs):
 
     return {enplumpen(art): reduce(update, group) for art, group in article_groups.items()}    
 
-def query_ga(query):
+def query_ga(query, num_attempts=5):
     "talks to google with the given query, applying exponential back-off if rate limited"
-    num_attempts = 5
     for n in range(0, num_attempts):
         try:
             if n > 1:
@@ -248,11 +247,10 @@ def query_ga(query):
             raise
         
         except errors.HttpError, e:
-            error = json.loads(e.content)
-            status_code = error.get('code')
-            #if status_code == 403 \
-            #  and error.get('errors')[0].get('reason') in ['rateLimitExceeded', 'userRateLimitExceeded']:
             LOG.warn("HttpError ... can we recover?")
+
+            status_code = e.resp.status
+            
             if status_code in [403, 503]:
 
                 # apply exponential backoff.
@@ -271,9 +269,11 @@ def query_ga(query):
 
         except AccessTokenRefreshError:
             # Handle Auth errors.
-            LOG.exception ('The credentials have been revoked or expired, please re-run '
+            LOG.exception ('The credentials have been revoked or expired, please re-run ' \
                    'the application to re-authorize')
-            raise    
+            raise
+    
+    raise AssertionError("Failed to execute query after %s attempts" % num_attempts)
 
 def query_ga_write_results(*args, **kwargs):
     response = query_ga(*args, **kwargs)
