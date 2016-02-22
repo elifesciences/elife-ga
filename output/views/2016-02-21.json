@@ -16,7 +16,7 @@
     "kind": "analytics#gaData", 
     "query": {
         "dimensions": "ga:pagePath", 
-        "end-date": "2016-02-20", 
+        "end-date": "2016-02-21", 
         "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
         "max-results": 10000, 
         "metrics": [
@@ -25,20 +25,20 @@
         "sort": [
             "ga:pagePath"
         ], 
-        "start-date": "2016-02-20", 
+        "start-date": "2016-02-21", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "/content/2/e00362.full", 
+            "/content/2/e01287.full", 
             "1"
         ], 
         [
-            "/content/2/e01287.full", 
-            "3"
+            "/content/3/e01834.full", 
+            "1"
         ], 
         [
-            "/content/3/e01914.full", 
+            "/content/3/e03401", 
             "1"
         ], 
         [
@@ -46,36 +46,32 @@
             "1"
         ], 
         [
-            "/content/4/e04745", 
-            "2"
-        ], 
-        [
-            "/content/4/e05290.full", 
-            "1"
-        ], 
-        [
-            "/content/4/e05338", 
-            "0"
-        ], 
-        [
-            "/content/4/e05360.abstract", 
-            "1"
-        ], 
-        [
-            "/content/4/e07158.full", 
+            "/content/4/e05697", 
             "1"
         ], 
         [
             "/content/4/e07178", 
+            "2"
+        ], 
+        [
+            "/content/4/e09215.full", 
             "1"
         ], 
         [
-            "/content/4/e08347.full", 
+            "/content/4/e09410/abstract-1", 
             "1"
         ], 
         [
             "/content/4/e09560.full", 
-            "4"
+            "1"
+        ], 
+        [
+            "/content/4/e10606", 
+            "1"
+        ], 
+        [
+            "/content/4/e10627.full", 
+            "1"
         ], 
         [
             "/content/4/e10774", 
@@ -83,51 +79,31 @@
         ], 
         [
             "/content/4/e10778.full", 
-            "5"
+            "2"
         ], 
         [
-            "/content/5/e10147", 
+            "/content/4/e10825.full", 
             "1"
         ], 
         [
-            "/content/5/e10147.full", 
-            "1"
-        ], 
-        [
-            "/content/5/e10566", 
-            "1"
-        ], 
-        [
-            "/content/5/e11473", 
-            "0"
-        ], 
-        [
-            "/content/5/e12620", 
-            "1"
-        ], 
-        [
-            "/content/5/e12620.full", 
-            "1"
-        ], 
-        [
-            "/content/early/2015/12/05/eLife.11349", 
+            "/content/early/2015/10/22/eLife.08955", 
             "1"
         ], 
         [
             "/content/early/2015/12/11/eLife.11282", 
-            "1"
+            "2"
         ], 
         [
-            "/content/early/2016/01/21/eLife.12994", 
-            "0"
+            "/content/early/2016/01/11/eLife.10727", 
+            "2"
         ], 
         [
-            "/content/early/2016/02/04/eLife.13571", 
+            "/content/early/2016/02/02/eLife.12125", 
             "1"
         ]
     ], 
-    "totalResults": 24, 
+    "totalResults": 18, 
     "totalsForAllResults": {
-        "ga:pageviews": "31"
+        "ga:pageviews": "22"
     }
 }
