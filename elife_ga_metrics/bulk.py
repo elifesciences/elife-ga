@@ -5,8 +5,8 @@ import core
 from elife_ga_metrics import utils
 from elife_ga_metrics.core import ymd
 from datetime import datetime, date, timedelta
-from apiclient.http import BatchHttpRequest
-from apiclient import errors
+from googleapiclient.http import BatchHttpRequest
+from googleapiclient import errors
 from pprint import pprint
 import logging
 from collections import OrderedDict
