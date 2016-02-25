@@ -14,9 +14,9 @@ import os, sys, re, argparse, json, time, random, json
 from datetime import datetime, timedelta
 from pprint import pprint
 import httplib2
-from apiclient.errors import HttpError
-from apiclient import errors
-from apiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient import errors
+from googleapiclient.discovery import build
 from oauth2client.client import AccessTokenRefreshError
 from oauth2client.client import SignedJwtAssertionCredentials
 from oauth2client import file as oauth_file
