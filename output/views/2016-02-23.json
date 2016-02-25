@@ -31,7 +31,11 @@
     "rows": [
         [
             "/content/1/e00005.full", 
-            "4"
+            "6"
+        ], 
+        [
+            "/content/2/e00220.full", 
+            "1"
         ], 
         [
             "/content/2/e00231", 
@@ -51,7 +55,7 @@
         ], 
         [
             "/content/2/e01104.full", 
-            "1"
+            "2"
         ], 
         [
             "/content/2/e01287.full", 
@@ -62,8 +66,20 @@
             "1"
         ], 
         [
+            "/content/3/e02030", 
+            "0"
+        ], 
+        [
+            "/content/3/e03311", 
+            "0"
+        ], 
+        [
             "/content/3/e04380", 
             "1"
+        ], 
+        [
+            "/content/3/e05259.full", 
+            "0"
         ], 
         [
             "/content/4/e05005.full", 
@@ -74,12 +90,28 @@
             "1"
         ], 
         [
+            "/content/4/e05241", 
+            "0"
+        ], 
+        [
             "/content/4/e05697", 
-            "1"
+            "2"
+        ], 
+        [
+            "/content/4/e05913", 
+            "0"
         ], 
         [
             "/content/4/e07178", 
-            "1"
+            "2"
+        ], 
+        [
+            "/content/4/e07296", 
+            "0"
+        ], 
+        [
+            "/content/4/e08497", 
+            "0"
         ], 
         [
             "/content/4/e08688.full", 
@@ -90,8 +122,16 @@
             "1"
         ], 
         [
+            "/content/4/e09214.full", 
+            "1"
+        ], 
+        [
+            "/content/4/e09410", 
+            "0"
+        ], 
+        [
             "/content/4/e09560.full", 
-            "4"
+            "5"
         ], 
         [
             "/content/4/e09594.full", 
@@ -103,15 +143,23 @@
         ], 
         [
             "/content/4/e10778.full", 
-            "2"
+            "3"
         ], 
         [
             "/content/4/e11386.full", 
             "1"
         ], 
         [
+            "/content/4/e11628.full", 
+            "1"
+        ], 
+        [
             "/content/4/e12523.full", 
             "1"
+        ], 
+        [
+            "/content/5/e08494", 
+            "0"
         ], 
         [
             "/content/5/e10147", 
@@ -122,15 +170,27 @@
             "1"
         ], 
         [
+            "/content/5/e10509", 
+            "0"
+        ], 
+        [
             "/content/5/e12432", 
             "1"
         ], 
         [
             "/content/5/e12620", 
-            "1"
+            "2"
+        ], 
+        [
+            "/content/early/2015/10/26/eLife.09943", 
+            "0"
         ], 
         [
             "/content/early/2015/10/31/eLife.09545", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/12/10/eLife.07485", 
             "1"
         ], 
         [
@@ -144,6 +204,10 @@
         [
             "/content/early/2015/12/17/eLife.10955", 
             "4"
+        ], 
+        [
+            "/content/early/2015/12/22/eLife.09066", 
+            "1"
         ], 
         [
             "/content/early/2016/01/07/eLife.11058", 
@@ -170,8 +234,8 @@
             "1"
         ]
     ], 
-    "totalResults": 35, 
+    "totalResults": 51, 
     "totalsForAllResults": {
-        "ga:pageviews": "51"
+        "ga:pageviews": "64"
     }
 }
