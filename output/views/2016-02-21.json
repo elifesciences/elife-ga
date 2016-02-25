@@ -1,0 +1,145 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2016-02-21", 
+        "filters": "ga:pagePath=~^/content/.*/e[0-9]{5}((\\.full)?|(\\.abstract)?|(\\.short)?|(/abstract-1)?|(/abstract-2)?)$,ga:pagePath=~^/content/.*/elife\\.[0-9]{5}$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2016-02-21", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/2/e01287.full", 
+            "2"
+        ], 
+        [
+            "/content/3/e01386", 
+            "0"
+        ], 
+        [
+            "/content/3/e01834.full", 
+            "1"
+        ], 
+        [
+            "/content/3/e02999", 
+            "0"
+        ], 
+        [
+            "/content/3/e03401", 
+            "1"
+        ], 
+        [
+            "/content/3/e04580", 
+            "1"
+        ], 
+        [
+            "/content/4/e05005.full", 
+            "0"
+        ], 
+        [
+            "/content/4/e05648", 
+            "1"
+        ], 
+        [
+            "/content/4/e05697", 
+            "1"
+        ], 
+        [
+            "/content/4/e07178", 
+            "2"
+        ], 
+        [
+            "/content/4/e09214", 
+            "1"
+        ], 
+        [
+            "/content/4/e09215.full", 
+            "1"
+        ], 
+        [
+            "/content/4/e09410/abstract-1", 
+            "2"
+        ], 
+        [
+            "/content/4/e09560.full", 
+            "1"
+        ], 
+        [
+            "/content/4/e09561.full", 
+            "4"
+        ], 
+        [
+            "/content/4/e10606", 
+            "1"
+        ], 
+        [
+            "/content/4/e10627.full", 
+            "1"
+        ], 
+        [
+            "/content/4/e10774", 
+            "1"
+        ], 
+        [
+            "/content/4/e10778.full", 
+            "2"
+        ], 
+        [
+            "/content/4/e10825.full", 
+            "1"
+        ], 
+        [
+            "/content/4/e10850", 
+            "0"
+        ], 
+        [
+            "/content/early/2015/10/22/eLife.08955", 
+            "1"
+        ], 
+        [
+            "/content/early/2015/12/11/eLife.11282", 
+            "2"
+        ], 
+        [
+            "/content/early/2016/01/08/eLife.08881", 
+            "2"
+        ], 
+        [
+            "/content/early/2016/01/11/eLife.10727", 
+            "2"
+        ], 
+        [
+            "/content/early/2016/02/02/eLife.12125", 
+            "1"
+        ], 
+        [
+            "/content/elife/4/e06559", 
+            "1"
+        ]
+    ], 
+    "totalResults": 27, 
+    "totalsForAllResults": {
+        "ga:pageviews": "33"
+    }
+}
