@@ -4,6 +4,7 @@
 *.orig
 *.log
 *.partial
+*.swp
 media/**
 collected-static/**
 elife-articles
@@ -15,3 +16,4 @@ build
 dist
 *.egg-info
 .env
+.coverage
