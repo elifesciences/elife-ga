@@ -22,8 +22,9 @@ LOG.level = logging.INFO
 def generate_queries(table_id, query_func, datetime_list, use_cached=False, use_only_cached=False):
     "returns a list of queries to be executed by google"
     query_list = []
-    query_type = 'views' if query_func == core.path_counts_query else 'downloads'
     for start_date, end_date in datetime_list:
+        module = core.module_picker(start_date, end_date)
+        query_type = 'views' if query_func == module.path_counts_query else 'downloads'
         output_path = core.output_path(query_type, start_date, end_date)
         if use_cached:
             if os.path.exists(output_path):
@@ -37,7 +38,7 @@ def generate_queries(table_id, query_func, datetime_list, use_cached=False, use_
         if use_only_cached:
             LOG.info("skipping google query, using only cache files")
             continue
-        
+
         q = query_func(table_id, start_date, end_date)
         query_list.append(q)
 
@@ -66,16 +67,18 @@ def daily_metrics_between(table_id, from_date, to_date, use_cached=True, use_onl
     "does a DAILY query between two dates, NOT a single query within a date range"
     date_list = utils.dt_range(from_date, to_date)
     query_list = []
+
+    module = core.module_picker(from_date, to_date)
     
     views_dt_range = filter(core.valid_view_dt_pair, date_list)
     query_list.extend(generate_queries(table_id, \
-                                       core.path_counts_query, \
+                                       module.path_counts_query, \
                                        views_dt_range, \
                                        use_cached, use_only_cached))
 
     pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
     query_list.extend(generate_queries(table_id, \
-                                       core.event_counts_query, \
+                                       module.event_counts_query, \
                                        pdf_dt_range,
                                        use_cached, use_only_cached))
 
@@ -93,15 +96,17 @@ def monthly_metrics_between(table_id, from_date, to_date, use_cached=True, use_o
     date_list = utils.dt_month_range(from_date, to_date)
     views_dt_range = filter(core.valid_view_dt_pair, date_list)
     pdf_dt_range = filter(core.valid_downloads_dt_pair, date_list)
+
+    module = core.module_picker(from_date, to_date)
     
     query_list = []
     query_list.extend(generate_queries(table_id, \
-                                       core.path_counts_query, \
+                                       module.path_counts_query, \
                                        views_dt_range,
                                        use_cached, use_only_cached))
     
     query_list.extend(generate_queries(table_id, \
-                                       core.event_counts_query, \
+                                       module.event_counts_query, \
                                        pdf_dt_range,
                                        use_cached, use_only_cached))
     bulk_query(query_list)

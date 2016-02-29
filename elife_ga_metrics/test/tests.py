@@ -21,7 +21,10 @@ class TestUtils(BaseCase):
         self.assertEqual(core.ymd(dt), "1997-08-29")
 
     def test_enplumpen(self):
-        self.assertEqual("10.7554/eLife.01234", core.enplumpen("e01234"))
+        self.assertEqual("10.7554/eLife.01234", utils.enplumpen("e01234"))
+
+    def test_deplumpen(self):
+        self.assertEqual("e01234", utils.deplumpen("eLife.01234"))
 
     def test_month_range(self):
         expected_output = [
@@ -82,3 +85,4 @@ class TestUtils(BaseCase):
         response = json.load(open(output_path, 'r'))
         for key in core.SANITISE_THESE:
             self.assertTrue(not response.has_key(key))
+
