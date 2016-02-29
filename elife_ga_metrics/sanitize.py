@@ -5,9 +5,10 @@ import sys, os, core, json
 from os.path import join
 
 def do():
-    for dirname in os.listdir(core.OUTPUT_DIR):
-        for filename in os.listdir(join(core.OUTPUT_DIR, dirname)):
-            path = join(core.OUTPUT_DIR, dirname, filename)
+    output_dir = core.output_dir()
+    for dirname in os.listdir(output_dir):
+        for filename in os.listdir(join(output_dir, dirname)):
+            path = join(output_dir, dirname, filename)
             if path.endswith('.json'):
                 sys.stdout.write('santizing %s' % path)
                 core.write_results( \

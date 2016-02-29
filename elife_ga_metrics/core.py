@@ -28,7 +28,15 @@ logging.basicConfig()
 LOG = logging.getLogger(__name__)
 LOG.level = logging.INFO
 
-OUTPUT_DIR = join(os.path.dirname(os.path.dirname(__file__)), 'output')
+#OUTPUT_DIR = join(os.path.dirname(os.path.dirname(__file__)), 'output')
+OUTPUT_SUBDIR = 'output'
+
+def output_dir():
+    root = os.path.dirname(os.path.dirname(__file__))
+    if os.environ.get('TESTING'):
+        root = os.getenv('TEST_OUTPUT_DIR')
+    return join(root, OUTPUT_SUBDIR)
+
 VIEWS_INCEPTION = datetime(year=2014, month=3, day=12)
 DOWNLOADS_INCEPTION = datetime(year=2015, month=2, day=13)
 
@@ -60,11 +68,13 @@ def deplumpen(artid):
         LOG.error("unable to deplump %r", artid)
         return artid
 
+SANITISE_THESE = ['profileInfo', 'id', 'selfLink']
+
 def sanitize_ga_response(ga_response):
     """The GA responses contain no sensitive information, however it does
     have a collection of identifiers I'd feel happier if the world didn't
     have easy access to."""
-    for key in ['profileInfo', 'id', 'selfLink']:
+    for key in SANITISE_THESE:
         if ga_response.has_key(key):
             del ga_response[key]
     if ga_response['query'].has_key('ids'):
@@ -275,16 +285,6 @@ def query_ga(query, num_attempts=5):
     
     raise AssertionError("Failed to execute query after %s attempts" % num_attempts)
 
-def query_ga_write_results(*args, **kwargs):
-    response = query_ga(*args, **kwargs)
-    query = response['query']            
-    from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
-    to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
-    results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
-    path = output_path(results_type, from_date, to_date)
-    write_results(response, path)
-    return response
-
 def output_path(results_type, from_date, to_date):
     "generates a path for results of the given type"
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
@@ -312,7 +312,18 @@ def output_path(results_type, from_date, to_date):
     
     # ll: output/downloads/2014-04-01.json
     # ll: output/views/2014-01-01_2014-01-31.json.partial
-    return join(OUTPUT_DIR, results_type, dt_str + ".json" + partial)
+    return join(output_dir(), results_type, dt_str + ".json" + partial)
+
+def output_path_from_results(response):
+    """determines a path where the given response can live, using the
+    dates within the response and guessing the request type"""
+    assert response.has_key('query') and response['query'].has_key('filters'), \
+      "can't parse given response: %r" % str(response)
+    query = response['query']
+    from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
+    to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
+    results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
+    return output_path(results_type, from_date, to_date)
 
 def write_results(results, path):
     "writes sanitised response from Google as json to the given path"
@@ -320,9 +331,16 @@ def write_results(results, path):
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
     LOG.info("writing %r", path)
+    #json.dump(results, open(path + '.raw', 'w'), indent=4, sort_keys=True)
     json.dump(sanitize_ga_response(results), open(path, 'w'), indent=4, sort_keys=True)
     return path
-    
+
+def query_ga_write_results(query, num_attempts=5):
+    "convenience. queries GA then writes the results, returning both the original response and the path to results"
+    response = query_ga(query, num_attempts)
+    path = output_path_from_results(response)
+    return response, write_results(response, path)
+
 
 #
 #
@@ -357,8 +375,10 @@ def article_views(table_id, from_date, to_date, cached=False, only_cached=False)
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga_write_results(path_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
+        raw_data, actual_path = query_ga_write_results(path_counts_query(table_id, from_date, to_date))
+        assert path == actual_path, "the expected output path (%s) doesn't match the path actually written to (%s)" % (path, actual_path)
+        # double write, wtf?
+        #write_results(raw_data, path)
     return article_counts(raw_data.get('rows', []))
 
 def article_downloads(table_id, from_date, to_date, cached=False, only_cached=False):
@@ -375,8 +395,10 @@ def article_downloads(table_id, from_date, to_date, cached=False, only_cached=Fa
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga_write_results(event_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
+        raw_data, actual_path = query_ga_write_results(event_counts_query(table_id, from_date, to_date))
+        assert path == actual_path, "the expected output path (%s) doesn't match the path actually written to (%s)" % (path, actual_path)
+        # double write, wtf?
+        #write_results(raw_data, path)
     return download_counts(raw_data.get('rows', []))
 
 def article_metrics(table_id, from_date, to_date, cached=False, only_cached=False):
@@ -402,6 +424,7 @@ def article_metrics(table_id, from_date, to_date, cached=False, only_cached=Fals
 
 def main(table_id):
     to_date = from_date = datetime.now() - timedelta(days=1)
+    # use cache if available. use cache exclusively if the client-secrets.json file not found
     use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
     #use_cached = use_only_cached = False
     return article_metrics(table_id, from_date, to_date, use_cached, use_only_cached)
