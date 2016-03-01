@@ -7,7 +7,6 @@ import logging
 LOG = logging.getLogger("")
 LOG.level = logging.DEBUG
 
-
 class Object(object): pass
 
 class DummyQuery(object):
@@ -34,4 +33,3 @@ class TestQueryGA(base.BaseCase):
     def test_exponential_backoff_applied_on_rate_limit(self):
         query = DummyQuery(raises=503)
         self.assertRaises(AssertionError, core.query_ga, query, num_attempts=1)
-        

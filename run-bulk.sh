@@ -7,4 +7,4 @@ if [ -f .env ]; then
     set -a # all vars are exported
     source .env
 fi
-python elife_ga_metrics/bulk.py
+python -m elife_ga_metrics.bulk
