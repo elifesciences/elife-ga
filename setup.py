@@ -5,7 +5,7 @@ NAME = 'elife-ga-metrics' # project name
 AUTHORS = ["Luke Skibinski <l.skibinski@elifesciences.org>"] # list of all contributing authors
 LICENCE = 'GPLv3' # licence short name
 COPYRIGHT = 'eLife Sciences' # copyright owner
-VERSION = '2015.11.23' # some sort of natural ordering key
+VERSION = '2016.02.29' # some sort of natural ordering key
 DESCRIPTION = 'google analytics wrangling for elifesciences.org' # long description
 
 
