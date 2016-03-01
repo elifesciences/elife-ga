@@ -17,15 +17,14 @@ def total_traffic_monthly_query(table_id, from_date=None, to_date=None):
     to_date = to_date or datetime.now()    
     month_range = utils.dt_month_range(from_date, to_date)
     from_date, to_date = month_range[0][0], month_range[-1][1]    
-    service = core.ga_service(table_id)
-    return service.data().ga().get(
-        ids = table_id,
-        max_results=10000, # 10,000 is the max GA will ever return
-        start_date = ymd(from_date),
-        end_date = ymd(to_date),
-        metrics = 'ga:pageviews',
-        dimensions = 'ga:year,ga:month'
-    )
+    return {
+        'ids': table_id,
+        'max_results': 10000, # 10,000 is the max GA will ever return
+        'start_date': ymd(from_date),
+        'end_date': ymd(to_date),
+        'metrics': 'ga:pageviews',
+        'dimensions': 'ga:year,ga:month'
+    }
 
 
 #

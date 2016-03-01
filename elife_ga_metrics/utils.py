@@ -73,3 +73,16 @@ class memoized(object):
     def __get__(self, obj, objtype):
         '''Support instance methods.'''
         return functools.partial(self.__call__, obj)
+
+
+def enplumpen(artid):
+    "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
+    return artid.replace('e', '10.7554/eLife.')
+
+def deplumpen(artid):
+    "takes an article id like eLife.01234 and returns a DOI like e01234"
+    try:
+        return "e" + artid.split('.')[1]
+    except IndexError:
+        LOG.error("unable to deplump %r", artid)
+        return artid

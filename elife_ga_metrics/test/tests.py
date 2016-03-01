@@ -1,14 +1,19 @@
+import os, json
+from os.path import join
 from base import BaseCase
 from datetime import datetime
 import unittest
 from elife_ga_metrics import core, bulk, utils
 
 class TestUtils(BaseCase):
-
     def setUp(self):
-        pass
-
+        self.test_output_dir = '/tmp/elife-ga-metrics/'
+        os.system('mkdir ' + self.test_output_dir)
+        os.environ['TESTING'] = "1"
+        os.environ['TEST_OUTPUT_DIR'] = self.test_output_dir
+        
     def tearDown(self):
+        os.system('rm -rf ' + self.test_output_dir)
         pass
 
     def test_ymd(self):
@@ -16,7 +21,10 @@ class TestUtils(BaseCase):
         self.assertEqual(core.ymd(dt), "1997-08-29")
 
     def test_enplumpen(self):
-        self.assertEqual("10.7554/eLife.01234", core.enplumpen("e01234"))
+        self.assertEqual("10.7554/eLife.01234", utils.enplumpen("e01234"))
+
+    def test_deplumpen(self):
+        self.assertEqual("e01234", utils.deplumpen("eLife.01234"))
 
     def test_month_range(self):
         expected_output = [
@@ -28,3 +36,53 @@ class TestUtils(BaseCase):
         start_dt = datetime(year=2014, month=12, day=15)
         end_dt = datetime(year=2015, month=3, day=12)
         self.assertEqual(expected_output, list(utils.dt_month_range(start_dt, end_dt)))
+
+    # output path
+
+    def test_output_path_for_view_results(self):
+        "the output path is correctly generated for views"
+        response = json.load(open(join(self.fixture_dir, 'views-2016-02-24.json'), 'r'))
+        expected_path = join(self.test_output_dir, core.OUTPUT_SUBDIR, "views/2016-02-24.json")
+        path = core.output_path_from_results(response)
+        self.assertEqual(path, expected_path)
+
+    def test_output_path_for_download_results(self):
+        "the output path is correctly generated for downloads"
+        response = json.load(open(join(self.fixture_dir, 'views-2016-02-24.json'), 'r'))
+        response['query']['filters'] = 'ga:eventLabel' # downloads are counted as events
+        expected_path = join(self.test_output_dir, core.OUTPUT_SUBDIR, "downloads/2016-02-24.json")
+        path = core.output_path_from_results(response)
+        self.assertEqual(path, expected_path)
+
+    def test_output_path_for_partial_results(self):
+        "the output path is correctly generated for requests that generate partial responses"
+        today = datetime.now().strftime('%Y-%m-%d')
+        response = json.load(open(join(self.fixture_dir, 'views-2016-02-24.json'), 'r'))
+        response['query']['start-date'] = today
+        response['query']['end-date'] = today
+        expected_path = join(self.test_output_dir, core.OUTPUT_SUBDIR, "views/%s.json.partial" % today)
+        path = core.output_path_from_results(response)
+        self.assertEqual(path, expected_path)
+
+    def test_output_path_for_unknown_results(self):
+        "a helpful assertion error is raised if we're given results that can't be parsed"
+        self.assertRaises(AssertionError, core.output_path_from_results, {})
+        
+    # sanitise GA response
+
+    def test_ga_response_sanitised(self):
+        "responses from GA have certain values scrubbed from them"
+        raw_response = json.load(open(join(self.fixture_dir, 'views-2016-02-24.json.raw'), 'r'))
+        response = core.sanitize_ga_response(raw_response)
+        for key in core.SANITISE_THESE:
+            self.assertTrue(not response.has_key(key))
+
+    def test_ga_response_sanitised_when_written(self):
+        "responses from GA have certain values scrubbed from them before being written to disk"
+        from_dt = to_dt = datetime(year=2016, month=2, day=24)
+        raw_response = json.load(open(join(self.fixture_dir, 'views-2016-02-24.json.raw'), 'r'))
+        output_path = core.write_results(raw_response, join(self.test_output_dir, 'foo.json'))
+        response = json.load(open(output_path, 'r'))
+        for key in core.SANITISE_THESE:
+            self.assertTrue(not response.has_key(key))
+

@@ -10,7 +10,7 @@ __author__ = [
 
 from os.path import join
 from collections import Counter
-import os, sys, re, argparse, json, time, random, json
+import os, re, argparse, json, time, random, json
 from datetime import datetime, timedelta
 from pprint import pprint
 import httplib2
@@ -24,22 +24,32 @@ from httplib2 import Http
 from elife_ga_metrics.utils import ymd, memoized, firstof
 import logging
 
+import elife_v1, elife_v2
+
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
 LOG.level = logging.INFO
 
-OUTPUT_DIR = join(os.path.dirname(os.path.dirname(__file__)), 'output')
+OUTPUT_SUBDIR = 'output'
+
+SECRETS_LOCATIONS = [
+    'client-secrets.json',
+    '/etc/elife-ga-metrics/client-secrets.json'
+]
+
+def output_dir():
+    root = os.path.dirname(os.path.dirname(__file__))
+    if os.environ.get('TESTING'):
+        root = os.getenv('TEST_OUTPUT_DIR')
+    return join(root, OUTPUT_SUBDIR)
+
 VIEWS_INCEPTION = datetime(year=2014, month=3, day=12)
 DOWNLOADS_INCEPTION = datetime(year=2015, month=2, day=13)
 
-# Declare command-line flags.
-argparser = argparse.ArgumentParser(add_help=False)
-argparser.add_argument('table_id', type=str,
-                     help=('The table ID of the profile you wish to access. '
-                           'Format is ga:xxx where xxx is your profile ID.'))
+SITE_SWITCH = datetime(year=2016, month=2, day=9)
 
 #
-# utils
+# custom classes
 #
 
 class NoSettings(RuntimeError):
@@ -47,38 +57,47 @@ class NoSettings(RuntimeError):
         msg = "could not find the credentials file! I looked here:\n%s" % '\n'.join(settings_locations)
         super(NoSettings, self).__init__(msg)
 
+#
+# utils
+#
 
-def enplumpen(artid):
-    "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
-    return artid.replace('e', '10.7554/eLife.')
+def valid_dt_pair(dt_pair, inception):
+    "returns true if both dates are greater than the date we started collecting on"    
+    from_date, to_date = dt_pair
+    return from_date >= inception and to_date >= inception
 
-def deplumpen(artid):
-    "takes an article id like eLife.01234 and returns a DOI like e01234"
-    try:
-        return "e" + artid.split('.')[1]
-    except IndexError:
-        LOG.error("unable to deplump %r", artid)
-        return artid
+def valid_view_dt_pair(dt_pair):
+    "returns true if both dates are greater than the date we started collecting on"
+    return valid_dt_pair(dt_pair, VIEWS_INCEPTION)
+
+def valid_downloads_dt_pair(dt_pair):
+    "returns true if both dates are greater than the date we started collecting on"
+    return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
+
+SANITISE_THESE = ['profileInfo', 'id', 'selfLink']
 
 def sanitize_ga_response(ga_response):
     """The GA responses contain no sensitive information, however it does
     have a collection of identifiers I'd feel happier if the world didn't
     have easy access to."""
-    for key in ['profileInfo', 'id', 'selfLink']:
+    for key in SANITISE_THESE:
         if ga_response.has_key(key):
             del ga_response[key]
     if ga_response['query'].has_key('ids'):
         del ga_response['query']['ids']
     return ga_response
 
-@memoized
-def ga_service(table_id):
-    service_name = 'analytics'
-    settings_file_locations = ['client-secrets.json',
-                               '/etc/elife-ga-metrics/client-secrets.json']
+def oauth_secrets():
+    settings_file_locations = SECRETS_LOCATIONS
     settings_file = firstof(os.path.exists, settings_file_locations)
     if not settings_file:
         raise NoSettings(settings_file_locations)
+    return settings_file
+
+@memoized
+def ga_service():
+    service_name = 'analytics'
+    settings_file = oauth_secrets()
     settings_data = sd = json.load(open(settings_file, 'r'))
     scope = 'https://www.googleapis.com/auth/analytics.readonly'
     
@@ -92,147 +111,17 @@ def ga_service(table_id):
     service = build(service_name, 'v3', http=http)
     return service
 
-#
-#
-#
-
-def event_counts_query(table_id, from_date, to_date):
-    "returns the raw GA results for PDF downloads between the two given dates"
-    assert isinstance(from_date, datetime), "'from' date must be a datetime object. received %r" % from_date
-    assert isinstance(to_date, datetime), "'to' date must be a datetime object. received %r" % to_date
-    service = ga_service(table_id)
-    return service.data().ga().get(
-        ids = table_id,
-        max_results=10000, # 10,000 is the max GA will ever return
-        start_date = ymd(from_date),
-        end_date = ymd(to_date),
-        metrics = 'ga:totalEvents',
-        dimensions = 'ga:eventLabel',
-        sort = 'ga:eventLabel',
-        # ';' separates AND expressions, ',' separates OR expressions
-        filters = r'ga:eventAction==Download;ga:eventCategory==Article;ga:eventLabel=~pdf-article',
-    )
-
-def download_counts(row_list):
-    "parses the list of rows returned by google to extract the doi and count"
-    def parse(row):
-        label, count = row
-        return label.split('::')[0], int(count)
-    return dict(map(parse, row_list))
-
-def path_counts_query(table_id, from_date, to_date):
-    "returns the raw GA results for article page views between the two given dates"
-    assert isinstance(from_date, datetime), "'from' date must be a datetime object. received %r" % from_date
-    assert isinstance(to_date, datetime), "'to' date must be a datetime object. received %r" % to_date
-
-    # regular expression suffixes (escape special chars)
-    suffix_list = [
-        '\.full',
-        '\.abstract',
-        '\.short',
-        '/abstract-1',
-        '/abstract-2',
-    ]
-    # wrap each suffix in a zero-or-one group. ll: ['(\.full)?', '(\.abstract)?', ...]
-    suffix_list = ['(%s)?' % suffix for suffix in suffix_list]
-
-    # pipe-delimit the suffix list. ll: '(\.full)?|(\.abstract)?|...)'
-    suffix_str = '|'.join(suffix_list)
-    
-    service = ga_service(table_id)    
-    return service.data().ga().get(
-        ids = table_id,
-        max_results=10000, # 10,000 is the max GA will ever return
-        start_date = ymd(from_date),
-        end_date = ymd(to_date),
-        metrics = 'ga:pageviews',
-        dimensions = 'ga:pagePath',
-        sort = 'ga:pagePath',
-        filters = ','.join([
-            # these filters are OR'ed
-            r'ga:pagePath=~^/content/.*/e[0-9]{5}(%s)$' % suffix_str,
-            r'ga:pagePath=~^/content/.*/elife\.[0-9]{5}$',
-        ])
-    )
-
-
-TYPE_MAP = {
-    None: 'full',
-    'full': 'full',
-    'abstract': 'abstract',
-    'short': 'abstract',
-    'abstract-1': 'abstract',
-    'abstract-2': 'digest'
-}
-SPLITTER = re.compile('\.|/')
-
-def article_count(pair):
-    "figures out the type of the given path using the suffix (if one available)"
-    try:
-        if pair[0].lower().startswith('/content/early/'):
-            # handles POA article variation 1 "/content/early/yyyy/mm/dd/doi/" type urls
-            bits = pair[0].split('/', 6)
-            bits[-1] = deplumpen(bits[-1])
-
-        elif pair[0].lower().startswith('/content/elife/early/'):
-            # handles POA article variation 2 "/content/elife/early/yyyy/mm/dd/doi/" type urls
-            bits = pair[0].split('/', 7)
-            bits[-1] = deplumpen(bits[-1])
-
-        elif pair[0].lower().startswith('/content/elife/'):
-            # handles valid but unsupported /content/elife/volume/id paths
-            # these paths appear in PDF files I've been told
-            bits = pair[0].split('/', 4)
-            
-        else:
-            # handles standard /content/volume/id/ paths
-            bits = pair[0].split('/', 3)
-        
-        art = bits[-1]
-        art = art.lower() # website isn't case sensitive, we are
-        more_bits = re.split(SPLITTER, art, maxsplit=1)
-        
-        suffix = None
-        if len(more_bits) > 1:
-            art, suffix = more_bits
-        assert suffix in TYPE_MAP, "unknown suffix %r! received: %r split to %r" % (suffix, pair, more_bits)
-        return art, TYPE_MAP[suffix], int(pair[1])
-
-    except AssertionError, e:
-        # we have an unhandled path
-        #LOG.warn("skpping unhandled path %s (%r)", pair, e)
-        LOG.warn("skpping unhandled path %s", pair)
-
-def article_counts(path_count_pairs):
-    """takes raw path data from GA and groups by article, returning a
-    list of (artid, full-count, abstract-count, digest-count)"""
-    
-    # for each path, build a list of path_type: value
-    article_groups = {}
-    for pair in path_count_pairs:
-        row = Counter({
-            'full': 0,
-            'abstract': 0,
-            'digest': 0,
-        })
-        triplet = article_count(pair)
-        if not triplet:
-            continue # skip bad row
-        art, art_type, count = triplet
-        group = article_groups.get(art, [row])
-        group.append(Counter({art_type: count}))
-        article_groups[art] = group
-
-    # take our list of Counter objects and count them up
-    def update(a,b):
-        # https://docs.python.org/2/library/collections.html#collections.Counter.update
-        a.update(b)
-        return a
-
-    return {enplumpen(art): reduce(update, group) for art, group in article_groups.items()}    
-
-def query_ga(query, num_attempts=5):
+def query_ga(query_map, num_attempts=5):
     "talks to google with the given query, applying exponential back-off if rate limited"
+
+    # build the query
+    if isinstance(query_map, dict):
+        query = ga_service().data().ga().get(**query_map)
+    else:
+        # a regular query object can be passed in
+        query = query_map
+
+    # execute it
     for n in range(0, num_attempts):
         try:
             if n > 1:
@@ -275,16 +164,6 @@ def query_ga(query, num_attempts=5):
     
     raise AssertionError("Failed to execute query after %s attempts" % num_attempts)
 
-def query_ga_write_results(*args, **kwargs):
-    response = query_ga(*args, **kwargs)
-    query = response['query']            
-    from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
-    to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
-    results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
-    path = output_path(results_type, from_date, to_date)
-    write_results(response, path)
-    return response
-
 def output_path(results_type, from_date, to_date):
     "generates a path for results of the given type"
     assert results_type in ['views', 'downloads'], "results type must be either 'views' or 'downloads'"
@@ -312,7 +191,18 @@ def output_path(results_type, from_date, to_date):
     
     # ll: output/downloads/2014-04-01.json
     # ll: output/views/2014-01-01_2014-01-31.json.partial
-    return join(OUTPUT_DIR, results_type, dt_str + ".json" + partial)
+    return join(output_dir(), results_type, dt_str + ".json" + partial)
+
+def output_path_from_results(response):
+    """determines a path where the given response can live, using the
+    dates within the response and guessing the request type"""
+    assert response.has_key('query') and response['query'].has_key('filters'), \
+      "can't parse given response: %r" % str(response)
+    query = response['query']
+    from_date = datetime.strptime(query['start-date'], "%Y-%m-%d")
+    to_date = datetime.strptime(query['end-date'], "%Y-%m-%d")
+    results_type = 'downloads' if 'ga:eventLabel' in query['filters'] else 'views'
+    return output_path(results_type, from_date, to_date)
 
 def write_results(results, path):
     "writes sanitised response from Google as json to the given path"
@@ -320,27 +210,44 @@ def write_results(results, path):
     if not os.path.exists(dirname):
         assert os.system("mkdir -p %s" % dirname) == 0, "failed to make output dir %r" % dirname
     LOG.info("writing %r", path)
+    #json.dump(results, open(path + '.raw', 'w'), indent=4, sort_keys=True)
     json.dump(sanitize_ga_response(results), open(path, 'w'), indent=4, sort_keys=True)
     return path
-    
+
+def query_ga_write_results(query, num_attempts=5):
+    "convenience. queries GA then writes the results, returning both the original response and the path to results"
+    response = query_ga(query, num_attempts)
+    path = output_path_from_results(response)
+    return response, write_results(response, path)
+
 
 #
 #
 #
 
+def module_picker(from_date, to_date):
+    daily = from_date == to_date
+    if daily:
+        if from_date > SITE_SWITCH:
+            return elife_v2
 
-def valid_dt_pair(dt_pair, inception):
-    "returns true if both dates are greater than the date we started collecting on"    
-    from_date, to_date = dt_pair
-    return from_date >= inception and to_date >= inception
+    else: # monthly/arbitrary
+        # if the site switch happened before the start our date range, use new
+        if SITE_SWITCH < from_date:
+            return elife_v2
 
-def valid_view_dt_pair(dt_pair):
-    "returns true if both dates are greater than the date we started collecting on"
-    return valid_dt_pair(dt_pair, VIEWS_INCEPTION)
+        # TODO, WARN: partial month logic here
+        # if the site switch happened between our two dates, use new.
+        # if monthly, this means we lose 9 days of stats
+        elif SITE_SWITCH > from_date and SITE_SWITCH < to_date:
+            return elife_v2
 
-def valid_downloads_dt_pair(dt_pair):
-    "returns true if both dates are greater than the date we started collecting on"
-    return valid_dt_pair(dt_pair, DOWNLOADS_INCEPTION)
+    return elife_v1
+
+#
+#
+#
+
 
 def article_views(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns article view data either from the cache or from talking to google"
@@ -349,6 +256,7 @@ def article_views(table_id, from_date, to_date, cached=False, only_cached=False)
         return {}
     
     path = output_path('views', from_date, to_date)
+    module = module_picker(from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     elif only_cached:
@@ -357,9 +265,10 @@ def article_views(table_id, from_date, to_date, cached=False, only_cached=False)
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga_write_results(path_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
-    return article_counts(raw_data.get('rows', []))
+        query_map = module.path_counts_query(table_id, from_date, to_date)
+        raw_data, actual_path = query_ga_write_results(query_map)
+        assert path == actual_path, "the expected output path (%s) doesn't match the path actually written to (%s)" % (path, actual_path)
+    return module.path_counts(raw_data.get('rows', []))
 
 def article_downloads(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns article download data either from the cache or from talking to google"
@@ -367,6 +276,7 @@ def article_downloads(table_id, from_date, to_date, cached=False, only_cached=Fa
         LOG.warning("given date range %r for downloads is older than known inception %r, skipping", (ymd(from_date), ymd(to_date)), DOWNLOADS_INCEPTION)
         return {}
     path = output_path('downloads', from_date, to_date)
+    module = module_picker(from_date, to_date)
     if cached and os.path.exists(path):
         raw_data = json.load(open(path, 'r'))
     elif only_cached:
@@ -375,13 +285,13 @@ def article_downloads(table_id, from_date, to_date, cached=False, only_cached=Fa
         raw_data = {}
     else:
         # talk to google
-        raw_data = query_ga_write_results(event_counts_query(table_id, from_date, to_date))
-        write_results(raw_data, path)
-    return download_counts(raw_data.get('rows', []))
+        query_map = module.event_counts_query(table_id, from_date, to_date)
+        raw_data, actual_path = query_ga_write_results(query_map)
+        assert path == actual_path, "the expected output path (%s) doesn't match the path actually written to (%s)" % (path, actual_path)
+    return module.event_counts(raw_data.get('rows', []))
 
 def article_metrics(table_id, from_date, to_date, cached=False, only_cached=False):
     "returns a dictionary of article metrics, combining both article views and pdf downloads"
-
     views = article_views(table_id, from_date, to_date, cached, only_cached)
     downloads = article_downloads(table_id, from_date, to_date, cached, only_cached)
 
@@ -402,7 +312,11 @@ def article_metrics(table_id, from_date, to_date, cached=False, only_cached=Fals
 
 def main(table_id):
     to_date = from_date = datetime.now() - timedelta(days=1)
-    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    # use cache if available. use cache exclusively if the client-secrets.json file not found
+    #use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    use_cached, use_only_cached = True, not oauth_secrets()
+    print 'cached?',use_cached
+    print 'only cached?',use_only_cached
     #use_cached = use_only_cached = False
     return article_metrics(table_id, from_date, to_date, use_cached, use_only_cached)
 
