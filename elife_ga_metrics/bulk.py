@@ -149,7 +149,7 @@ def article_metrics(table_id):
     "returns daily results for the last week, monthly results for the current month"
     from_date = datetime.now() - timedelta(days=1)
     to_date = datetime.now()
-    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    use_cached, use_only_cached = True, not core.oauth_secrets()
     
     return {'daily': dict(daily_metrics_between(table_id, \
                                            from_date, \

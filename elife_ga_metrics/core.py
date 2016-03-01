@@ -32,6 +32,11 @@ LOG.level = logging.INFO
 
 OUTPUT_SUBDIR = 'output'
 
+SECRETS_LOCATIONS = [
+    'client-secrets.json',
+    '/etc/elife-ga-metrics/client-secrets.json'
+]
+
 def output_dir():
     root = os.path.dirname(os.path.dirname(__file__))
     if os.environ.get('TESTING'):
@@ -82,14 +87,17 @@ def sanitize_ga_response(ga_response):
         del ga_response['query']['ids']
     return ga_response
 
-@memoized
-def ga_service():
-    service_name = 'analytics'
-    settings_file_locations = ['client-secrets.json',
-                               '/etc/elife-ga-metrics/client-secrets.json']
+def oauth_secrets():
+    settings_file_locations = SECRETS_LOCATIONS
     settings_file = firstof(os.path.exists, settings_file_locations)
     if not settings_file:
         raise NoSettings(settings_file_locations)
+    return settings_file
+
+@memoized
+def ga_service():
+    service_name = 'analytics'
+    settings_file = oauth_secrets()
     settings_data = sd = json.load(open(settings_file, 'r'))
     scope = 'https://www.googleapis.com/auth/analytics.readonly'
     
@@ -300,7 +308,10 @@ def article_metrics(table_id, from_date, to_date, cached=False, only_cached=Fals
 def main(table_id):
     to_date = from_date = datetime.now() - timedelta(days=1)
     # use cache if available. use cache exclusively if the client-secrets.json file not found
-    use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    #use_cached, use_only_cached = True, not os.path.exists('client-secrets.json')
+    use_cached, use_only_cached = True, not oauth_secrets()
+    print 'cached?',use_cached
+    print 'only cached?',use_only_cached
     #use_cached = use_only_cached = False
     return article_metrics(table_id, from_date, to_date, use_cached, use_only_cached)
 
