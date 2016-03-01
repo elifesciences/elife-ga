@@ -227,17 +227,22 @@ def query_ga_write_results(query, num_attempts=5):
 
 def module_picker(from_date, to_date):
     daily = from_date == to_date
-    module = elife_v1
     if daily:
         if from_date > SITE_SWITCH:
-            module = elife_v2
-    else: # monthly
+            return elife_v2
+
+    else: # monthly/arbitrary
+        # if the site switch happened before the start our date range, use new
+        if SITE_SWITCH < from_date:
+            return elife_v2
+
         # TODO, WARN: partial month logic here
-        if SITE_SWITCH > from_date and SITE_SWITCH < to_date:
-            # everything up to the switchover will not be counted correctly
-            # in this scenario, we have 9 days worth
-            module = elife_v2
-    return module
+        # if the site switch happened between our two dates, use new.
+        # if monthly, this means we lose 9 days of stats
+        elif SITE_SWITCH > from_date and SITE_SWITCH < to_date:
+            return elife_v2
+
+    return elife_v1
 
 #
 #
