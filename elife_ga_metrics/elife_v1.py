@@ -137,23 +137,16 @@ def path_count(pair):
         #LOG.warn("skpping unhandled path %s (%r)", pair, e)
         LOG.warn("skpping unhandled path %s", pair)
 
-def path_counts(path_count_pairs):
-    """takes raw path data from GA and groups by article, returning a
-    list of (artid, full-count, abstract-count, digest-count)"""
-    
+def group_results(triplet_list):    
     # for each path, build a list of path_type: value
     article_groups = {}
-    for pair in path_count_pairs:
-        row = Counter({
+    for art, art_type, count in triplet_list:
+        zeroed_row = Counter({
             'full': 0,
             'abstract': 0,
             'digest': 0,
         })
-        triplet = path_count(pair)
-        if not triplet:
-            continue # skip bad row
-        art, art_type, count = triplet
-        group = article_groups.get(art, [row])
+        group = article_groups.get(art, [zeroed_row]) # every article always has a zeroed result 
         group.append(Counter({art_type: count}))
         article_groups[art] = group
 
@@ -163,4 +156,9 @@ def path_counts(path_count_pairs):
         a.update(b)
         return a
 
-    return {utils.enplumpen(art): reduce(update, group) for art, group in article_groups.items()}    
+    return {utils.enplumpen(art): reduce(update, group) for art, group in article_groups.items()}
+
+def path_counts(path_count_pairs):
+    """takes raw path data from GA and groups by article, returning a
+    list of (artid, full-count, abstract-count, digest-count)"""
+    return group_results(filter(None, map(path_count, path_count_pairs)))
