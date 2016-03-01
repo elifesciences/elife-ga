@@ -30,7 +30,6 @@ setup(
     description = DESCRIPTION,
     long_description = open('README.md', 'r').read(),
     packages = [MODULE],
-    data_files=[(MODULE, ['output'])],
     license = open('LICENCE.txt', 'r').read(),
     **requirements()
 )
