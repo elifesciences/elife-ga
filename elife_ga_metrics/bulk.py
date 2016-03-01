@@ -29,6 +29,7 @@ def generate_queries(table_id, query_func_name, datetime_list, use_cached=False,
         query_type = 'views' if query_func_name == 'path_counts_query' else 'downloads'
         
         output_path = core.output_path(query_type, start_date, end_date)
+        LOG.debug("looking for metrics here: %s", output_path)
         if use_cached:
             if os.path.exists(output_path):
                 LOG.debug("we have %r results for %r to %r already", query_type, ymd(start_date), ymd(end_date))
