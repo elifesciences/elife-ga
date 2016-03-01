@@ -30,6 +30,7 @@ setup(
     description = DESCRIPTION,
     long_description = open('README.md', 'r').read(),
     packages = [MODULE],
+    package_data={MODULE: ['output/*.json']},
     license = open('LICENCE.txt', 'r').read(),
     **requirements()
 )
