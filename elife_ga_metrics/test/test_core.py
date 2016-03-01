@@ -40,4 +40,3 @@ class TestCore(BaseCase):
             except AssertionError:
                 print dtpair,expected_module
                 raise
-        
