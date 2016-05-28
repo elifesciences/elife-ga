@@ -16,7 +16,7 @@
     "kind": "analytics#gaData", 
     "query": {
         "dimensions": "ga:pagePath", 
-        "end-date": "2016-05-26", 
+        "end-date": "2016-05-27", 
         "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
         "max-results": 10000, 
         "metrics": [
@@ -25,24 +25,20 @@
         "sort": [
             "ga:pagePath"
         ], 
-        "start-date": "2016-05-26", 
+        "start-date": "2016-05-27", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "/content/3/e02043v1", 
+            "/content/3/e01936v2", 
             "1"
         ], 
         [
-            "/content/3/e02391v1", 
+            "/content/3/e02653v2", 
             "1"
         ], 
         [
-            "/content/3/e03031v1", 
-            "1"
-        ], 
-        [
-            "/content/3/e03467v1", 
+            "/content/3/e03401v1", 
             "1"
         ], 
         [
@@ -50,7 +46,7 @@
             "1"
         ], 
         [
-            "/content/3/e04247v1", 
+            "/content/3/e04353v1", 
             "1"
         ], 
         [
@@ -59,62 +55,66 @@
         ], 
         [
             "/content/3/e04581v1", 
-            "26"
+            "31"
         ], 
         [
-            "/content/3/e04660v1", 
+            "/content/4/e04489v1", 
             "1"
         ], 
         [
-            "/content/4/e04885v1", 
+            "/content/4/e06444v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07186v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07242v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07340v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07493v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e08206v2", 
             "2"
         ], 
         [
-            "/content/4/e05651v1", 
+            "/content/4/e08261v1", 
             "1"
         ], 
         [
-            "/content/4/e07074v1", 
+            "/content/4/e08595v2", 
             "1"
         ], 
         [
-            "/content/4/e08347v1", 
+            "/content/4/e08666v1", 
             "1"
         ], 
         [
-            "/content/4/e08712v1", 
-            "2"
-        ], 
-        [
-            "/content/4/e09017v1", 
+            "/content/4/e09300v1", 
             "1"
-        ], 
-        [
-            "/content/4/e09214v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e09406v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e09410v2", 
-            "0"
-        ], 
-        [
-            "/content/4/e09423v1", 
-            "2"
         ], 
         [
             "/content/4/e09646v1", 
-            "3"
-        ], 
-        [
-            "/content/4/e09651v1", 
             "1"
         ], 
         [
-            "/content/4/e09771v2", 
+            "/content/4/e09674v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e09696v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e09868v1", 
             "1"
         ], 
         [
@@ -126,155 +126,115 @@
             "1"
         ], 
         [
-            "/content/4/e10113v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e10441v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e10559v2", 
-            "1"
-        ], 
-        [
             "/content/4/e10567v1", 
             "1"
         ], 
         [
-            "/content/4/e10616v1", 
+            "/content/4/e10850v1", 
             "1"
         ], 
         [
-            "/content/4/e11386v1", 
+            "/content/4/e11188v1", 
             "1"
         ], 
         [
-            "/content/4/e12247v1", 
+            "/content/4/e11188v2", 
             "1"
         ], 
         [
-            "/content/4/e12362v1", 
+            "/content/4/e11814v1", 
             "1"
         ], 
         [
             "/content/4/e12621v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e08438v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e09376v1", 
             "2"
+        ], 
+        [
+            "/content/4/e12997v1", 
+            "1"
         ], 
         [
             "/content/5/e10047v1", 
             "1"
         ], 
         [
-            "/content/5/e10415v1", 
-            "1"
+            "/content/5/e10288v2", 
+            "4"
         ], 
         [
-            "/content/5/e10607v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e10607v2", 
+            "/content/5/e10607v3", 
             "1"
         ], 
         [
             "/content/5/e10856v1", 
-            "3"
+            "1"
+        ], 
+        [
+            "/content/5/e10921v1", 
+            "2"
         ], 
         [
             "/content/5/e10956v1", 
             "1"
         ], 
         [
-            "/content/5/e11418v1", 
-            "2"
-        ], 
-        [
-            "/content/5/e11469v1", 
+            "/content/5/e11862v2", 
             "1"
-        ], 
-        [
-            "/content/5/e11752v1", 
-            "2"
         ], 
         [
             "/content/5/e11888v1", 
             "2"
         ], 
         [
-            "/content/5/e12102v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e12203v1", 
-            "1"
-        ], 
-        [
             "/content/5/e12217v1", 
             "1"
         ], 
         [
-            "/content/5/e12248v1", 
-            "2"
-        ], 
-        [
-            "/content/5/e12435v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e12534v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e12577v1", 
-            "1"
-        ], 
-        [
             "/content/5/e12677v2", 
-            "1"
+            "2"
         ], 
         [
             "/content/5/e12677v3", 
             "1"
         ], 
         [
-            "/content/5/e12765v1", 
+            "/content/5/e12727v1", 
             "2"
         ], 
         [
             "/content/5/e12813v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e13046v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e13051v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e13141v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e13150v1", 
             "2"
+        ], 
+        [
+            "/content/5/e12880v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12917v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e12994v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e13027v1", 
+            "1"
         ], 
         [
             "/content/5/e13152v1", 
             "1"
         ], 
         [
-            "/content/5/e13405v1", 
+            "/content/5/e13222v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13328v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13378v1", 
             "1"
         ], 
         [
@@ -282,95 +242,71 @@
             "4"
         ], 
         [
-            "/content/5/e13446v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e13503v3", 
+            "/content/5/e13450v1", 
             "1"
         ], 
         [
             "/content/5/e13546v1", 
-            "2"
+            "3"
         ], 
         [
-            "/content/5/e13568v1", 
-            "1"
+            "/content/5/e13550v2", 
+            "4"
         ], 
         [
-            "/content/5/e13588v2", 
-            "9"
-        ], 
-        [
-            "/content/5/e13615v1", 
+            "/content/5/e13614v1", 
             "1"
         ], 
         [
             "/content/5/e13732v2", 
-            "4"
-        ], 
-        [
-            "/content/5/e13879v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e13926v1", 
             "1"
         ], 
         [
             "/content/5/e13943v1", 
-            "2"
+            "1"
         ], 
         [
             "/content/5/e13974v1", 
-            "2"
+            "1"
+        ], 
+        [
+            "/content/5/e14009v1", 
+            "1"
         ], 
         [
             "/content/5/e14009v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e14087v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e14158v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e14334v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e14912v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e14997v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e15039v2", 
             "2"
         ], 
         [
-            "/content/5/e15104v1", 
+            "/content/5/e14036v2", 
             "1"
         ], 
         [
-            "/content/5/e15106v1", 
+            "/content/5/e14119v1", 
+            "4"
+        ], 
+        [
+            "/content/5/e14158v1", 
+            "3"
+        ], 
+        [
+            "/content/5/e14175v1", 
+            "7"
+        ], 
+        [
+            "/content/5/e14258v1", 
             "1"
         ], 
         [
-            "/content/5/e15507v1", 
+            "/content/5/e14334v2", 
+            "1"
+        ], 
+        [
+            "/content/5/e15272v2", 
             "1"
         ], 
         [
             "/content/5/e15690v2", 
-            "3"
-        ], 
-        [
-            "/content/5/e15802v1", 
             "1"
         ], 
         [
@@ -378,16 +314,12 @@
             "2"
         ], 
         [
-            "/content/5/e16167v1", 
-            "1"
-        ], 
-        [
             "/content/5/e17082v2", 
-            "1"
+            "3"
         ]
     ], 
-    "totalResults": 89, 
+    "totalResults": 72, 
     "totalsForAllResults": {
-        "ga:pageviews": "150"
+        "ga:pageviews": "139"
     }
 }
