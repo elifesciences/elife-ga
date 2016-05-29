@@ -1,0 +1,133 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2016-05-28", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2016-05-28", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/3/e02008v1", 
+            "1"
+        ], 
+        [
+            "/content/3/e03401v1", 
+            "2"
+        ], 
+        [
+            "/content/3/e03779v1", 
+            "1"
+        ], 
+        [
+            "/content/3/e04581v1", 
+            "12"
+        ], 
+        [
+            "/content/4/e03977v2", 
+            "1"
+        ], 
+        [
+            "/content/4/e05198v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e05503v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07493v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10441v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10450v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10837v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e11346v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e12247v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e08996v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e10250v1", 
+            "3"
+        ], 
+        [
+            "/content/5/e10647v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e12677v2", 
+            "1"
+        ], 
+        [
+            "/content/5/e13442v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13503v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e14087v2", 
+            "2"
+        ], 
+        [
+            "/content/5/e14119v1", 
+            "5"
+        ], 
+        [
+            "/content/5/e14319v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e15104v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e15802v1", 
+            "1"
+        ]
+    ], 
+    "totalResults": 24, 
+    "totalsForAllResults": {
+        "ga:pageviews": "44"
+    }
+}
