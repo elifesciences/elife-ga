@@ -16,7 +16,7 @@
     "kind": "analytics#gaData", 
     "query": {
         "dimensions": "ga:pagePath", 
-        "end-date": "2016-05-28", 
+        "end-date": "2016-05-29", 
         "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
         "max-results": 10000, 
         "metrics": [
@@ -25,56 +25,72 @@
         "sort": [
             "ga:pagePath"
         ], 
-        "start-date": "2016-05-28", 
+        "start-date": "2016-05-29", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "/content/3/e02008v1", 
-            "1"
-        ], 
-        [
             "/content/3/e03401v1", 
             "2"
+        ], 
+        [
+            "/content/3/e03504v1", 
+            "1"
         ], 
         [
             "/content/3/e03779v1", 
             "1"
         ], 
         [
+            "/content/3/e04395v1", 
+            "1"
+        ], 
+        [
             "/content/3/e04581v1", 
-            "13"
+            "4"
         ], 
         [
-            "/content/4/e03977v2", 
+            "/content/4/e04241v1", 
             "1"
         ], 
         [
-            "/content/4/e05198v1", 
+            "/content/4/e06664v1", 
             "1"
         ], 
         [
-            "/content/4/e05503v1", 
+            "/content/4/e07197v1", 
             "1"
         ], 
         [
-            "/content/4/e07158v1", 
+            "/content/4/e07242v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07410v1", 
             "1"
         ], 
         [
             "/content/4/e07493v1", 
+            "4"
+        ], 
+        [
+            "/content/4/e08935v1", 
             "1"
         ], 
         [
-            "/content/4/e10070v1", 
+            "/content/4/e09623v1", 
+            "2"
+        ], 
+        [
+            "/content/4/e09651v1", 
             "1"
         ], 
         [
-            "/content/4/e10441v1", 
+            "/content/4/e09651v2", 
             "1"
         ], 
         [
-            "/content/4/e10450v1", 
+            "/content/4/e09861v1", 
             "1"
         ], 
         [
@@ -82,11 +98,19 @@
             "1"
         ], 
         [
+            "/content/4/e11134v1", 
+            "1"
+        ], 
+        [
             "/content/4/e11308v1", 
             "1"
         ], 
         [
-            "/content/4/e11346v1", 
+            "/content/4/e11389v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e11695v1", 
             "1"
         ], 
         [
@@ -94,64 +118,68 @@
             "1"
         ], 
         [
-            "/content/4/e12621v1", 
+            "/content/5/e09376v1", 
             "1"
         ], 
         [
-            "/content/5/e08996v1", 
+            "/content/5/e09977v1", 
             "1"
         ], 
         [
             "/content/5/e10250v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e11418v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e11476v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e11572v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12059v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12435v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12850v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12880v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12994v1", 
             "3"
-        ], 
-        [
-            "/content/5/e10647v1", 
-            "2"
-        ], 
-        [
-            "/content/5/e11752v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e12677v2", 
-            "1"
-        ], 
-        [
-            "/content/5/e13152v1", 
-            "1"
         ], 
         [
             "/content/5/e13442v1", 
             "1"
         ], 
         [
-            "/content/5/e13503v1", 
+            "/content/5/e13552v1", 
             "1"
         ], 
         [
-            "/content/5/e14087v2", 
-            "2"
-        ], 
-        [
-            "/content/5/e14119v1", 
-            "5"
-        ], 
-        [
-            "/content/5/e14319v1", 
+            "/content/5/e14334v1", 
             "1"
         ], 
         [
             "/content/5/e15104v1", 
             "2"
-        ], 
-        [
-            "/content/5/e15802v1", 
-            "1"
         ]
     ], 
-    "totalResults": 30, 
+    "totalResults": 37, 
     "totalsForAllResults": {
-        "ga:pageviews": "52"
+        "ga:pageviews": "48"
     }
 }
