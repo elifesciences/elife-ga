@@ -16,7 +16,7 @@
     "kind": "analytics#gaData", 
     "query": {
         "dimensions": "ga:pagePath", 
-        "end-date": "2016-05-29", 
+        "end-date": "2016-05-30", 
         "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
         "max-results": 10000, 
         "metrics": [
@@ -25,12 +25,12 @@
         "sort": [
             "ga:pagePath"
         ], 
-        "start-date": "2016-05-29", 
+        "start-date": "2016-05-30", 
         "start-index": 1
     }, 
     "rows": [
         [
-            "/content/3/e03346v1", 
+            "/content/2/e00669v1/abstract", 
             "1"
         ], 
         [
@@ -38,43 +38,39 @@
             "2"
         ], 
         [
-            "/content/3/e03504v1", 
-            "1"
-        ], 
-        [
-            "/content/3/e03779v1", 
-            "1"
-        ], 
-        [
             "/content/3/e04395v1", 
             "4"
         ], 
         [
+            "/content/3/e04499v1", 
+            "1"
+        ], 
+        [
             "/content/3/e04581v1", 
-            "13"
+            "5"
         ], 
         [
-            "/content/4/e04241v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e06664v1", 
-            "1"
-        ], 
-        [
-            "/content/4/e06821v2", 
+            "/content/3/e04660v1", 
             "2"
         ], 
         [
-            "/content/4/e07103v1", 
+            "/content/4/e05198v1", 
             "1"
         ], 
         [
-            "/content/4/e07178v1", 
+            "/content/4/e05506v1", 
             "1"
         ], 
         [
-            "/content/4/e07197v1", 
+            "/content/4/e05651v1", 
+            "2"
+        ], 
+        [
+            "/content/4/e07051v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07090v1", 
             "1"
         ], 
         [
@@ -82,43 +78,43 @@
             "1"
         ], 
         [
-            "/content/4/e07410v1", 
+            "/content/4/e07454v2", 
             "1"
         ], 
         [
-            "/content/4/e07493v1", 
-            "4"
-        ], 
-        [
-            "/content/4/e08261v1", 
+            "/content/4/e07864v1", 
             "1"
         ], 
         [
-            "/content/4/e08935v1", 
+            "/content/4/e07892v1", 
+            "3"
+        ], 
+        [
+            "/content/4/e09520v1", 
             "1"
         ], 
         [
-            "/content/4/e09262v1", 
-            "2"
-        ], 
-        [
-            "/content/4/e09623v1", 
-            "2"
+            "/content/4/e09590v1", 
+            "1"
         ], 
         [
             "/content/4/e09651v1", 
-            "1"
+            "2"
         ], 
         [
             "/content/4/e09651v2", 
             "1"
         ], 
         [
-            "/content/4/e09861v1", 
+            "/content/4/e09771v1", 
             "1"
         ], 
         [
-            "/content/4/e10074v1", 
+            "/content/4/e10396v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10441v1", 
             "1"
         ], 
         [
@@ -130,19 +126,19 @@
             "1"
         ], 
         [
-            "/content/4/e11308v1", 
+            "/content/4/e11205v1", 
             "1"
         ], 
         [
-            "/content/4/e11389v1", 
+            "/content/4/e11386v1", 
             "1"
         ], 
         [
-            "/content/4/e11695v1", 
+            "/content/5/e07727v1", 
             "1"
         ], 
         [
-            "/content/4/e12247v1", 
+            "/content/5/e09100v1", 
             "1"
         ], 
         [
@@ -158,11 +154,11 @@
             "1"
         ], 
         [
-            "/content/5/e10625v1", 
-            "1"
+            "/content/5/e10806v1", 
+            "2"
         ], 
         [
-            "/content/5/e10989v2", 
+            "/content/5/e10856v1", 
             "1"
         ], 
         [
@@ -170,19 +166,15 @@
             "1"
         ], 
         [
-            "/content/5/e11476v1", 
-            "1"
-        ], 
-        [
-            "/content/5/e11572v1", 
+            "/content/5/e11862v2", 
             "1"
         ], 
         [
             "/content/5/e11888v1", 
-            "0"
+            "2"
         ], 
         [
-            "/content/5/e12059v1", 
+            "/content/5/e12039v1", 
             "1"
         ], 
         [
@@ -190,55 +182,79 @@
             "1"
         ], 
         [
-            "/content/5/e12435v1", 
+            "/content/5/e12504v1", 
             "1"
         ], 
         [
-            "/content/5/e12572v1", 
+            "/content/5/e12509v1", 
             "1"
         ], 
         [
-            "/content/5/e12620v1", 
-            "0"
+            "/content/5/e12552v1", 
+            "1"
         ], 
         [
             "/content/5/e12677v2", 
             "1"
         ], 
         [
-            "/content/5/e12850v1", 
+            "/content/5/e12727v1", 
             "1"
+        ], 
+        [
+            "/content/5/e12741v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12748v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12850v1", 
+            "2"
         ], 
         [
             "/content/5/e12880v1", 
             "1"
         ], 
         [
-            "/content/5/e12994v1", 
-            "3"
+            "/content/5/e13046v1", 
+            "2"
         ], 
         [
             "/content/5/e13442v1", 
             "2"
         ], 
         [
-            "/content/5/e13552v1", 
+            "/content/5/e13446v1", 
             "1"
         ], 
         [
-            "/content/5/e13614v1", 
+            "/content/5/e13663v1", 
             "1"
         ], 
         [
-            "/content/5/e13943v1", 
+            "/content/5/e13715v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13887v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13909v1", 
             "2"
         ], 
         [
-            "/content/5/e14087v2", 
+            "/content/5/e13943v1", 
             "1"
         ], 
         [
-            "/content/5/e14119v1", 
+            "/content/5/e14022v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e14277v1", 
             "1"
         ], 
         [
@@ -246,20 +262,20 @@
             "1"
         ], 
         [
-            "/content/5/e14334v1", 
+            "/content/5/e15075v1", 
             "1"
         ], 
         [
             "/content/5/e15104v1", 
-            "2"
+            "1"
         ], 
         [
-            "/content/5/e15507v1", 
+            "/content/5/e16758v1", 
             "1"
         ]
     ], 
-    "totalResults": 57, 
+    "totalResults": 61, 
     "totalsForAllResults": {
-        "ga:pageviews": "82"
+        "ga:pageviews": "80"
     }
 }
