@@ -1,0 +1,197 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2016-06-05", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2016-06-05", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/3/e03401v1", 
+            "1"
+        ], 
+        [
+            "/content/3/e03401v2", 
+            "1"
+        ], 
+        [
+            "/content/3/e04265v2", 
+            "1"
+        ], 
+        [
+            "/content/3/e04395v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e04069v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e04885v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e05503v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e05979v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07186v1", 
+            "2"
+        ], 
+        [
+            "/content/4/e07242v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07864v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e07903v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e08378v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e08712v1", 
+            "2"
+        ], 
+        [
+            "/content/4/e09300v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e09651v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10015v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10111v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10441v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e10781v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e11215v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e11386v1", 
+            "1"
+        ], 
+        [
+            "/content/4/e11814v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e09977v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e10421v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12217v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12435v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12552v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12677v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12741v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e12813v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e12850v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13403v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e13405v1", 
+            "3"
+        ], 
+        [
+            "/content/5/e13442v1", 
+            "3"
+        ], 
+        [
+            "/content/5/e13571v2", 
+            "1"
+        ], 
+        [
+            "/content/5/e14107v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e14277v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e15104v1", 
+            "2"
+        ], 
+        [
+            "/content/5/e15272v1", 
+            "4"
+        ]
+    ], 
+    "totalResults": 40, 
+    "totalsForAllResults": {
+        "ga:pageviews": "55"
+    }
+}
