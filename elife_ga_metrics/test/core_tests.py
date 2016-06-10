@@ -1,6 +1,6 @@
 from base import BaseCase
 from datetime import datetime, timedelta
-from elife_ga_metrics import core, elife_v1, elife_v2, utils
+from elife_ga_metrics import core, elife_v1, elife_v2, elife_v3, utils
 
 class TestCore(BaseCase):
     def setUp(self):
@@ -17,10 +17,22 @@ class TestCore(BaseCase):
             # previous to the switchover, we used v1
             (core.SITE_SWITCH - d1, elife_v1),
             # after switchover, we use v2
-            (core.SITE_SWITCH + d1, elife_v2)
+            (core.SITE_SWITCH + d1, elife_v2),
+
+            # versionless urls
+            # after switchover but before the versionless urls, we use v2
+            (core.VERSIONLESS_URLS - d1, elife_v2),
+            # on the day, we still use v2
+            (core.VERSIONLESS_URLS, elife_v2),
+            # on the day AFTER, we use v3
+            (core.VERSIONLESS_URLS + d1, elife_v3)
         ]
         for dt, expected_module in expectations:
-            self.assertEqual(expected_module, core.module_picker(dt, dt))
+            try:
+                self.assertEqual(expected_module, core.module_picker(dt, dt))
+            except AssertionError:
+                print 'failed to find',expected_module,'for date starting',dt
+                raise
 
     def test_module_picker_monthly(self):
         d1 = timedelta(days=1)

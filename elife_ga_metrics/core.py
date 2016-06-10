@@ -24,7 +24,7 @@ from httplib2 import Http
 from elife_ga_metrics.utils import ymd, memoized, firstof
 import logging
 
-import elife_v1, elife_v2
+import elife_v1, elife_v2, elife_v3
 
 logging.basicConfig()
 LOG = logging.getLogger(__name__)
@@ -46,7 +46,12 @@ def output_dir():
 VIEWS_INCEPTION = datetime(year=2014, month=3, day=12)
 DOWNLOADS_INCEPTION = datetime(year=2015, month=2, day=13)
 
+# when we switched away from HW
 SITE_SWITCH = datetime(year=2016, month=2, day=9)
+
+# when we were told to use versionless urls for latest article version
+VERSIONLESS_URLS = datetime(year=2016, month=4, day=28)
+
 
 #
 # custom classes
@@ -226,15 +231,24 @@ def query_ga_write_results(query, num_attempts=5):
 #
 
 def module_picker(from_date, to_date):
+    "determine which module we should be using for scraping this date range"
     daily = from_date == to_date
     if daily:
         if from_date > SITE_SWITCH:
             return elife_v2
+        
+        if from_date > VERSIONLESS_URLS:
+            return elife_v3
 
-    else: # monthly/arbitrary
-        # if the site switch happened before the start our date range, use new
-        if SITE_SWITCH < from_date:
+    # monthly/arbitrary range
+    else: 
+        # if the site switch happened before the start our date range, use v2
+        if from_date > SITE_SWITCH:
             return elife_v2
+
+        # if the site switched to versionless urls before our date range, use v3
+        elif from_date > VERSIONLESS_URLS:
+            return elife_v3
 
         # TODO, WARN: partial month logic here
         # if the site switch happened between our two dates, use new.
@@ -243,6 +257,7 @@ def module_picker(from_date, to_date):
             return elife_v2
 
     return elife_v1
+
 
 #
 #
