@@ -234,21 +234,22 @@ def module_picker(from_date, to_date):
     "determine which module we should be using for scraping this date range"
     daily = from_date == to_date
     if daily:
-        if from_date > SITE_SWITCH:
-            return elife_v2
-        
         if from_date > VERSIONLESS_URLS:
             return elife_v3
 
-    # monthly/arbitrary range
-    else: 
-        # if the site switch happened before the start our date range, use v2
         if from_date > SITE_SWITCH:
             return elife_v2
+        
 
+    # monthly/arbitrary range
+    else: 
         # if the site switched to versionless urls before our date range, use v3
-        elif from_date > VERSIONLESS_URLS:
+        if from_date > VERSIONLESS_URLS:
             return elife_v3
+
+        # if the site switch happened before the start our date range, use v2
+        elif from_date > SITE_SWITCH:
+            return elife_v2
 
         # TODO, WARN: partial month logic here
         # if the site switch happened between our two dates, use new.
