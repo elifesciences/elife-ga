@@ -1,7 +1,4 @@
 #!/bin/bash
 set -e # everything must succeed.
-if [ ! -d venv ]; then
-    virtualenv --python=`which python2` venv
-fi
-source venv/bin/activate
+source .activate-venv.sh
 pip install -r requirements.txt
