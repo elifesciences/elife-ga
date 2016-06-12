@@ -18,7 +18,7 @@ from googleapiclient.errors import HttpError
 from googleapiclient import errors
 from googleapiclient.discovery import build
 from oauth2client.client import AccessTokenRefreshError
-from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
 from elife_ga_metrics.utils import ymd, memoized, firstof
@@ -103,14 +103,8 @@ def oauth_secrets():
 def ga_service():
     service_name = 'analytics'
     settings_file = oauth_secrets()
-    settings_data = sd = json.load(open(settings_file, 'r'))
     scope = 'https://www.googleapis.com/auth/analytics.readonly'
-    
-    storage = oauth_file.Storage(service_name + '.dat')
-    credentials = storage.get()
-    if credentials is None or credentials.invalid:
-        credentials = SignedJwtAssertionCredentials(sd['client_email'], sd['private_key'], scope)
-
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(settings_file, scopes=[scope])
     http = Http()
     credentials.authorize(http) # does this 'put' back into the credentials file??
     service = build(service_name, 'v3', http=http)
