@@ -12,7 +12,6 @@ from os.path import join
 from collections import Counter
 import os, re, argparse, json, time, random, json
 from datetime import datetime, timedelta
-from pprint import pprint
 import httplib2
 from googleapiclient.errors import HttpError
 from googleapiclient import errors
@@ -21,7 +20,7 @@ from oauth2client.client import AccessTokenRefreshError
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
-from elife_ga_metrics.utils import ymd, memoized, firstof
+from elife_ga_metrics.utils import ymd, memoized, firstof, month_min_max
 import logging
 
 import elife_v1, elife_v2, elife_v3
@@ -50,8 +49,9 @@ DOWNLOADS_INCEPTION = datetime(year=2015, month=2, day=13)
 SITE_SWITCH = datetime(year=2016, month=2, day=9)
 
 # when we were told to use versionless urls for latest article version
-VERSIONLESS_URLS = datetime(year=2016, month=4, day=28)
-
+# https://github.com/elifesciences/elife-website/commit/446408019f7ec999adc6c9a80e8fa28966a42304
+VERSIONLESS_URLS = datetime(year=2016, month=5, day=5)
+VERSIONLESS_URLS_MONTH = month_min_max(VERSIONLESS_URLS)
 
 #
 # custom classes
@@ -236,19 +236,25 @@ def module_picker(from_date, to_date):
         
 
     # monthly/arbitrary range
-    else: 
+    else:
+        if (from_date, to_date) == VERSIONLESS_URLS_MONTH:
+            # business rule: if the given from-to dates represent a
+            # monthly date range and that date range is the same year+month
+            # we switched to versionless urls, use the v3 patterns.
+            return elife_v3
+
         # if the site switched to versionless urls before our date range, use v3
         if from_date > VERSIONLESS_URLS:
             return elife_v3
 
         # if the site switch happened before the start our date range, use v2
-        elif from_date > SITE_SWITCH:
+        if from_date > SITE_SWITCH:
             return elife_v2
 
         # TODO, WARN: partial month logic here
         # if the site switch happened between our two dates, use new.
         # if monthly, this means we lose 9 days of stats
-        elif SITE_SWITCH > from_date and SITE_SWITCH < to_date:
+        if SITE_SWITCH > from_date and SITE_SWITCH < to_date:
             return elife_v2
 
     return elife_v1
@@ -332,5 +338,6 @@ def main(table_id):
 
 if __name__ == '__main__':
     "call this app like: GA_TABLE='ga:12345678' python core.py"
+    from pprint import pprint
     assert os.environ.has_key('GA_TABLE'), "the environment variable 'GA_TABLE' not found. It looks like 'ga:12345678'"
     pprint(main(os.environ['GA_TABLE']))

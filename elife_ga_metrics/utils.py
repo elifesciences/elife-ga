@@ -10,6 +10,19 @@ def ymd(dt):
     "returns a yyyy-mm-dd version of the given datetime object"
     return dt.strftime("%Y-%m-%d")
 
+def month_min_max(dt):
+    mmin, mmax = calendar.monthrange(dt.year, dt.month)
+    return (datetime(year=dt.year, month=dt.month, day=1), \
+            datetime(year=dt.year, month=dt.month, day=mmax))
+
+def is_month_range(dt1, dt2):
+    """returns true if the first date represents the minium day for that 
+    year and month and the second date represents the maximum for that 
+    year and month"""
+    mmin, _ = month_min_max(dt1)
+    _, mmax = month_min_max(dt2)
+    return dt1 == mmin and dt2 == mmax
+
 def dt_range_gen(from_date, to_date):
     """returns series of datetime objects starting at from_date
     and ending on to_date inclusive."""

@@ -45,12 +45,16 @@ class TestCore(BaseCase):
             (feb, elife_v2),
             # after switchover, we use v2
             (march, elife_v2),
+
+            # in the month versionless are introduced, use v3
+            (may, elife_v3), 
             # after versionless, we use v3
             (june, elife_v3),
         ]
         for dtpair, expected_module in expectations:
+            actual = core.module_picker(*dtpair)
             try:
-                self.assertEqual(expected_module, core.module_picker(*dtpair))
+                self.assertEqual(expected_module, actual)
             except AssertionError:
-                print dtpair,expected_module
+                print 'given:',dtpair,'expected:',expected_module,'got',actual
                 raise

@@ -26,6 +26,20 @@ class TestUtils(BaseCase):
     def test_deplumpen(self):
         self.assertEqual("e01234", utils.deplumpen("eLife.01234"))
 
+    def test_month_min_max(self):
+        cases = [
+            ((2016,1,5),  (2016,1,1), (2016,1,31)),
+            ((2016,2,14), (2016,2,1), (2016,2,29)),
+            ((2016,3,19), (2016,3,1), (2016,3,31)),
+            ((2016,4,7),  (2016,4,1), (2016,4,30)),
+            ((2016,5,4),  (2016,5,1), (2016,5,31)),
+        ]
+        for given_ymd, start_ymd, end_ymd in cases:
+            actual_min_max = utils.month_min_max(datetime(*given_ymd))
+            expected_min = datetime(*start_ymd)
+            expected_max = datetime(*end_ymd)
+            self.assertEqual(actual_min_max, (expected_min, expected_max))
+
     def test_month_range(self):
         expected_output = [
             (datetime(year=2014, month=12, day=1), datetime(year=2014, month=12, day=31)),

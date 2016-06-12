@@ -119,34 +119,37 @@ def monthly_metrics_between(table_id, from_date, to_date, use_cached=True, use_o
 #
 #
 
+# TODO: good idea!
 def fill_gaps():
-    """goes through all files we have output and looks for 'gaps' and then creates a query that will fill it. NOT a replacement for regenerate_results """
+    """goes through all files we have output and looks for 'gaps' and 
+    then creates a query that will fill it. NOT a replacement for 
+    regenerate_results """
 
-#
-# bootstrap
-#
-
-def regenerate_results(table_id):
+def regenerate_results(table_id, from_date=core.VIEWS_INCEPTION):
     "this will perform all queries again, overwriting the results in `output`"
     today = datetime.now()
     use_cached, use_only_cached = False, False
     LOG.info("querying daily metrics ...")
     daily_metrics_between(table_id, \
-                          core.VIEWS_INCEPTION, \
+                          from_date, \
                           today, \
                           use_cached, use_only_cached)    
 
     LOG.info("querying monthly metrics ...")
     monthly_metrics_between(table_id, \
-                            #core.DOWNLOADS_INCEPTION, \ # wtf?
-                            core.VIEWS_INCEPTION, \
+                            from_date, \
                             today, \
                             use_cached, use_only_cached)
-    
 
-
+def regenerate_results_2016(table_id):
+    return regenerate_results(table_id, datetime(2016, 1, 1))
+                            
+#
+# bootstrap
+#
+                            
 def article_metrics(table_id):
-    "returns daily results for the last week, monthly results for the current month"
+    "returns daily results for the last week and monthly results for the current month"
     from_date = datetime.now() - timedelta(days=1)
     to_date = datetime.now()
     use_cached, use_only_cached = True, not core.oauth_secrets()
