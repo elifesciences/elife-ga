@@ -4,7 +4,7 @@
 # Call this whenever the query or table changes or when
 # code changes affect the results output.
 set -e
-source install.sh
+source install.sh &> /dev/null
 if [ -f .env ]; then 
     set -a # all vars are exported
     source .env
