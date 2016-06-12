@@ -36,15 +36,17 @@ class TestCore(BaseCase):
 
     def test_module_picker_monthly(self):
         d1 = timedelta(days=1)
-        jan, feb, march = utils.dt_month_range_gen(
-            datetime(year=2016, month=1, day=1), datetime(year=2016, month=3, day=30))
+        jan, feb, march, april, may, june = utils.dt_month_range_gen(
+            datetime(year=2016, month=1, day=1), datetime(year=2016, month=6, day=30))
         expectations = [
             # on the day, we still use v1 of the urls
             (jan, elife_v1),
             # previous to the switchover, we used v1
             (feb, elife_v2),
             # after switchover, we use v2
-            (march, elife_v2)
+            (march, elife_v2),
+            # after versionless, we use v3
+            (june, elife_v3),
         ]
         for dtpair, expected_module in expectations:
             try:
