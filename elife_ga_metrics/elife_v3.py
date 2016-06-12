@@ -10,7 +10,8 @@ essentially the same as elife_v2 BUT, the version suffix is now optional.
 
 # we can reuse these functions
 import elife_v1
-from elife_ga_metrics.elife_v1 import group_results
+# these seemingly unused imports are actually used
+from elife_ga_metrics.elife_v1 import event_counts, event_counts_query, group_results
 import re
 import logging
 
