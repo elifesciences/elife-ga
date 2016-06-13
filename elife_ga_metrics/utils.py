@@ -15,6 +15,8 @@ def month_min_max(dt):
     return (datetime(year=dt.year, month=dt.month, day=1), \
             datetime(year=dt.year, month=dt.month, day=mmax))
 
+'''
+# untested, unused
 def is_month_range(dt1, dt2):
     """returns true if the first date represents the minium day for that 
     year and month and the second date represents the maximum for that 
@@ -22,14 +24,16 @@ def is_month_range(dt1, dt2):
     mmin, _ = month_min_max(dt1)
     _, mmax = month_min_max(dt2)
     return dt1 == mmin and dt2 == mmax
+'''
 
 def dt_range_gen(from_date, to_date):
     """returns series of datetime objects starting at from_date
     and ending on to_date inclusive."""
-    if not to_date:
-        to_date = from_date
-    if from_date > to_date:
-        to_date, from_date = from_date, to_date
+    # unused, untested
+    #if not to_date:
+    #    to_date = from_date
+    #if from_date > to_date:
+    #    to_date, from_date = from_date, to_date
     diff = to_date - from_date
     for increment in range(0, diff.days + 1):
         dt = from_date + timedelta(days=increment)
@@ -57,37 +61,6 @@ def firstof(fn, x):
         if fn(i):
             return i
 
-# stolen from: https://wiki.python.org/moin/PythonDecoratorLibrary#Memoize
-class memoized(object):
-    '''Decorator. Caches a function's return value each time it is called.
-    If called later with the same arguments, the cached value is returned
-    (not reevaluated).
-    '''
-    def __init__(self, func):
-        self.func = func
-        self.cache = {}
-    def __call__(self, *args):
-        if not isinstance(args, collections.Hashable):
-            # uncacheable. a list, for instance.
-            # better to not cache than blow up.
-            return self.func(*args)
-        
-        if args in self.cache:
-            return self.cache[args]
-        else:
-            value = self.func(*args)
-            self.cache[args] = value
-            return value
-        
-    def __repr__(self):
-        '''Return the function's docstring.'''
-        return self.func.__doc__
-    
-    def __get__(self, obj, objtype):
-        '''Support instance methods.'''
-        return functools.partial(self.__call__, obj)
-
-
 def enplumpen(artid):
     "takes an article id like e01234 and returns a DOI like 10.7554/eLife.01234"
     return artid.replace('e', '10.7554/eLife.')
@@ -97,5 +70,10 @@ def deplumpen(artid):
     try:
         return "e" + artid.split('.')[1]
     except IndexError:
+        # TODO: consider turning this into a hard failure
         LOG.error("unable to deplump %r", artid)
         return artid
+    except:
+        msg = "unhandled exception attempting to parse given value %r" % str(artid)
+        LOG.error(msg)
+        raise ValueError(msg)

@@ -24,8 +24,22 @@ class TestUtils(BaseCase):
         self.assertEqual("10.7554/eLife.01234", utils.enplumpen("e01234"))
 
     def test_deplumpen(self):
-        self.assertEqual("e01234", utils.deplumpen("eLife.01234"))
+        actual = utils.deplumpen("eLife.01234")
+        self.assertEqual("e01234", actual)
 
+    def test_deplumpen_failures(self):
+        soft_cases = [
+            ('asdf', 'asdf'),
+            ('012345', '012345'),
+        ]
+        for given, expected in soft_cases:
+            self.assertEqual(utils.deplumpen(given), expected)
+
+        hard_cases = [None, [], {}, (), BaseCase]
+        for case in hard_cases:
+            self.assertRaises(ValueError, utils.deplumpen, case)
+            
+        
     def test_month_min_max(self):
         cases = [
             ((2016,1,5),  (2016,1,1), (2016,1,31)),

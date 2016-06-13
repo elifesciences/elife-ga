@@ -47,7 +47,8 @@ def generate_queries(table_id, query_func_name, datetime_list, use_cached=False,
         query_list.append(q)
 
     if use_only_cached:
-        assert query_list == [], "code problem. use_only_cached=True but we're accumulating queries somehow"
+        # code problem
+        assert query_list == [], "use_only_cached==True but we're accumulating queries somehow"
         
     return query_list
 

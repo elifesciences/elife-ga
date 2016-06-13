@@ -20,7 +20,8 @@ from oauth2client.client import AccessTokenRefreshError
 from oauth2client.service_account import ServiceAccountCredentials
 from oauth2client import file as oauth_file
 from httplib2 import Http
-from elife_ga_metrics.utils import ymd, memoized, firstof, month_min_max
+from elife_ga_metrics.utils import ymd, firstof, month_min_max
+from kids.cache import cache
 import logging
 
 import elife_v1, elife_v2, elife_v3
@@ -52,15 +53,6 @@ SITE_SWITCH = datetime(year=2016, month=2, day=9)
 # https://github.com/elifesciences/elife-website/commit/446408019f7ec999adc6c9a80e8fa28966a42304
 VERSIONLESS_URLS = datetime(year=2016, month=5, day=5)
 VERSIONLESS_URLS_MONTH = month_min_max(VERSIONLESS_URLS)
-
-#
-# custom classes
-#
-
-class NoSettings(RuntimeError):
-    def __init__(self, settings_locations):
-        msg = "could not find the credentials file! I looked here:\n%s" % '\n'.join(settings_locations)
-        super(NoSettings, self).__init__(msg)
 
 #
 # utils
@@ -96,10 +88,12 @@ def oauth_secrets():
     settings_file_locations = SECRETS_LOCATIONS
     settings_file = firstof(os.path.exists, settings_file_locations)
     if not settings_file:
-        raise NoSettings(settings_file_locations)
+        msg = "could not find the credentials file! I looked here:\n%s" % \
+          '\n'.join(settings_locations)
+        raise EnvironmentError(msg)
     return settings_file
 
-@memoized
+@cache
 def ga_service():
     service_name = 'analytics'
     settings_file = oauth_secrets()
