@@ -89,7 +89,7 @@ def oauth_secrets():
     settings_file = firstof(os.path.exists, settings_file_locations)
     if not settings_file:
         msg = "could not find the credentials file! I looked here:\n%s" % \
-          '\n'.join(settings_locations)
+          '\n'.join(settings_file_locations)
         raise EnvironmentError(msg)
     return settings_file
 
