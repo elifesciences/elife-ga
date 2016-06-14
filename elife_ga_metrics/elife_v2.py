@@ -34,9 +34,8 @@ def path_counts_query(table_id, from_date, to_date):
     })
     return new_query
 
-
-PATH_RE = re.compile(r"/content/(?P<volume>\d{1})/(?P<artid>e\d+)v(?P<version>\d{1})(?P<type>/abstract|/abstract2)*$", \
-                     re.IGNORECASE)
+REGEX = r"/content/(?P<volume>\d{1})/(?P<artid>e\d+)v(?P<version>\d{1})(?P<type>/abstract|/abstract2)*$"
+PATH_RE = re.compile(REGEX, re.IGNORECASE)
 
 TYPE_MAP = {
     None: 'full',
