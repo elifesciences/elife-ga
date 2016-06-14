@@ -227,7 +227,6 @@ def module_picker(from_date, to_date):
 
         if from_date > SITE_SWITCH:
             return elife_v2
-        
 
     # monthly/arbitrary range
     else:
