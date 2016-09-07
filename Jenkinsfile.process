@@ -6,5 +6,5 @@ elifeProcess {
     sh 'export GA_TABLE=ga:82618489; ./regenerate-results.sh'
 
     stage 'Commit and push'
-    ./auto-commit.sh
+    sh './auto-commit.sh'
 }
