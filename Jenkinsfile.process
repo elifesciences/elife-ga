@@ -1,0 +1,10 @@
+elifeProcess {
+    stage 'Checkout'
+    checkout scm
+
+    stage 'Regenerate results'
+    sh 'export GA_TABLE=ga:82618489; ./regenerate-results.sh'
+
+    stage 'Commit and push'
+    ./auto-commit.sh
+}
