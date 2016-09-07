@@ -6,5 +6,7 @@ elifeProcess {
     sh 'export GA_TABLE=ga:82618489; ./regenerate-results.sh'
 
     stage 'Commit and push'
-    sh './auto-commit.sh'
+    elifeGitAutoCommit "Automated commit", "output/*.json"
+    def commit = elifeGitRevision()
+    elifeGitMoveToBranch commit, 'master'
 }
