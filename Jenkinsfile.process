@@ -3,7 +3,7 @@ elifeProcess {
     checkout scm
 
     stage 'Regenerate results'
-    sh 'export GA_TABLE=ga:82618489; ./regenerate-results.sh'
+    sh 'export GA_TABLE=ga:82618489; ./regenerate-results-2016.sh'
 
     stage 'Commit and push'
     elifeGitAutoCommit "Automated commit", "output/*.json"
