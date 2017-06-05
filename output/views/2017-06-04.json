@@ -1,0 +1,141 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2017-06-04", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}$,ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2017-06-04", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/2/e00799", 
+            "1"
+        ], 
+        [
+            "/content/3/e01465", 
+            "1"
+        ], 
+        [
+            "/content/3/e02576", 
+            "1"
+        ], 
+        [
+            "/content/4/e07455", 
+            "0"
+        ], 
+        [
+            "/content/4/e07597", 
+            "1"
+        ], 
+        [
+            "/content/4/e07902", 
+            "0"
+        ], 
+        [
+            "/content/4/e08595", 
+            "1"
+        ], 
+        [
+            "/content/5/e10147", 
+            "1"
+        ], 
+        [
+            "/content/5/e10769v1", 
+            "1"
+        ], 
+        [
+            "/content/5/e12813", 
+            "1"
+        ], 
+        [
+            "/content/5/e15378", 
+            "0"
+        ], 
+        [
+            "/content/5/e15528", 
+            "0"
+        ], 
+        [
+            "/content/5/e16539", 
+            "1"
+        ], 
+        [
+            "/content/6/e20532", 
+            "1"
+        ], 
+        [
+            "/content/6/e20674", 
+            "1"
+        ], 
+        [
+            "/content/6/e20882", 
+            "1"
+        ], 
+        [
+            "/content/6/e22028", 
+            "0"
+        ], 
+        [
+            "/content/6/e22187", 
+            "2"
+        ], 
+        [
+            "/content/6/e22848", 
+            "10"
+        ], 
+        [
+            "/content/6/e23232", 
+            "1"
+        ], 
+        [
+            "/content/6/e23743", 
+            "1"
+        ], 
+        [
+            "/content/6/e23759", 
+            "1"
+        ], 
+        [
+            "/content/6/e23789", 
+            "1"
+        ], 
+        [
+            "/content/6/e24542", 
+            "1"
+        ], 
+        [
+            "/content/6/e26084", 
+            "1"
+        ], 
+        [
+            "/content/6/e26157", 
+            "1"
+        ]
+    ], 
+    "totalResults": 26, 
+    "totalsForAllResults": {
+        "ga:pageviews": "31"
+    }
+}
