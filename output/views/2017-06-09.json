@@ -1,0 +1,197 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2017-06-09", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}$,ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2017-06-09", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/2/e01749", 
+            "0"
+        ], 
+        [
+            "/content/3/e02277", 
+            "5"
+        ], 
+        [
+            "/content/3/e02935", 
+            "0"
+        ], 
+        [
+            "/content/3/e03198", 
+            "1"
+        ], 
+        [
+            "/content/3/e03206", 
+            "1"
+        ], 
+        [
+            "/content/3/e04551", 
+            "0"
+        ], 
+        [
+            "/content/4/e05826", 
+            "1"
+        ], 
+        [
+            "/content/4/e06481", 
+            "2"
+        ], 
+        [
+            "/content/4/e08519", 
+            "2"
+        ], 
+        [
+            "/content/4/e09262", 
+            "0"
+        ], 
+        [
+            "/content/4/e10627", 
+            "2"
+        ], 
+        [
+            "/content/5/e10566", 
+            "2"
+        ], 
+        [
+            "/content/5/e14334", 
+            "2"
+        ], 
+        [
+            "/content/5/e14552", 
+            "1"
+        ], 
+        [
+            "/content/5/e15716", 
+            "1"
+        ], 
+        [
+            "/content/5/e17056", 
+            "1"
+        ], 
+        [
+            "/content/5/e18134", 
+            "1"
+        ], 
+        [
+            "/content/5/e21920", 
+            "2"
+        ], 
+        [
+            "/content/6/e18422", 
+            "0"
+        ], 
+        [
+            "/content/6/e21409", 
+            "1"
+        ], 
+        [
+            "/content/6/e21660", 
+            "1"
+        ], 
+        [
+            "/content/6/e21778", 
+            "0"
+        ], 
+        [
+            "/content/6/e21926", 
+            "0"
+        ], 
+        [
+            "/content/6/e22796", 
+            "1"
+        ], 
+        [
+            "/content/6/e22848", 
+            "10"
+        ], 
+        [
+            "/content/6/e22896", 
+            "1"
+        ], 
+        [
+            "/content/6/e23570", 
+            "1"
+        ], 
+        [
+            "/content/6/e23623", 
+            "1"
+        ], 
+        [
+            "/content/6/e23645", 
+            "1"
+        ], 
+        [
+            "/content/6/e24176", 
+            "0"
+        ], 
+        [
+            "/content/6/e24284", 
+            "1"
+        ], 
+        [
+            "/content/6/e24425", 
+            "2"
+        ], 
+        [
+            "/content/6/e24560", 
+            "1"
+        ], 
+        [
+            "/content/6/e25413", 
+            "1"
+        ], 
+        [
+            "/content/6/e25642", 
+            "1"
+        ], 
+        [
+            "/content/6/e25776", 
+            "0"
+        ], 
+        [
+            "/content/6/e26177", 
+            "1"
+        ], 
+        [
+            "/content/6/e27605", 
+            "1"
+        ], 
+        [
+            "/content/6/e27894", 
+            "1"
+        ], 
+        [
+            "/content/6/e28152", 
+            "1"
+        ]
+    ], 
+    "totalResults": 40, 
+    "totalsForAllResults": {
+        "ga:pageviews": "51"
+    }
+}
