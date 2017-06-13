@@ -1,0 +1,153 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2017-06-12", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}$,ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2017-06-12", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/3/e02277", 
+            "5"
+        ], 
+        [
+            "/content/3/e03198", 
+            "2"
+        ], 
+        [
+            "/content/3/e03430", 
+            "1"
+        ], 
+        [
+            "/content/3/e04333", 
+            "1"
+        ], 
+        [
+            "/content/4/e04889", 
+            "1"
+        ], 
+        [
+            "/content/4/e08658", 
+            "1"
+        ], 
+        [
+            "/content/4/e11214", 
+            "0"
+        ], 
+        [
+            "/content/4/e11386", 
+            "1"
+        ], 
+        [
+            "/content/5/e12613", 
+            "1"
+        ], 
+        [
+            "/content/5/e13764", 
+            "1"
+        ], 
+        [
+            "/content/5/e18370", 
+            "3"
+        ], 
+        [
+            "/content/5/e19088", 
+            "1"
+        ], 
+        [
+            "/content/6/e19944", 
+            "1"
+        ], 
+        [
+            "/content/6/e20674", 
+            "1"
+        ], 
+        [
+            "/content/6/e22345", 
+            "0"
+        ], 
+        [
+            "/content/6/e22707", 
+            "1"
+        ], 
+        [
+            "/content/6/e22796", 
+            "0"
+        ], 
+        [
+            "/content/6/e22848", 
+            "2"
+        ], 
+        [
+            "/content/6/e23253", 
+            "2"
+        ], 
+        [
+            "/content/6/e23494", 
+            "1"
+        ], 
+        [
+            "/content/6/e23804", 
+            "1"
+        ], 
+        [
+            "/content/6/e24234", 
+            "1"
+        ], 
+        [
+            "/content/6/e24284", 
+            "1"
+        ], 
+        [
+            "/content/6/e25051v3", 
+            "1"
+        ], 
+        [
+            "/content/6/e25408", 
+            "1"
+        ], 
+        [
+            "/content/6/e25410", 
+            "1"
+        ], 
+        [
+            "/content/6/e25648", 
+            "1"
+        ], 
+        [
+            "/content/6/e25808", 
+            "0"
+        ], 
+        [
+            "/content/6/e26577", 
+            "1"
+        ]
+    ], 
+    "totalResults": 29, 
+    "totalsForAllResults": {
+        "ga:pageviews": "34"
+    }
+}
