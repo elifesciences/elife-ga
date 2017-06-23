@@ -1,0 +1,73 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2017-06-22", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}$,ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2017-06-22", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/CONTENT/5/E12620", 
+            "1"
+        ], 
+        [
+            "/content/4/e07405", 
+            "1"
+        ], 
+        [
+            "/content/4/e09031", 
+            "0"
+        ], 
+        [
+            "/content/5/e14523", 
+            "1"
+        ], 
+        [
+            "/content/6/e21937", 
+            "4"
+        ], 
+        [
+            "/content/6/e22889", 
+            "0"
+        ], 
+        [
+            "/content/6/e23494", 
+            "1"
+        ], 
+        [
+            "/content/6/e24901", 
+            "1"
+        ], 
+        [
+            "/content/6/e25996", 
+            "1"
+        ]
+    ], 
+    "totalResults": 9, 
+    "totalsForAllResults": {
+        "ga:pageviews": "10"
+    }
+}
