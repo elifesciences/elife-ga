@@ -1,0 +1,61 @@
+{
+    "columnHeaders": [
+        {
+            "columnType": "DIMENSION", 
+            "dataType": "STRING", 
+            "name": "ga:pagePath"
+        }, 
+        {
+            "columnType": "METRIC", 
+            "dataType": "INTEGER", 
+            "name": "ga:pageviews"
+        }
+    ], 
+    "containsSampledData": false, 
+    "itemsPerPage": 10000, 
+    "kind": "analytics#gaData", 
+    "query": {
+        "dimensions": "ga:pagePath", 
+        "end-date": "2017-09-04", 
+        "filters": "ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}$,ga:pagePath=~^/content/[0-9]{1}/e[0-9]{5}(v[0-9]{1}|v[0-9]{1}/abstract|v[0-9]{1}/abstract[0-9]{1})$", 
+        "max-results": 10000, 
+        "metrics": [
+            "ga:pageviews"
+        ], 
+        "sort": [
+            "ga:pagePath"
+        ], 
+        "start-date": "2017-09-04", 
+        "start-index": 1
+    }, 
+    "rows": [
+        [
+            "/content/3/e04577", 
+            "2"
+        ], 
+        [
+            "/content/4/e08833", 
+            "0"
+        ], 
+        [
+            "/content/4/e10015", 
+            "1"
+        ], 
+        [
+            "/content/4/e10070", 
+            "6"
+        ], 
+        [
+            "/content/5/e16135", 
+            "3"
+        ], 
+        [
+            "/content/5/e16799", 
+            "1"
+        ]
+    ], 
+    "totalResults": 6, 
+    "totalsForAllResults": {
+        "ga:pageviews": "13"
+    }
+}
